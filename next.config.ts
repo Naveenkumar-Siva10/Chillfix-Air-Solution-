@@ -1,32 +1,11 @@
 import type { NextConfig } from 'next';
 import createMDX from '@next/mdx';
-import remarkGfm from 'remark-gfm';
-import remarkFrontmatter from 'remark-frontmatter';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrettyCode from 'rehype-pretty-code';
 
 const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm, remarkFrontmatter],
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'wrap',
-          properties: { className: ['anchor'] },
-        },
-      ],
-      [
-        rehypePrettyCode,
-        {
-          theme: 'github-dark',
-          keepBackground: false,
-        },
-      ],
-    ],
-  },
+  // Remark and Rehype plugins are applied server-side via gray-matter + custom rendering
+  // Advanced plugins (rehype-pretty-code etc.) are handled in the MDX rendering component
+  // to avoid Turbopack serialization issues
+  extension: /\.mdx?$/,
 });
 
 const nextConfig: NextConfig = {
