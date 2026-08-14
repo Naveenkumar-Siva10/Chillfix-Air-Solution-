@@ -3,6 +3,8 @@ import { contactFormSchema } from '@/lib/validations';
 import { sendContactEmail } from '@/lib/email';
 import type { ApiResponse } from '@/types';
 
+export const runtime = 'nodejs';
+
 // Rate limiting — simple in-memory store (use Redis in high-traffic production)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 5; // max submissions
