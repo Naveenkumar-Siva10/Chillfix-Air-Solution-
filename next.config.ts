@@ -1,3 +1,4 @@
+// Cache-invalidation tag for Vercel clean build
 import type { NextConfig } from 'next';
 import createMDX from '@next/mdx';
 
