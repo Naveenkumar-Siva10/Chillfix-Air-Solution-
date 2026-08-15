@@ -2,11 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { inter, poppins } from '@/lib/fonts';
 import { SITE_CONFIG } from '@/constants/site';
 import '@/styles/globals.css';
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
+import { cn } from '@/lib/utils';
 
 // ============================================================
 // Root Metadata — applied to all pages unless overridden
@@ -15,21 +11,19 @@ const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    default: `${SITE_CONFIG.name} — AC Installation, Repair & Service in Chennai`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
   keywords: [
     'AC service Chennai',
-    'air conditioner repair Chennai',
+    'AC repair Chennai',
     'AC installation Chennai',
-    'split AC service Chennai',
-    'AC maintenance Chennai',
     'AC gas filling Chennai',
-    'AC deep cleaning Chennai',
-    'annual maintenance contract AC Chennai',
+    'Split AC service Chennai',
+    'Window AC service Chennai',
+    'AC maintenance Chennai',
     'emergency AC repair Chennai',
-    'commercial AC service Chennai',
     'ChillFix Air Solution',
     'AC technician Chennai',
   ].join(', '),
@@ -60,11 +54,11 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    title: `${SITE_CONFIG.name} — AC Installation, Repair & Service in Chennai`,
     description: SITE_CONFIG.description,
     images: [
       {
-        url: '/images/og/default-og.jpg',
+        url: '/images/hero-technician.jpg',
         width: 1200,
         height: 630,
         alt: `${SITE_CONFIG.name} — AC Installation, Repair & Maintenance in Chennai`,
@@ -73,24 +67,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    title: `${SITE_CONFIG.name} — AC Installation, Repair & Service in Chennai`,
     description: SITE_CONFIG.description,
-    images: ['/images/og/default-og.jpg'],
+    images: ['/images/hero-technician.jpg'],
   },
   icons: {
     icon: [
-      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
-      { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      { rel: 'mask-icon', url: '/icons/safari-pinned-tab.svg', color: '#0F4C81' },
+      { url: '/icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
-  manifest: '/manifest.json',
+  manifest: '/manifest.ts',
   category: 'business',
+  verification: {
+    google: 'google37f78767d361f72b',
+  },
 };
 
 export const viewport: Viewport = {
@@ -115,7 +109,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={cn(inter.variable, poppins.variable, "font-sans", geist.variable)}
+      className={cn(inter.variable, poppins.variable, 'font-sans')}
       suppressHydrationWarning
     >
       <body className="font-sans antialiased bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
