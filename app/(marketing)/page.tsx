@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { generatePageMetadata } from '@/lib/metadata';
 import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema';
+import { OrganizationSchema } from '@/components/seo/OrganizationSchema';
 import { HeroSection } from '@/components/sections/home/HeroSection';
 import { ServicesSection } from '@/components/sections/home/ServicesSection';
 import { TrustSection } from '@/components/sections/home/TrustSection';
@@ -31,8 +32,9 @@ export const metadata: Metadata = generatePageMetadata({
 export default function HomePage() {
   return (
     <>
-      {/* SEO: Local Business Schema */}
+      {/* SEO: Local Business & Organization Schemas */}
       <LocalBusinessSchema />
+      <OrganizationSchema />
 
       {/* Step 5: Hero */}
       <HeroSection />
