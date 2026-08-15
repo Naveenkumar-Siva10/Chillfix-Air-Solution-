@@ -7,6 +7,7 @@ import { ServicesSection } from '@/components/sections/home/ServicesSection';
 import { TrustSection } from '@/components/sections/home/TrustSection';
 import { TestimonialsSection } from '@/components/sections/home/TestimonialsSection';
 import { PricingSection } from '@/components/sections/home/PricingSection';
+import { AcSalesComingSoonSection } from '@/components/sections/home/AcSalesComingSoonSection';
 import { ContactSection } from '@/components/sections/home/ContactSection';
 
 export const metadata: Metadata = generatePageMetadata({
@@ -51,10 +52,11 @@ export default function HomePage() {
       {/* Step 9: Pricing / AMC Plans */}
       <PricingSection />
 
+      {/* Coming Soon: AC Sales Preview */}
+      <AcSalesComingSoonSection />
+
       {/* Step 10: Contact & Location */}
       <ContactSection />
     </>
   );
 }
-
-
