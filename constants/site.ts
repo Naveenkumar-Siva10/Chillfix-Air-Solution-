@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   tagline: 'Chennai\'s Most Trusted AC Service Experts',
   description:
     'Professional air conditioner installation, repair, gas filling, deep cleaning, and annual maintenance services in Chennai, Tamil Nadu. Available 24/7 for emergency AC repairs.',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://chillfixairsolution.in',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://chillfix-air-solution-ok6k.vercel.app',
   email: process.env.NEXT_PUBLIC_EMAIL ?? 'chennaichillfixacservice@gmail.com',
   phone: process.env.NEXT_PUBLIC_PHONE ?? '+919080495932',
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? '+919080495932',
