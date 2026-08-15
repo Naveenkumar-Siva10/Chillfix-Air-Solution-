@@ -83,8 +83,7 @@ export function generatePageMetadata({
       images: [absoluteOgImage],
     },
     verification: {
-      // Add Google Search Console verification here when available
-      // google: 'xxxxxxxxxxxx',
+      google: 'google37f78767d361f72b',
     },
   };
 }
