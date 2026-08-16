@@ -34,6 +34,12 @@ export const SITE_CONFIG = {
     average: 4.9,
     count: 850,
   },
+  yearsOfExperience: '11+',
+  stats: {
+    yearsInBusiness: '11+',
+    techniciansCertified: '25+',
+    customersServed: '10,000+',
+  },
   businessHours: {
     weekdays: '8:00 AM – 8:00 PM',
     saturday: '8:00 AM – 6:00 PM',
