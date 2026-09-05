@@ -40,7 +40,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Pricing',
-    href: '/ac-service-price-chennai',
+    href: '/pricing',
   },
   {
     label: 'About',
@@ -64,7 +64,7 @@ export const FOOTER_NAV = {
     { label: 'AC Deep Cleaning', href: '/ac-deep-cleaning-chennai' },
     { label: 'AC Gas Filling', href: '/ac-gas-filling-chennai' },
     { label: 'AC Installation', href: '/ac-installation-chennai' },
-    { label: 'AC Service Price', href: '/ac-service-price-chennai' },
+    { label: 'AC Service Price List', href: '/pricing' },
   ],
   locations: [
     { label: 'Perungalathur AC Service', href: '/ac-service-perungalathur' },
@@ -78,7 +78,6 @@ export const FOOTER_NAV = {
     { label: 'About Us', href: '/about' },
     { label: 'Our Process', href: '/about#process' },
     { label: 'Testimonials', href: '/testimonials' },
-    { label: 'Blog', href: '/blog' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact Us', href: '/contact' },
   ],

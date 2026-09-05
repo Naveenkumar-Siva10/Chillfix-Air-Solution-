@@ -20,9 +20,6 @@ interface MobileMenuProps {
   onClose: () => void;
 }
 
-// ─────────────────────────────────────────────────────────────
-// Slide-down accordion for the Services sub-menu
-// ─────────────────────────────────────────────────────────────
 interface MobileAccordionProps {
   label: string;
   items: { label: string; href: string }[];
@@ -46,16 +43,16 @@ function MobileAccordion({
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         className={cn(
-          'flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-semibold transition-colors',
+          'flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-colors',
           isActive
             ? 'bg-primary-50 text-primary-600 dark:bg-primary-950/50 dark:text-primary-400'
-            : 'text-slate-800 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800/60',
+            : 'text-slate-900 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800/60',
         )}
       >
         {label}
         <ChevronDown
           className={cn(
-            'h-5 w-5 text-slate-400 transition-transform duration-300',
+            'h-5 w-5 text-slate-500 transition-transform duration-300',
             open && 'rotate-180',
           )}
           aria-hidden="true"
@@ -72,7 +69,7 @@ function MobileAccordion({
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <div className="mt-1 grid grid-cols-1 gap-0.5 pl-4 sm:grid-cols-2">
+            <div className="mt-1 grid grid-cols-1 gap-1 pl-4 sm:grid-cols-2">
               {items.map((child) => {
                 const childActive = pathname === child.href;
                 return (
@@ -81,10 +78,10 @@ function MobileAccordion({
                     href={child.href}
                     onClick={onLinkClick}
                     className={cn(
-                      'rounded-lg px-4 py-2.5 text-sm font-medium transition-colors',
+                      'rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors',
                       childActive
                         ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/50 dark:text-primary-400'
-                        : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800',
+                        : 'text-slate-800 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800',
                     )}
                     aria-current={childActive ? 'page' : undefined}
                   >
@@ -92,14 +89,6 @@ function MobileAccordion({
                   </Link>
                 );
               })}
-              {/* View all */}
-              <Link
-                href="/services"
-                onClick={onLinkClick}
-                className="col-span-full mt-1 flex items-center gap-2 rounded-xl bg-primary-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-600"
-              >
-                View All Services →
-              </Link>
             </div>
           </motion.div>
         )}
@@ -108,15 +97,10 @@ function MobileAccordion({
   );
 }
 
-// ─────────────────────────────────────────────────────────────
-// Mobile Menu Root — full-screen slide-in drawer
-// ─────────────────────────────────────────────────────────────
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
-  // Track previous pathname to detect route changes
   const prevPathRef = useRef(pathname);
 
-  // Close on route change (handles browser back/forward)
   useEffect(() => {
     if (prevPathRef.current !== pathname) {
       prevPathRef.current = pathname;
@@ -124,7 +108,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     }
   }, [pathname, isOpen, onClose]);
 
-  // Stagger variants for nav items
   const containerVariants = {
     hidden: {},
     visible: {
@@ -148,7 +131,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           {/* Backdrop */}
           <motion.div
             key="mobile-backdrop"
-            className="fixed inset-0 z-[999] bg-black/40 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -171,7 +154,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             transition={{ type: 'spring', stiffness: 380, damping: 36, mass: 0.8 }}
           >
             {/* Header */}
-            <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-5 dark:border-slate-800">
+            <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-200 px-5 dark:border-slate-800">
               <Link
                 href="/"
                 onClick={onClose}
@@ -182,11 +165,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   <Snowflake className="h-5 w-5 text-white" aria-hidden="true" />
                 </div>
                 <div className="leading-tight">
-                  <span className="block text-base font-bold text-slate-900 dark:text-white">
+                  <span className="block text-base font-extrabold text-slate-900 dark:text-white">
                     ChillFix
                   </span>
-                  <span className="block text-[10px] font-medium uppercase tracking-widest text-primary-500">
-                    Air Solution
+                  <span className="block text-[10px] font-bold uppercase tracking-widest text-primary-500">
+                    AC Service
                   </span>
                 </div>
               </Link>
@@ -227,10 +210,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         onClick={onClose}
                         aria-current={isActive ? 'page' : undefined}
                         className={cn(
-                          'flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold transition-colors',
+                          'flex items-center justify-between rounded-xl px-4 py-3 text-base font-bold transition-colors',
                           isActive
                             ? 'bg-primary-50 text-primary-600 dark:bg-primary-950/50 dark:text-primary-400'
-                            : 'text-slate-800 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800/60',
+                            : 'text-slate-900 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800/60',
                         )}
                       >
                         {item.label}
@@ -247,13 +230,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
 
             {/* Fixed bottom CTAs */}
-            <div className="shrink-0 space-y-3 border-t border-slate-100 p-5 dark:border-slate-800">
-              {/* Emergency note */}
-              <p className="text-center text-xs font-medium text-accent-600 dark:text-accent-400">
-                ⚡ 24/7 Emergency AC Repair Available
+            <div className="shrink-0 space-y-3 border-t border-slate-200 p-5 dark:border-slate-800">
+              <p className="text-center text-xs font-bold text-accent-600 dark:text-accent-400">
+                ⚡ 24/7 Emergency AC Service Available
               </p>
 
-              {/* Call + WhatsApp side by side */}
               <div className="grid grid-cols-2 gap-3">
                 <a
                   href={CONTACT_DETAILS.phone.href}
@@ -265,7 +246,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </a>
                 <a
                   href={CONTACT_DETAILS.whatsapp.withMessage(
-                    'Hi! I need help with my AC service. Can you please assist?',
+                    'Hi! I need AC service / repair.',
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -276,16 +257,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   WhatsApp
                 </a>
               </div>
-
-              {/* Book service */}
-              <Link
-                href="/contact"
-                onClick={onClose}
-                className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-primary-500 py-3 text-sm font-bold text-primary-500 transition-all hover:bg-primary-50 dark:hover:bg-primary-950/50"
-              >
-                <CalendarCheck className="h-4 w-4" aria-hidden="true" />
-                Book a Service
-              </Link>
             </div>
           </motion.div>
         </>
