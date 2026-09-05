@@ -57,3 +57,7 @@ export function BreadcrumbNav({ items, className }: BreadcrumbNavProps) {
     </nav>
   );
 }
+
+// Alias export for Breadcrumb
+export const Breadcrumb = BreadcrumbNav;
+export default BreadcrumbNav;
