@@ -11,7 +11,7 @@ import { AcSalesComingSoonSection } from '@/components/sections/home/AcSalesComi
 import { ContactSection } from '@/components/sections/home/ContactSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'AC Service in Chennai | AC Repair & Cleaning | ChillFix',
+  title: 'AC Service & Repair in Chennai | ChillFix AC Service',
   description:
     'ChillFix provides AC service, repair, cleaning, deep cleaning, gas leak diagnosis and installation across Chennai. Serving Perungalathur, Tambaram, Vandalur, Manivakkam, Chromepet and nearby areas.',
   canonicalPath: '/',

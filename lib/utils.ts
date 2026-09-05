@@ -82,6 +82,43 @@ export function calculateReadingTime(content: string): number {
 }
 
 /**
+ * Returns canonical route for a service slug.
+ */
+export function getServiceUrl(slug: string): string {
+  const topLevelRoutes = [
+    'ac-service-chennai',
+    'ac-repair-chennai',
+    'ac-cleaning-chennai',
+    'ac-deep-cleaning-chennai',
+    'ac-gas-filling-chennai',
+    'ac-installation-chennai',
+    'ac-maintenance-chennai',
+    'ac-service-price-chennai',
+  ];
+  if (topLevelRoutes.includes(slug)) {
+    return `/${slug}`;
+  }
+  return `/services/${slug}`;
+}
+
+/**
+ * Returns canonical route for an area slug.
+ */
+export function getAreaUrl(slug: string): string {
+  const topLevelAreas = [
+    'ac-service-perungalathur',
+    'ac-service-tambaram',
+    'ac-service-vandalur',
+    'ac-service-manivakkam',
+    'ac-service-chromepet',
+  ];
+  if (topLevelAreas.includes(slug)) {
+    return `/${slug}`;
+  }
+  return `/areas/${slug}`;
+}
+
+/**
  * Generates absolute URL from a path.
  */
 export function absoluteUrl(path: string): string {

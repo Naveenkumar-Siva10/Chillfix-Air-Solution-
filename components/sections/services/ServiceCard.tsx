@@ -21,8 +21,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { formatPrice } from '@/lib/utils';
+import { cn, formatPrice, getServiceUrl } from '@/lib/utils';
 import type { Service } from '@/types';
 
 // Maps string icon names from the data layer to Lucide components
@@ -56,6 +55,7 @@ interface ServiceCardProps {
  */
 export function ServiceCard({ service, variant = 'default', className, index = 0 }: ServiceCardProps) {
   const Icon = ICON_MAP[service.icon] ?? AirVent;
+  const serviceHref = getServiceUrl(service.slug);
 
   if (variant === 'compact') {
     return (
@@ -66,7 +66,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
         transition={{ duration: 0.4, delay: index * 0.05 }}
       >
         <Link
-          href={`/services/${service.slug}`}
+          href={serviceHref}
           className={cn(
             'group flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-4',
             'shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary-100 hover:shadow-card',
@@ -77,9 +77,16 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-500 transition-colors group-hover:bg-primary-500 group-hover:text-white dark:bg-primary-950 dark:text-primary-400">
             <Icon className="h-5 w-5" aria-hidden="true" />
           </span>
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">{service.name}</p>
-            <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">From {formatPrice(service.startingPrice)}</p>
+            <div className="flex items-center gap-3 text-xs">
+              <span className="font-semibold text-slate-800 dark:text-slate-200">
+                Starting from <strong className="text-primary-600 dark:text-primary-400">{formatPrice(service.startingPrice)}</strong>
+              </span>
+              {service.duration && (
+                <span className="text-slate-500 dark:text-slate-400">({service.duration})</span>
+              )}
+            </div>
           </div>
           <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-primary-500" aria-hidden="true" />
         </Link>
@@ -97,7 +104,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
         className={cn('group relative', className)}
       >
         <Link
-          href={`/services/${service.slug}`}
+          href={serviceHref}
           className="block rounded-3xl border border-slate-100 bg-white shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-elevated dark:border-slate-800 dark:bg-slate-900"
         >
           {/* Popular badge */}
@@ -136,15 +143,24 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
               ))}
             </ul>
 
-            {/* Footer */}
-            <div className="flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800">
+            {/* Structured Metadata Footer */}
+            <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-4 dark:border-slate-800">
               <div>
-                <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Starting from</p>
-                <p className="text-lg font-bold text-primary-500">{formatPrice(service.startingPrice)}</p>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Starting from</span>
+                <p className="text-lg font-bold text-primary-600 dark:text-primary-400">{formatPrice(service.startingPrice)}</p>
               </div>
-              <span className="flex items-center gap-1.5 text-sm font-semibold text-primary-500 transition-transform group-hover:translate-x-1">
-                Learn More <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </span>
+              {service.duration && (
+                <div className="text-right">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Duration</span>
+                  <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">{service.duration}</p>
+                </div>
+              )}
+              {service.warranty && (
+                <div className="text-right">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Warranty</span>
+                  <p className="text-xs font-semibold text-accent-600 dark:text-accent-400">{service.warranty}</p>
+                </div>
+              )}
             </div>
           </div>
         </Link>
@@ -162,7 +178,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
       className={cn('group', className)}
     >
       <Link
-        href={`/services/${service.slug}`}
+        href={serviceHref}
         className="flex h-full flex-col rounded-2xl border border-slate-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary-100 hover:shadow-card dark:border-slate-800 dark:bg-slate-900 dark:hover:border-primary-900"
       >
         {/* Icon */}
@@ -186,11 +202,25 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
         </p>
 
         {/* Meta */}
-        <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-sm dark:border-slate-800">
-          <span className="font-bold text-primary-500">
-            From {formatPrice(service.startingPrice)}
-          </span>
-          <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">{service.duration}</span>
+        <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs dark:border-slate-800">
+          <div>
+            <span className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Starting from</span>
+            <span className="font-extrabold text-primary-600 dark:text-primary-400 text-sm">
+              {formatPrice(service.startingPrice)}
+            </span>
+          </div>
+          {service.duration && (
+            <div className="text-right">
+              <span className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Duration</span>
+              <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">{service.duration}</span>
+            </div>
+          )}
+          {service.warranty && (
+            <div className="text-right">
+              <span className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Warranty</span>
+              <span className="font-semibold text-accent-600 dark:text-accent-400 text-xs">{service.warranty}</span>
+            </div>
+          )}
         </div>
       </Link>
     </motion.div>

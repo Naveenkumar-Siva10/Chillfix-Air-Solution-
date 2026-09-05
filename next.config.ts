@@ -68,6 +68,76 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/services/ac-service-chennai',
+        destination: '/ac-service-chennai',
+        permanent: true,
+      },
+      {
+        source: '/services/ac-repair-chennai',
+        destination: '/ac-repair-chennai',
+        permanent: true,
+      },
+      {
+        source: '/services/ac-installation-chennai',
+        destination: '/ac-installation-chennai',
+        permanent: true,
+      },
+      {
+        source: '/services/ac-gas-filling-chennai',
+        destination: '/ac-gas-filling-chennai',
+        permanent: true,
+      },
+      {
+        source: '/services/ac-cleaning-chennai',
+        destination: '/ac-cleaning-chennai',
+        permanent: true,
+      },
+      {
+        source: '/services/ac-deep-cleaning-chennai',
+        destination: '/ac-deep-cleaning-chennai',
+        permanent: true,
+      },
+      {
+        source: '/services/ac-maintenance-chennai',
+        destination: '/ac-maintenance-chennai',
+        permanent: true,
+      },
+      {
+        source: '/pricing/ac-service-price-chennai',
+        destination: '/ac-service-price-chennai',
+        permanent: true,
+      },
+      {
+        source: '/services/ac-service-price-chennai',
+        destination: '/ac-service-price-chennai',
+        permanent: true,
+      },
+      {
+        source: '/areas/ac-service-perungalathur',
+        destination: '/ac-service-perungalathur',
+        permanent: true,
+      },
+      {
+        source: '/areas/ac-service-tambaram',
+        destination: '/ac-service-tambaram',
+        permanent: true,
+      },
+      {
+        source: '/areas/ac-service-vandalur',
+        destination: '/ac-service-vandalur',
+        permanent: true,
+      },
+      {
+        source: '/areas/ac-service-manivakkam',
+        destination: '/ac-service-manivakkam',
+        permanent: true,
+      },
+      {
+        source: '/areas/ac-service-chromepet',
+        destination: '/ac-service-chromepet',
+        permanent: true,
+      },
     ];
   },
 

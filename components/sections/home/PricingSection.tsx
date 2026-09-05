@@ -98,7 +98,7 @@ function PlanCard({ plan, index }: { plan: AMCPlan; index: number }) {
           <div className="mt-4">
             {isCommercial ? (
               <div className="flex items-baseline gap-2">
-                <span className="font-display text-3xl font-bold text-white">Custom</span>
+                <span className="font-display text-3xl font-bold text-white">Custom Quote</span>
               </div>
             ) : (
               <div className="flex items-baseline gap-1">

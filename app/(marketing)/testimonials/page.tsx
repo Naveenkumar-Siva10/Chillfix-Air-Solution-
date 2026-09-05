@@ -3,8 +3,8 @@ import { generatePageMetadata } from '@/lib/metadata';
 import { TestimonialsSection } from '@/components/sections/home/TestimonialsSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Customer Reviews & Ratings — ChillFix Air Solution Chennai',
-  description: 'Read 4.9-star reviews from verified customers across Anna Nagar, Adyar, Velachery, T. Nagar, OMR, and 25+ areas in Chennai.',
+  title: 'Customer Reviews & Testimonials | ChillFix AC Service',
+  description: 'Read verified customer reviews and 4.9-star ratings for ChillFix AC Service across Perungalathur, Tambaram, Vandalur, Chromepet, and Chennai.',
   canonicalPath: '/testimonials',
 });
 

@@ -163,7 +163,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                   )}
 
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <FormField label="Your Name *" error={errors.name?.message}>
+                    <FormField htmlFor="booking-name" label="Your Name *" error={errors.name?.message}>
                       <input
                         {...register('name')}
                         id="booking-name"
@@ -174,7 +174,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                       />
                     </FormField>
 
-                    <FormField label="Phone Number *" error={errors.phone?.message}>
+                    <FormField htmlFor="booking-phone" label="Phone Number *" error={errors.phone?.message}>
                       <input
                         {...register('phone')}
                         id="booking-phone"
@@ -187,7 +187,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                     </FormField>
                   </div>
 
-                  <FormField label="Email (Optional)" error={errors.email?.message}>
+                  <FormField htmlFor="booking-email" label="Email (Optional)" error={errors.email?.message}>
                     <input
                       {...register('email')}
                       id="booking-email"
@@ -199,7 +199,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                   </FormField>
 
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <FormField label="Service Required *" error={errors.service?.message}>
+                    <FormField htmlFor="booking-service" label="Service Required *" error={errors.service?.message}>
                       <select {...register('service')} id="booking-service" className={inputClass(!!errors.service)}>
                         <option value="">Select service…</option>
                         {SERVICE_OPTIONS.map((opt) => (
@@ -208,7 +208,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                       </select>
                     </FormField>
 
-                    <FormField label="AC Brand *" error={errors.acBrand?.message}>
+                    <FormField htmlFor="booking-brand" label="AC Brand *" error={errors.acBrand?.message}>
                       <select {...register('acBrand')} id="booking-brand" className={inputClass(!!errors.acBrand)}>
                         <option value="">Select brand…</option>
                         {AC_BRAND_OPTIONS.map((opt) => (
@@ -219,7 +219,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                   </div>
 
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <FormField label="AC Type *" error={errors.acType?.message}>
+                    <FormField htmlFor="booking-actype" label="AC Type *" error={errors.acType?.message}>
                       <select {...register('acType')} id="booking-actype" className={inputClass(!!errors.acType)}>
                         <option value="">Select type…</option>
                         {AC_TYPE_OPTIONS.map((opt) => (
@@ -228,7 +228,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                       </select>
                     </FormField>
 
-                    <FormField label="Preferred Date *" error={errors.preferredDate?.message}>
+                    <FormField htmlFor="booking-date" label="Preferred Date *" error={errors.preferredDate?.message}>
                       <input
                         {...register('preferredDate')}
                         id="booking-date"
@@ -239,7 +239,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                     </FormField>
                   </div>
 
-                  <FormField label="Preferred Time *" error={errors.preferredTime?.message}>
+                  <FormField htmlFor="booking-time" label="Preferred Time *" error={errors.preferredTime?.message}>
                     <select {...register('preferredTime')} id="booking-time" className={inputClass(!!errors.preferredTime)}>
                       <option value="">Select time slot…</option>
                       {PREFERRED_TIME_OPTIONS.map((opt) => (
@@ -248,7 +248,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                     </select>
                   </FormField>
 
-                  <FormField label="Service Address *" error={errors.address?.message}>
+                  <FormField htmlFor="booking-address" label="Service Address *" error={errors.address?.message}>
                     <textarea
                       {...register('address')}
                       id="booking-address"
@@ -258,7 +258,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                     />
                   </FormField>
 
-                  <FormField label="Additional Notes" error={errors.notes?.message}>
+                  <FormField htmlFor="booking-notes" label="Additional Notes" error={errors.notes?.message}>
                     <textarea
                       {...register('notes')}
                       id="booking-notes"
@@ -271,7 +271,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
                   <button
                     type="submit"
                     disabled={submitStatus === 'loading'}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary-500 px-6 py-4 text-base font-bold text-white shadow-md transition-all hover:bg-primary-600 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary-500 px-6 py-4 text-base font-bold text-white shadow-md transition-all hover:bg-primary-600 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
                   >
                     {submitStatus === 'loading' ? (
                       <>
@@ -301,17 +301,19 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
 
 // Helper sub-components
 function FormField({
+  htmlFor,
   label,
   error,
   children,
 }: {
+  htmlFor?: string;
   label: string;
   error?: string;
   children: React.ReactNode;
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+      <label htmlFor={htmlFor} className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
         {label}
       </label>
       {children}

@@ -15,10 +15,10 @@ import {
   ChevronRight,
   Sparkles,
 } from 'lucide-react';
-import { formatPrice } from '@/lib/utils';
+import { formatPrice, getServiceUrl } from '@/lib/utils';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'AC Service Price in Chennai | ChillFix',
+  title: 'AC Service Price in Chennai | ChillFix AC Service',
   description:
     'Transparent AC service price list in Chennai. General AC service from ₹249, coil cleaning ₹699, deep cleaning ₹1,199, visit charge ₹299 (adjusted into bill), free gas check. No hidden fees.',
   canonicalPath: '/pricing',
@@ -138,7 +138,7 @@ export default function PricingPage() {
                   {SERVICES.map((s) => (
                     <tr key={s.slug} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors">
                       <td className="py-4 px-4 font-bold text-slate-900 dark:text-white">
-                        <Link href={`/services/${s.slug}`} className="hover:text-primary-500 transition-colors">
+                        <Link href={getServiceUrl(s.slug)} className="hover:text-primary-500 transition-colors">
                           {s.name}
                         </Link>
                       </td>
@@ -153,7 +153,7 @@ export default function PricingPage() {
                       </td>
                       <td className="py-4 px-4 text-right">
                         <Link
-                          href={`/services/${s.slug}`}
+                          href={getServiceUrl(s.slug)}
                           className="inline-flex items-center gap-1 text-xs font-bold text-primary-500 hover:underline"
                         >
                           Details
@@ -191,8 +191,14 @@ export default function PricingPage() {
                     <h3 className="font-bold text-slate-900 dark:text-white text-lg">{plan.name}</h3>
                     <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 mt-1">{plan.tagline || plan.description}</p>
                     <div className="my-4">
-                      <span className="text-3xl font-extrabold text-primary-600 dark:text-primary-400">{formatPrice(plan.price)}</span>
-                      <span className="text-xs text-slate-400"> / {plan.billingCycle}</span>
+                      {plan.price > 0 ? (
+                        <>
+                          <span className="text-3xl font-extrabold text-primary-600 dark:text-primary-400">{formatPrice(plan.price)}</span>
+                          <span className="text-xs text-slate-500 font-medium"> / {plan.billingCycle}</span>
+                        </>
+                      ) : (
+                        <span className="text-2xl font-extrabold text-primary-600 dark:text-primary-400">Custom Quote</span>
+                      )}
                     </div>
                     <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400 mb-6">
                       {plan.features.slice(0, 4).map((f) => (

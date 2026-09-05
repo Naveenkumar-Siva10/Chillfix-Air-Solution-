@@ -4,8 +4,8 @@ import { ServicesSection } from '@/components/sections/home/ServicesSection';
 import { PricingSection } from '@/components/sections/home/PricingSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'AC Services in Chennai — Installation, Repair, Gas Filling & AMC',
-  description: 'Explore all air conditioner services by ChillFix Air Solution in Chennai. Split AC, Window AC, Cassette AC, Commercial HVAC, PCB repair, and jet-wash deep cleaning.',
+  title: 'AC Services in Chennai | ChillFix AC Service',
+  description: 'Explore all air conditioning services by ChillFix AC Service in Chennai. Split AC, Window AC, PCB repair, gas filling, jet wash deep cleaning, and AMC plans.',
   canonicalPath: '/services',
 });
 

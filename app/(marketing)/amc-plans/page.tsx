@@ -3,8 +3,8 @@ import { generatePageMetadata } from '@/lib/metadata';
 import { PricingSection } from '@/components/sections/home/PricingSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'AC Annual Maintenance Contracts (AMC) in Chennai — Basic, Standard & Premium',
-  description: 'Worry-free AC maintenance contracts for residential and commercial spaces in Chennai. Scheduled services, priority response, free labour & gas refill coverage.',
+  title: 'AC AMC Plans & Maintenance in Chennai | ChillFix AC Service',
+  description: 'Worry-free AC Annual Maintenance Contracts (AMC) for homes and offices in Chennai. Scheduled wet servicing, priority 2-hour response, free labor, and gas coverage.',
   canonicalPath: '/amc-plans',
 });
 

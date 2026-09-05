@@ -120,7 +120,7 @@ export function ContactForm({ className }: ContactFormProps) {
 
             {/* Name & Phone */}
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Your Name" required error={errors.name?.message}>
+              <Field htmlFor="contact-name" label="Your Name" required error={errors.name?.message}>
                 <input
                   {...register('name')}
                   id="contact-name"
@@ -130,7 +130,7 @@ export function ContactForm({ className }: ContactFormProps) {
                   className={fieldInputClass(!!errors.name)}
                 />
               </Field>
-              <Field label="Phone Number" required error={errors.phone?.message}>
+              <Field htmlFor="contact-phone" label="Phone Number" required error={errors.phone?.message}>
                 <input
                   {...register('phone')}
                   id="contact-phone"
@@ -145,7 +145,7 @@ export function ContactForm({ className }: ContactFormProps) {
             </div>
 
             {/* Email */}
-            <Field label="Email Address" error={errors.email?.message}>
+            <Field htmlFor="contact-email" label="Email Address" error={errors.email?.message}>
               <input
                 {...register('email')}
                 id="contact-email"
@@ -157,7 +157,7 @@ export function ContactForm({ className }: ContactFormProps) {
             </Field>
 
             {/* Service */}
-            <Field label="Service Required" required error={errors.service?.message}>
+            <Field htmlFor="contact-service" label="Service Required" required error={errors.service?.message}>
               <select
                 {...register('service')}
                 id="contact-service"
@@ -171,7 +171,7 @@ export function ContactForm({ className }: ContactFormProps) {
             </Field>
 
             {/* Message */}
-            <Field label="Your Message" required error={errors.message?.message}>
+            <Field htmlFor="contact-message" label="Your Message" required error={errors.message?.message}>
               <textarea
                 {...register('message')}
                 id="contact-message"
@@ -185,7 +185,7 @@ export function ContactForm({ className }: ContactFormProps) {
             <button
               type="submit"
               disabled={submitStatus === 'loading'}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary-500 px-6 py-4 text-base font-bold text-white shadow-md transition-all hover:bg-primary-600 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary-500 px-6 py-4 text-base font-bold text-white shadow-md transition-all hover:bg-primary-600 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
             >
               {submitStatus === 'loading' ? (
                 <>
@@ -214,11 +214,13 @@ export function ContactForm({ className }: ContactFormProps) {
 }
 
 function Field({
+  htmlFor,
   label,
   required,
   error,
   children,
 }: {
+  htmlFor?: string;
   label: string;
   required?: boolean;
   error?: string;
@@ -226,7 +228,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+      <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold text-slate-700 dark:text-slate-300">
         {label}
         {required && <span className="ml-1 text-red-500" aria-hidden="true">*</span>}
       </label>

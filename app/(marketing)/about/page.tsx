@@ -6,8 +6,8 @@ import { ShieldCheck, Phone, MessageCircle } from 'lucide-react';
 import { SITE_CONFIG, CONTACT_DETAILS } from '@/constants/site';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'About Us — ChillFix AC Service Chennai',
-  description: `Learn about ${SITE_CONFIG.name}. Over ${SITE_CONFIG.stats.yearsInBusiness} years of experience providing reliable AC servicing, repair, and maintenance in Chennai.`,
+  title: 'About ChillFix AC Service | AC Service & Repair in Chennai',
+  description: `Learn about ${SITE_CONFIG.name}. Over 10+ years of experience providing reliable AC servicing, repair, cleaning, gas filling, and maintenance across Chennai and Perungalathur.`,
   canonicalPath: '/about',
 });
 
