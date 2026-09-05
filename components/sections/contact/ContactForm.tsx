@@ -103,7 +103,7 @@ export function ContactForm({ className }: ContactFormProps) {
         ) : (
           <motion.form
             key="form"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             onSubmit={handleSubmit(onSubmit)}
             className="space-y-5"
