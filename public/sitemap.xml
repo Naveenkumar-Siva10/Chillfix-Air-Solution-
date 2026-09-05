@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core Static Pages -->
+  <!-- Core Homepage & Primary Pages -->
   <url>
     <loc>https://chillfixairsolution.in/</loc>
     <lastmod>2026-09-05</lastmod>
@@ -32,7 +32,7 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/pricing/ac-service-price-chennai</loc>
+    <loc>https://chillfixairsolution.in/ac-service-price-chennai</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -61,184 +61,80 @@
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
-  <url>
-    <loc>https://chillfixairsolution.in/privacy-policy</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/terms</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
 
-  <!-- Service SEO Pages -->
+  <!-- Top-Level Priority Commercial Service Pages -->
   <url>
-    <loc>https://chillfixairsolution.in/services/ac-service-chennai</loc>
+    <loc>https://chillfixairsolution.in/ac-service-chennai</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://chillfixairsolution.in/ac-repair-chennai</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://chillfixairsolution.in/ac-cleaning-chennai</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/services/ac-repair-chennai</loc>
+    <loc>https://chillfixairsolution.in/ac-deep-cleaning-chennai</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/services/ac-cleaning-chennai</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/services/ac-deep-cleaning-chennai</loc>
+    <loc>https://chillfixairsolution.in/ac-gas-filling-chennai</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/services/ac-gas-filling-chennai</loc>
+    <loc>https://chillfixairsolution.in/ac-installation-chennai</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/services/ac-installation-chennai</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/services/split-ac-service-chennai</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/services/window-ac-service-chennai</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/services/ac-maintenance-chennai</loc>
+    <loc>https://chillfixairsolution.in/ac-maintenance-chennai</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- Location Area Landing Pages -->
+  <!-- Top-Level Priority Location Landing Pages -->
   <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-tambaram</loc>
+    <loc>https://chillfixairsolution.in/ac-service-perungalathur</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-chromepet</loc>
+    <loc>https://chillfixairsolution.in/ac-service-tambaram</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-pallavaram</loc>
+    <loc>https://chillfixairsolution.in/ac-service-vandalur</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-velachery</loc>
+    <loc>https://chillfixairsolution.in/ac-service-manivakkam</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-porur</loc>
+    <loc>https://chillfixairsolution.in/ac-service-chromepet</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-adyar</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-anna-nagar</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-sholinganallur</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/areas/ac-service-omr</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Blog Articles -->
-  <url>
-    <loc>https://chillfixairsolution.in/blog/why-ac-is-not-cooling</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/blog/ac-service-cost-chennai</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/blog/how-often-should-ac-be-serviced</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/blog/ac-water-leakage-causes</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/blog/ac-gas-leak-signs</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/blog/ac-deep-cleaning-benefits</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/blog/ac-service-vs-ac-repair</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/blog/ac-gas-filling-cost-chennai</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://chillfixairsolution.in/blog/10-signs-ac-needs-servicing</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.90</priority>
   </url>
 </urlset>

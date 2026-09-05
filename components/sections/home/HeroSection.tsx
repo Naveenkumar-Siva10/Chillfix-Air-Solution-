@@ -11,30 +11,22 @@ import {
   Clock,
   Star,
   Zap,
-  BadgeCheck,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { CONTACT_DETAILS, SITE_CONFIG } from '@/constants/site';
 import { useBooking } from '@/hooks/useBooking';
 import { BookingModal } from '@/components/common/BookingModal';
 
-// ─────────────────────────────────────────────────────────────
-// Trust badges shown beneath the headline
-// ─────────────────────────────────────────────────────────────
 const TRUST_BADGES = [
-  { icon: ShieldCheck, label: '11+ Years Experience', color: 'text-secondary-400' },
+  { icon: ShieldCheck, label: '10+ Years Experience', color: 'text-secondary-400' },
   { icon: Star, label: '4.9★ Google Rating', color: 'text-amber-400' },
-  { icon: Clock, label: '< 2 Hour Response', color: 'text-accent-400' },
-  { icon: BadgeCheck, label: 'Certified Technicians', color: 'text-primary-300' },
+  { icon: Clock, label: 'Fast Local Response', color: 'text-accent-400' },
 ] as const;
 
-// ─────────────────────────────────────────────────────────────
-// Verified Statistics row
-// ─────────────────────────────────────────────────────────────
 const STATS = [
-  { value: '10,000+', label: 'Happy Customers' },
-  { value: '25+', label: 'Expert Technicians' },
-  { value: '98%', label: 'Satisfaction Rate' },
+  { value: '10+', label: 'Years Experience' },
+  { value: '4.9★', label: 'Google Rating' },
+  { value: '100%', label: 'Upfront Quotes' },
   { value: '24/7', label: 'Emergency Support' },
 ] as const;
 
@@ -46,9 +38,6 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, delay, ease: EASE },
 });
 
-// ─────────────────────────────────────────────────────────────
-// Floating Service Tag component
-// ─────────────────────────────────────────────────────────────
 function FloatingTag({
   label,
   className,
@@ -85,7 +74,7 @@ export function HeroSection() {
       <section
         id="hero"
         className="relative flex min-h-screen flex-col overflow-hidden"
-        aria-label="Hero — ChillFix Air Solution AC Service in Chennai"
+        aria-label="Hero — ChillFix AC Service in Chennai & Perungalathur"
       >
         {/* Deep gradient base */}
         <div
@@ -101,7 +90,7 @@ export function HeroSection() {
         <div className="absolute inset-y-0 right-0 w-full lg:w-[55%]" aria-hidden="true">
           <Image
             src="/images/hero-technician.jpg"
-            alt="ChillFix Air Solution professional AC service technician in Chennai"
+            alt="ChillFix AC Service technician in Chennai"
             fill
             priority
             quality={90}
@@ -125,9 +114,9 @@ export function HeroSection() {
         </div>
 
         {/* Floating tags */}
-        <FloatingTag label="Split & Window AC Service" className="right-[24%] top-[22%] hidden 2xl:flex z-10" delay={0.9} />
-        <FloatingTag label="Same-Day Service in Chennai" className="right-[8%] bottom-[28%] hidden 2xl:flex z-10" delay={1.1} />
-        <FloatingTag label="Free Problem Diagnosis" className="right-[4%] top-[32%] hidden 2xl:flex z-10" delay={1.3} />
+        <FloatingTag label="Serving Perungalathur & Chennai" className="right-[24%] top-[22%] hidden 2xl:flex z-10" delay={0.9} />
+        <FloatingTag label="Fast Local AC Repair" className="right-[8%] bottom-[28%] hidden 2xl:flex z-10" delay={1.1} />
+        <FloatingTag label="Transparent Pricing" className="right-[4%] top-[32%] hidden 2xl:flex z-10" delay={1.3} />
 
         {/* Main content */}
         <div className="container-base relative z-10 flex flex-1 flex-col justify-center pt-20 pb-8 lg:pt-28">
@@ -140,27 +129,24 @@ export function HeroSection() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-400" />
                 </span>
-                24/7 Emergency AC Repair &amp; Service in Chennai
+                24/7 AC Service &amp; Repair — Chennai &amp; Perungalathur
               </span>
             </motion.div>
 
-            {/* H1 Headline — Single clear H1 for SEO */}
+            {/* Exact H1 requested by Task 2 */}
             <motion.h1
               {...fadeUp(0.25)}
-              className="mb-4 font-display text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl"
+              className="mb-4 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
             >
-              AC Service &amp; Repair in Chennai –{' '}
-              <span className="bg-gradient-to-r from-secondary-300 via-accent-300 to-cyan-200 bg-clip-text text-transparent">
-                Fast, Reliable Technicians
-              </span>
+              AC Service &amp; Repair in Chennai
             </motion.h1>
 
-            {/* Subtitle / Intro copy — Clear WHO, WHAT, WHERE, WHY */}
+            {/* Exact Supporting Text requested by Task 2 */}
             <motion.p
               {...fadeUp(0.4)}
               className="mb-8 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg"
             >
-              <strong>ChillFix Air Solution</strong> provides expert AC servicing, repair, jet-wash deep cleaning, gas leak diagnosis, gas refilling, installation, and annual maintenance contracts across all 25+ areas in Chennai with 90-day warranty and transparent pricing.
+              ChillFix AC Service provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling and installation across Chennai, with strong service coverage around Perungalathur, Tambaram, Vandalur, Manivakkam, Chromepet and nearby areas.
             </motion.p>
 
             {/* Trust badges row */}
@@ -240,7 +226,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Stats strip at bottom */}
+        {/* Stats strip at bottom — Factual stats only */}
         <motion.div
           className="relative z-10 border-t border-white/10 bg-black/20 backdrop-blur-sm"
           initial={{ opacity: 0, y: 20 }}

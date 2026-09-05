@@ -11,7 +11,6 @@ import {
   ArrowUp,
   ShieldCheck,
   Star,
-  Award,
 } from 'lucide-react';
 import { SITE_CONFIG, CONTACT_DETAILS, SERVICE_AREAS } from '@/constants/site';
 import { FOOTER_NAV } from '@/constants/navigation';
@@ -24,7 +23,7 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-slate-900 text-slate-300 dark:border-slate-800 dark:bg-slate-950">
 
-      {/* ── Top Emergency Callout Banner ── */}
+      {/* Top Emergency Callout Banner */}
       <div className="border-b border-slate-800 bg-slate-950/80 py-4">
         <div className="container-base flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
           <div className="flex items-center gap-2">
@@ -33,7 +32,7 @@ export function Footer() {
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-500" />
             </span>
             <span className="text-sm font-semibold text-white">
-              24/7 Emergency AC Repairs Available Across Chennai
+              24/7 Emergency AC Service &amp; Repairs Available Across Chennai
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-semibold">
@@ -46,7 +45,7 @@ export function Footer() {
             </a>
             <span className="text-slate-700">|</span>
             <a
-              href={CONTACT_DETAILS.whatsapp.withMessage('Hi! I need urgent AC service in Chennai.')}
+              href={CONTACT_DETAILS.whatsapp.withMessage('Hi! I need AC service / repair in Chennai.')}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-[#25D366] hover:text-emerald-400 transition-colors"
@@ -58,13 +57,13 @@ export function Footer() {
         </div>
       </div>
 
-      {/* ── Main Footer Content ── */}
+      {/* Main Footer Content */}
       <div className="container-base py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12">
 
-          {/* Col 1: Brand & Bio (4 cols) */}
+          {/* Col 1: Brand & Factual Bio (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
-            <Link href="/" className="flex items-center gap-3" aria-label="ChillFix Air Solution Home">
+            <Link href="/" className="flex items-center gap-3" aria-label="ChillFix AC Service Home">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500 text-white shadow-md shadow-primary-500/30">
                 <Snowflake className="h-6 w-6" aria-hidden="true" />
               </div>
@@ -73,35 +72,35 @@ export function Footer() {
                   {SITE_CONFIG.name}
                 </span>
                 <span className="text-xs font-medium text-slate-400">
-                  Air Conditioner Experts
+                  AC Service &amp; Repair Experts
                 </span>
               </div>
             </Link>
 
             <p className="text-sm leading-relaxed text-slate-400">
-              Chennai&rsquo;s premier AC installation, repair, gas filling, deep jet-wash cleaning, and annual maintenance solution. Over 10,000+ satisfied homes and businesses since {SITE_CONFIG.founded}.
+              Based in Perungalathur, Chennai, serving customers across Chennai and nearby areas including Tambaram, Vandalur, Manivakkam and Chromepet. Over 10+ years of AC service experience.
             </p>
 
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-4 border-t border-slate-800 pt-6">
               <div className="flex items-center gap-1.5 text-xs text-slate-300">
                 <ShieldCheck className="h-4 w-4 text-accent-400" />
-                <span>90-Day Warranty</span>
+                <span>Service Warranty</span>
               </div>
               <div className="flex items-center gap-1.5 text-xs text-slate-300">
                 <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
                 <span>4.9★ Google Rating</span>
               </div>
               <div className="flex items-center gap-1.5 text-xs text-slate-300">
-                <Award className="h-4 w-4 text-secondary-400" />
-                <span>Certified Techs</span>
+                <Clock className="h-4 w-4 text-secondary-400" />
+                <span>Fast Local Response</span>
               </div>
             </div>
           </div>
 
-          {/* Col 2: Our Services (3 cols) */}
+          {/* Col 2: Services (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Our Services</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Our AC Services</h3>
             <ul className="space-y-2.5 text-sm">
               {FOOTER_NAV.services.map((item) => (
                 <li key={item.label}>
@@ -116,11 +115,11 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Company & Info (2 cols) */}
+          {/* Col 3: Service Areas (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Company</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Areas We Serve</h3>
             <ul className="space-y-2.5 text-sm">
-              {FOOTER_NAV.company.map((item) => (
+              {FOOTER_NAV.locations.slice(0, 6).map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
@@ -135,11 +134,11 @@ export function Footer() {
 
           {/* Col 4: Contact & Hours (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Contact & Hours</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Contact &amp; Base</h3>
             <div className="space-y-3.5 text-sm text-slate-400">
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-primary-400 mt-1 shrink-0" aria-hidden="true" />
-                <span>Chennai, Tamil Nadu, India — 600001</span>
+                <span>Perungalathur, Chennai, Tamil Nadu — 600063</span>
               </div>
 
               <div className="flex items-center gap-3">
@@ -169,25 +168,24 @@ export function Footer() {
 
         </div>
 
-        {/* ── Service Areas Hub Strip ── */}
+        {/* Service Areas Hub Strip */}
         <div className="mt-14 border-t border-slate-800 pt-8">
           <p className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
-            Top Service Areas in Chennai
+            Service Coverage Across Chennai &amp; Nearby Areas
           </p>
           <div className="flex flex-wrap gap-2 text-xs text-slate-400">
-            {SERVICE_AREAS.slice(0, 15).map((area) => (
+            {SERVICE_AREAS.map((area) => (
               <span key={area} className="rounded-md bg-slate-800/80 px-2.5 py-1 text-slate-300">
                 {area} AC Service
               </span>
             ))}
-            <span className="rounded-md bg-slate-800/80 px-2.5 py-1 text-slate-400">+ 10 more hubs</span>
           </div>
         </div>
 
-        {/* ── Bottom Legal & Copyright Bar ── */}
+        {/* Bottom Legal & Copyright Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-500 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved. Built for Chennai, TN.
+            © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved. Serving Chennai and nearby areas.
           </p>
 
           <div className="flex items-center gap-6">
