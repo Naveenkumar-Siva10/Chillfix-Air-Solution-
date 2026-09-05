@@ -106,11 +106,11 @@ function PlanCard({ plan, index }: { plan: AMCPlan; index: number }) {
                   {formatPrice(plan.price)}
                 </span>
                 {plan.pricePerUnit && (
-                  <span className="text-sm text-white/70">/unit/year</span>
+                  <span className="text-sm text-slate-100 font-medium">/unit/year</span>
                 )}
               </div>
             )}
-            <p className="mt-1 text-xs text-white/60">{plan.description}</p>
+            <p className="mt-1 text-xs text-slate-100 font-semibold">{plan.description}</p>
           </div>
         </div>
 
@@ -130,15 +130,15 @@ function PlanCard({ plan, index }: { plan: AMCPlan; index: number }) {
                 {included ? (
                   <Check className="h-3 w-3 text-accent-600 dark:text-accent-400" />
                 ) : (
-                  <X className="h-3 w-3 text-slate-400" />
+                  <X className="h-3 w-3 text-slate-500" />
                 )}
               </span>
               <span
                 className={cn(
                   'text-sm',
                   included
-                    ? 'text-slate-700 dark:text-slate-300'
-                    : 'text-slate-400 dark:text-slate-600',
+                    ? 'text-slate-800 dark:text-slate-200 font-semibold'
+                    : 'text-slate-500 dark:text-slate-400 line-through',
                 )}
               >
                 <span className="font-medium">{label}</span>
@@ -232,7 +232,7 @@ function MiniAccordion() {
               transition={{ duration: 0.28, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <p className="px-6 pb-5 pl-15 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              <p className="px-6 pb-5 pl-15 text-sm leading-relaxed text-slate-700 dark:text-slate-300 font-medium">
                 {faq.answer}
               </p>
             </motion.div>
@@ -275,7 +275,7 @@ export function PricingSection() {
             ].map((item) => (
               <span
                 key={item}
-                className="rounded-full bg-slate-50 px-4 py-1.5 text-sm font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400"
+                className="rounded-full bg-slate-100 px-4 py-1.5 text-sm font-semibold text-slate-800 dark:bg-slate-800 dark:text-slate-200"
               >
                 {item}
               </span>
@@ -300,7 +300,7 @@ export function PricingSection() {
               <p className="font-bold text-slate-900 dark:text-white">
                 Managing a building, hospital, school, or restaurant?
               </p>
-              <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-400">
+              <p className="mt-0.5 text-sm font-medium text-slate-700 dark:text-slate-300">
                 We design custom AMC contracts for 5+ units with a dedicated technician, SLA guarantees, and monthly performance reports.
               </p>
             </div>

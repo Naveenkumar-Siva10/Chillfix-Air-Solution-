@@ -71,27 +71,27 @@ export function Footer() {
                 <span className="block font-display text-xl font-bold tracking-tight text-white leading-none">
                   {SITE_CONFIG.name}
                 </span>
-                <span className="text-xs font-medium text-slate-400">
+                <span className="text-xs font-semibold text-slate-300">
                   AC Service &amp; Repair Experts
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm leading-relaxed text-slate-400">
+            <p className="text-sm leading-relaxed text-slate-200 font-medium">
               Based in Perungalathur, Chennai, serving customers across Chennai and nearby areas including Tambaram, Vandalur, Manivakkam and Chromepet. Over 10+ years of AC service experience.
             </p>
 
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-4 border-t border-slate-800 pt-6">
-              <div className="flex items-center gap-1.5 text-xs text-slate-300">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-slate-200">
                 <ShieldCheck className="h-4 w-4 text-accent-400" />
                 <span>Service Warranty</span>
               </div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-300">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-slate-200">
                 <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
                 <span>4.9★ Google Rating</span>
               </div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-300">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-slate-200">
                 <Clock className="h-4 w-4 text-secondary-400" />
                 <span>Fast Local Response</span>
               </div>
@@ -106,7 +106,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-slate-400 hover:text-primary-400 transition-colors"
+                    className="text-slate-300 font-medium hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -123,7 +123,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-slate-400 hover:text-primary-400 transition-colors"
+                    className="text-slate-300 font-medium hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -135,32 +135,32 @@ export function Footer() {
           {/* Col 4: Contact & Hours (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
             <h3 className="text-sm font-bold uppercase tracking-wider text-white">Contact &amp; Base</h3>
-            <div className="space-y-3.5 text-sm text-slate-400">
+            <div className="space-y-3.5 text-sm text-slate-300">
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-primary-400 mt-1 shrink-0" aria-hidden="true" />
-                <span>Perungalathur, Chennai, Tamil Nadu — 600063</span>
+                <span className="text-slate-200">Perungalathur, Chennai, Tamil Nadu — 600063</span>
               </div>
 
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-primary-400 shrink-0" aria-hidden="true" />
-                <a href={CONTACT_DETAILS.phone.href} className="hover:text-white transition-colors">
+                <a href={CONTACT_DETAILS.phone.href} className="text-slate-200 hover:text-white transition-colors">
                   {CONTACT_DETAILS.phone.display}
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-primary-400 shrink-0" aria-hidden="true" />
-                <a href={CONTACT_DETAILS.email.href} className="hover:text-white transition-colors">
+                <a href={CONTACT_DETAILS.email.href} className="text-slate-200 hover:text-white transition-colors">
                   {SITE_CONFIG.email}
                 </a>
               </div>
 
               <div className="flex items-start gap-3 pt-2 border-t border-slate-800">
                 <Clock className="h-4 w-4 text-secondary-400 mt-1 shrink-0" aria-hidden="true" />
-                <div className="text-xs space-y-1">
-                  <p><strong className="text-slate-300">Mon–Fri:</strong> {SITE_CONFIG.businessHours.weekdays}</p>
-                  <p><strong className="text-slate-300">Saturday:</strong> {SITE_CONFIG.businessHours.saturday}</p>
-                  <p><strong className="text-slate-300">Sunday:</strong> {SITE_CONFIG.businessHours.sunday}</p>
+                <div className="text-xs space-y-1 text-slate-200">
+                  <p><strong className="text-white">Mon–Fri:</strong> {SITE_CONFIG.businessHours.weekdays}</p>
+                  <p><strong className="text-white">Saturday:</strong> {SITE_CONFIG.businessHours.saturday}</p>
+                  <p><strong className="text-white">Sunday:</strong> {SITE_CONFIG.businessHours.sunday}</p>
                 </div>
               </div>
             </div>
@@ -170,12 +170,12 @@ export function Footer() {
 
         {/* Service Areas Hub Strip */}
         <div className="mt-14 border-t border-slate-800 pt-8">
-          <p className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
+          <p className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-300">
             Service Coverage Across Chennai &amp; Nearby Areas
           </p>
-          <div className="flex flex-wrap gap-2 text-xs text-slate-400">
+          <div className="flex flex-wrap gap-2 text-xs text-slate-300">
             {SERVICE_AREAS.map((area) => (
-              <span key={area} className="rounded-md bg-slate-800/80 px-2.5 py-1 text-slate-300">
+              <span key={area} className="rounded-md bg-slate-800 px-2.5 py-1 text-slate-200 font-medium">
                 {area} AC Service
               </span>
             ))}
@@ -183,8 +183,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Legal & Copyright Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-500 sm:flex-row">
-          <p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-300 sm:flex-row">
+          <p className="text-slate-300 font-medium">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved. Serving Chennai and nearby areas.
           </p>
 

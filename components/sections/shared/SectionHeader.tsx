@@ -76,7 +76,7 @@ export function SectionHeader({
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className={cn(
-            'text-slate-600 dark:text-slate-400',
+            'text-slate-800 dark:text-slate-200 font-medium',
             size === 'default' ? 'max-w-2xl text-base md:text-lg' : 'max-w-3xl text-lg md:text-xl',
             align === 'center' && 'mx-auto',
           )}

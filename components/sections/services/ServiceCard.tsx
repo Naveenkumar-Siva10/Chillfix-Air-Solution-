@@ -79,9 +79,9 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
           </span>
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">{service.name}</p>
-            <p className="text-xs text-slate-500">From {formatPrice(service.startingPrice)}</p>
+            <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">From {formatPrice(service.startingPrice)}</p>
           </div>
-          <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-300 transition-transform group-hover:translate-x-1 group-hover:text-primary-500" aria-hidden="true" />
+          <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-primary-500" aria-hidden="true" />
         </Link>
       </motion.div>
     );
@@ -113,7 +113,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
               <Icon className="h-6 w-6" aria-hidden="true" />
             </span>
             <div>
-              <p className="text-xs font-medium uppercase tracking-widest text-white/70">
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/90">
                 {service.category}
               </p>
               <p className="text-lg font-bold text-white leading-tight">{service.name}</p>
@@ -122,14 +122,14 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
 
           {/* Content */}
           <div className="p-6">
-            <p className="mb-5 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="mb-5 text-sm leading-relaxed text-slate-800 dark:text-slate-200 font-medium">
               {service.shortDescription}
             </p>
 
             {/* Features */}
             <ul className="mb-6 space-y-2">
               {service.features.slice(0, 3).map((feature) => (
-                <li key={feature} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+                <li key={feature} className="flex items-start gap-2 text-sm text-slate-800 dark:text-slate-200 font-medium">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-500" aria-hidden="true" />
                   {feature}
                 </li>
@@ -139,7 +139,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
             {/* Footer */}
             <div className="flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800">
               <div>
-                <p className="text-xs text-slate-500">Starting from</p>
+                <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Starting from</p>
                 <p className="text-lg font-bold text-primary-500">{formatPrice(service.startingPrice)}</p>
               </div>
               <span className="flex items-center gap-1.5 text-sm font-semibold text-primary-500 transition-transform group-hover:translate-x-1">
@@ -181,7 +181,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
         <h3 className="mb-2 text-base font-bold text-slate-900 group-hover:text-primary-500 dark:text-white dark:group-hover:text-primary-400">
           {service.name}
         </h3>
-        <p className="mb-5 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+        <p className="mb-5 flex-1 text-sm leading-relaxed text-slate-800 dark:text-slate-200 font-medium">
           {service.shortDescription}
         </p>
 
@@ -190,7 +190,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
           <span className="font-bold text-primary-500">
             From {formatPrice(service.startingPrice)}
           </span>
-          <span className="text-slate-400">{service.duration}</span>
+          <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">{service.duration}</span>
         </div>
       </Link>
     </motion.div>
