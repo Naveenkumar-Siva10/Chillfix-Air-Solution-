@@ -1,14 +1,20 @@
 import { JsonLd } from './JsonLd';
-import type { FAQ } from '@/types';
 import { SITE_CONFIG } from '@/constants/site';
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+  id?: string;
+  category?: string;
+}
+
 interface FAQSchemaProps {
-  faqs: FAQ[];
+  faqs: FAQItem[];
   pageUrl?: string;
 }
 
 /**
- * FAQ schema for the FAQ page and FAQ preview sections.
+ * FAQ schema for the FAQ page, service pages, location pages, and pricing page.
  * Enables Google's rich FAQ results in search.
  * https://schema.org/FAQPage
  */

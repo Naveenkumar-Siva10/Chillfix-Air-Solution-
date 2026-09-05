@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generatePageMetadata } from '@/lib/metadata';
-import { CONTACT_DETAILS, SITE_CONFIG } from '@/constants/site';
+import { CONTACT_DETAILS } from '@/constants/site';
 import { SERVICES } from '@/constants/services';
 import { AMC_PLANS } from '@/constants/amc-plans';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
@@ -12,8 +12,6 @@ import {
   AlertCircle,
   Phone,
   MessageCircle,
-  ShieldCheck,
-  Clock,
   ChevronRight,
   Sparkles,
 } from 'lucide-react';
@@ -172,16 +170,16 @@ export default function AcPricePage() {
                 <div key={plan.id} className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900 flex flex-col justify-between">
                   <div>
                     <h3 className="font-bold text-slate-900 dark:text-white text-lg">{plan.name}</h3>
-                    <p className="text-xs text-slate-500 mt-1">{plan.shortDescription}</p>
+                    <p className="text-xs text-slate-500 mt-1">{plan.tagline || plan.description}</p>
                     <div className="my-4">
                       <span className="text-3xl font-extrabold text-primary-600 dark:text-primary-400">{formatPrice(plan.price)}</span>
                       <span className="text-xs text-slate-400"> / {plan.billingCycle}</span>
                     </div>
                     <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400 mb-6">
                       {plan.features.slice(0, 4).map((f) => (
-                        <li key={f} className="flex items-center gap-2">
+                        <li key={f.label} className="flex items-center gap-2">
                           <CheckCircle2 className="h-3.5 w-3.5 text-accent-500 shrink-0" />
-                          <span>{f}</span>
+                          <span>{f.label}: <strong>{typeof f.value === 'string' ? f.value : f.included ? 'Included' : 'Not Included'}</strong></span>
                         </li>
                       ))}
                     </ul>
