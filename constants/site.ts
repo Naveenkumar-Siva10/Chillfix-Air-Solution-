@@ -5,6 +5,7 @@
 
 export const SITE_CONFIG = {
   name: 'ChillFix Air Solution',
+  gbpName: 'ChillFix AC Service Chennai',
   tagline: 'Chennai\'s Most Trusted AC Service Experts',
   description:
     'Professional air conditioner installation, repair, gas filling, deep cleaning, and annual maintenance services in Chennai, Tamil Nadu. Available 24/7 for emergency AC repairs.',

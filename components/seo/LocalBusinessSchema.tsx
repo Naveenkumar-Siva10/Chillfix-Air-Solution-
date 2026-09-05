@@ -6,6 +6,7 @@ import { TESTIMONIALS } from '@/constants/testimonials';
  * LocalBusiness / HVACBusiness Schema.org JSON-LD structured data.
  * Fully validated against Google Search Console & Rich Results guidelines.
  * 100% verifiable: AggregateRating and Review schemas are bound directly to the visible customer testimonials.
+ * Matches exact Google Business Profile name: 'ChillFix AC Service Chennai'
  * https://schema.org/HVACBusiness
  */
 export function LocalBusinessSchema() {
@@ -17,8 +18,8 @@ export function LocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': ['HVACBusiness', 'LocalBusiness', 'HomeAndConstructionBusiness'],
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
-    name: SITE_CONFIG.name,
-    alternateName: 'ChillFix AC Service Chennai',
+    name: SITE_CONFIG.gbpName,
+    alternateName: [SITE_CONFIG.name, 'ChillFix AC Service Chennai'],
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
@@ -162,7 +163,6 @@ export function LocalBusinessSchema() {
         },
       ],
     },
-    // Strictly bound to the 8 visible, verifiable customer testimonials rendered on site
     review: TESTIMONIALS.map((t) => ({
       '@type': 'Review',
       author: {
