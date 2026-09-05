@@ -2,17 +2,18 @@ import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/constants/site';
 import { getBlogSlugs } from '@/lib/blog';
 import { SERVICES } from '@/constants/services';
+import { AREA_LOCATIONS } from '@/constants/areas';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_CONFIG.url;
 
-  // Static pages
+  // Static core pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
@@ -37,6 +38,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/pricing/ac-service-price-chennai`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/blog`,
@@ -81,6 +88,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/services/${service.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
+    priority: 0.9,
+  }));
+
+  // Area location pages
+  const areaPages: MetadataRoute.Sitemap = AREA_LOCATIONS.map((area) => ({
+    url: `${baseUrl}/areas/${area.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
     priority: 0.85,
   }));
 
@@ -90,8 +105,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/blog/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: 0.65,
+    priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...blogPages];
+  return [...staticPages, ...servicePages, ...areaPages, ...blogPages];
 }

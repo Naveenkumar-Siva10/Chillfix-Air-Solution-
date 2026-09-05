@@ -11,24 +11,28 @@ import { AcSalesComingSoonSection } from '@/components/sections/home/AcSalesComi
 import { ContactSection } from '@/components/sections/home/ContactSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'AC Installation, Repair & Maintenance in Chennai',
+  title: 'AC Service in Chennai | AC Repair & Cleaning | ChillFix Air Solution',
   description:
-    "ChillFix Air Solution — Chennai's most trusted AC service company. Split AC, Window AC, Cassette AC, gas filling, deep cleaning & annual maintenance. Available 24/7 for emergencies.",
+    'Looking for AC service in Chennai? ChillFix provides AC repair, cleaning, gas leak diagnosis, installation and maintenance with fast technician support across Chennai.',
   canonicalPath: '/',
   keywords: [
     'AC service Chennai',
     'AC repair Chennai',
-    'split AC installation Chennai',
-    'AC gas filling Chennai',
-    'emergency AC repair Chennai',
+    'AC cleaning Chennai',
     'AC deep cleaning Chennai',
-    'annual maintenance contract Chennai',
+    'AC gas filling Chennai',
+    'AC installation Chennai',
+    'Split AC service Chennai',
+    'Window AC service Chennai',
+    'AC service near me',
+    'AC repair near me',
+    'ChillFix Air Solution',
   ],
 });
 
 /**
  * Home page — server component.
- * Complete marketing page composition.
+ * Optimized for local SEO and high-conversion AC service inquiries across Chennai.
  */
 export default function HomePage() {
   return (

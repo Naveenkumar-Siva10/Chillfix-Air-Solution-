@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
@@ -19,39 +19,25 @@ import { useBooking } from '@/hooks/useBooking';
 import { BookingModal } from '@/components/common/BookingModal';
 
 // ─────────────────────────────────────────────────────────────
-// Rotating headline words
-// ─────────────────────────────────────────────────────────────
-const HEADLINE_WORDS = [
-  'Installation',
-  'Repair',
-  'Gas Filling',
-  'Deep Cleaning',
-  'Maintenance',
-] as const;
-
-// ─────────────────────────────────────────────────────────────
 // Trust badges shown beneath the headline
 // ─────────────────────────────────────────────────────────────
 const TRUST_BADGES = [
-  { icon: ShieldCheck, label: '10+ Years Experience', color: 'text-secondary-400' },
+  { icon: ShieldCheck, label: '11+ Years Experience', color: 'text-secondary-400' },
   { icon: Star, label: '4.9★ Google Rating', color: 'text-amber-400' },
   { icon: Clock, label: '< 2 Hour Response', color: 'text-accent-400' },
   { icon: BadgeCheck, label: 'Certified Technicians', color: 'text-primary-300' },
 ] as const;
 
 // ─────────────────────────────────────────────────────────────
-// Statistics row
+// Verified Statistics row
 // ─────────────────────────────────────────────────────────────
 const STATS = [
   { value: '10,000+', label: 'Happy Customers' },
-  { value: '50+', label: 'Expert Technicians' },
+  { value: '25+', label: 'Expert Technicians' },
   { value: '98%', label: 'Satisfaction Rate' },
-  { value: '24/7', label: 'Emergency Service' },
+  { value: '24/7', label: 'Emergency Support' },
 ] as const;
 
-// ─────────────────────────────────────────────────────────────
-// Framer Motion variants
-// ─────────────────────────────────────────────────────────────
 const EASE = [0.21, 0.47, 0.32, 0.98] as [number, number, number, number];
 
 const fadeUp = (delay = 0) => ({
@@ -59,72 +45,6 @@ const fadeUp = (delay = 0) => ({
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.65, delay, ease: EASE },
 });
-
-const fadeIn = (delay = 0) => ({
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.8, delay },
-});
-
-
-// ─────────────────────────────────────────────────────────────
-// Rotating Word component
-// ─────────────────────────────────────────────────────────────
-function RotatingWord() {
-  const [index, setIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible(false);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % HEADLINE_WORDS.length);
-        setIsVisible(true);
-      }, 300);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <span
-      className={cn(
-        'inline-block transition-all duration-300',
-        'bg-gradient-to-r from-secondary-300 to-accent-400 bg-clip-text text-transparent',
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3',
-      )}
-      aria-live="polite"
-      aria-label={`AC ${HEADLINE_WORDS[index]}`}
-    >
-      {HEADLINE_WORDS[index]}
-    </span>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────
-// Scroll indicator
-// ─────────────────────────────────────────────────────────────
-function ScrollIndicator() {
-  return (
-    <motion.div
-      className="flex flex-col items-center gap-2"
-      {...fadeIn(1.6)}
-    >
-      <span className="text-xs font-medium uppercase tracking-widest text-white/50">
-        Scroll
-      </span>
-      <motion.div
-        className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/25 p-1.5"
-        aria-hidden="true"
-      >
-        <motion.div
-          className="h-2 w-1 rounded-full bg-white/60"
-          animate={{ y: [0, 14, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        />
-      </motion.div>
-    </motion.div>
-  );
-}
 
 // ─────────────────────────────────────────────────────────────
 // Floating Service Tag component
@@ -155,9 +75,6 @@ function FloatingTag({
   );
 }
 
-// ─────────────────────────────────────────────────────────────
-// Hero Section Root
-// ─────────────────────────────────────────────────────────────
 export function HeroSection() {
   const { isOpen, preselectedService, openBooking, closeBooking } = useBooking();
 
@@ -168,10 +85,8 @@ export function HeroSection() {
       <section
         id="hero"
         className="relative flex min-h-screen flex-col overflow-hidden"
-        aria-label="Hero — ChillFix Air Solution"
+        aria-label="Hero — ChillFix Air Solution AC Service in Chennai"
       >
-        {/* ── Background layers ── */}
-
         {/* Deep gradient base */}
         <div
           className="absolute inset-0"
@@ -182,18 +97,17 @@ export function HeroSection() {
           aria-hidden="true"
         />
 
-        {/* Hero image — right side, partially overlapping */}
+        {/* Hero image — right side */}
         <div className="absolute inset-y-0 right-0 w-full lg:w-[55%]" aria-hidden="true">
           <Image
             src="/images/hero-technician.jpg"
-            alt="Professional AC service technician"
+            alt="ChillFix Air Solution professional AC service technician in Chennai"
             fill
             priority
             quality={90}
             className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 55vw"
           />
-          {/* Left gradient blend on desktop */}
           <div
             className="absolute inset-0"
             style={{
@@ -201,7 +115,6 @@ export function HeroSection() {
                 'linear-gradient(90deg, #0F4C81 0%, rgba(15,76,129,0.85) 30%, rgba(15,76,129,0.4) 60%, transparent 100%)',
             }}
           />
-          {/* Bottom fade */}
           <div
             className="absolute inset-0"
             style={{
@@ -211,22 +124,12 @@ export function HeroSection() {
           />
         </div>
 
-        {/* Dot grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
-          }}
-          aria-hidden="true"
-        />
+        {/* Floating tags */}
+        <FloatingTag label="Split & Window AC Service" className="right-[24%] top-[22%] hidden 2xl:flex z-10" delay={0.9} />
+        <FloatingTag label="Same-Day Service in Chennai" className="right-[8%] bottom-[28%] hidden 2xl:flex z-10" delay={1.1} />
+        <FloatingTag label="Free Problem Diagnosis" className="right-[4%] top-[32%] hidden 2xl:flex z-10" delay={1.3} />
 
-        {/* ── Floating tags (ultra-wide screens, positioned on right side image area) ── */}
-        <FloatingTag label="Split AC Experts" className="right-[24%] top-[22%] hidden 2xl:flex z-10" delay={0.9} />
-        <FloatingTag label="Same Day Service" className="right-[8%] bottom-[28%] hidden 2xl:flex z-10" delay={1.1} />
-        <FloatingTag label="Free Diagnosis" className="right-[4%] top-[32%] hidden 2xl:flex z-10" delay={1.3} />
-
-        {/* ── Main content ── */}
+        {/* Main content */}
         <div className="container-base relative z-10 flex flex-1 flex-col justify-center pt-20 pb-8 lg:pt-28">
           <div className="max-w-2xl">
 
@@ -237,29 +140,27 @@ export function HeroSection() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-400" />
                 </span>
-                24/7 Emergency AC Repair — Chennai
+                24/7 Emergency AC Repair &amp; Service in Chennai
               </span>
             </motion.div>
 
-            {/* Main headline */}
+            {/* H1 Headline — Single clear H1 for SEO */}
             <motion.h1
               {...fadeUp(0.25)}
-              className="mb-4 font-display text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
+              className="mb-4 font-display text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl"
             >
-              Chennai&rsquo;s #1 AC
-              <br />
-              <RotatingWord />
-              <br />
-              <span className="text-white">Specialists</span>
+              AC Service &amp; Repair in Chennai –{' '}
+              <span className="bg-gradient-to-r from-secondary-300 via-accent-300 to-cyan-200 bg-clip-text text-transparent">
+                Fast, Reliable Technicians
+              </span>
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subtitle / Intro copy — Clear WHO, WHAT, WHERE, WHY */}
             <motion.p
               {...fadeUp(0.4)}
-              className="mb-8 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg"
+              className="mb-8 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg"
             >
-              Certified technicians for all brands — Samsung, LG, Daikin, Voltas &amp; more.
-              Fast response across 25+ areas in Chennai. Transparent pricing, no hidden charges.
+              <strong>ChillFix Air Solution</strong> provides expert AC servicing, repair, jet-wash deep cleaning, gas leak diagnosis, gas refilling, installation, and annual maintenance contracts across all 25+ areas in Chennai with 90-day warranty and transparent pricing.
             </motion.p>
 
             {/* Trust badges row */}
@@ -280,7 +181,6 @@ export function HeroSection() {
               {...fadeUp(0.6)}
               className="flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             >
-              {/* Call Now — largest CTA */}
               <a
                 href={CONTACT_DETAILS.phone.href}
                 className={cn(
@@ -290,16 +190,15 @@ export function HeroSection() {
                   'hover:bg-slate-50 hover:shadow-2xl hover:-translate-y-0.5 active:scale-[0.98]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
                 )}
-                aria-label={`Call ${CONTACT_DETAILS.phone.display} — Free Diagnosis`}
+                aria-label={`Call ${CONTACT_DETAILS.phone.display} for AC service in Chennai`}
               >
                 <Phone className="h-5 w-5 transition-transform group-hover:scale-110" aria-hidden="true" />
                 Call Now — Free Diagnosis
               </a>
 
-              {/* WhatsApp */}
               <a
                 href={CONTACT_DETAILS.whatsapp.withMessage(
-                  'Hi! I need AC service in Chennai. Please help.',
+                  'Hi ChillFix! I need AC service / repair in Chennai. Please assist me.',
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -310,13 +209,12 @@ export function HeroSection() {
                   'hover:bg-[#1ebe5a] hover:shadow-2xl hover:-translate-y-0.5 active:scale-[0.98]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
                 )}
-                aria-label="Chat with us on WhatsApp"
+                aria-label="Chat with us on WhatsApp for AC service"
               >
                 <MessageCircle className="h-5 w-5 transition-transform group-hover:scale-110" aria-hidden="true" />
                 WhatsApp Us
               </a>
 
-              {/* Book Service */}
               <button
                 type="button"
                 onClick={handleBookNow}
@@ -327,22 +225,22 @@ export function HeroSection() {
                   'hover:border-white/60 hover:bg-white/20 hover:-translate-y-0.5 active:scale-[0.98]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
                 )}
-                aria-label="Book an AC service appointment"
+                aria-label="Book an AC service appointment in Chennai"
               >
                 <CalendarCheck className="h-5 w-5 transition-transform group-hover:scale-110" aria-hidden="true" />
                 Book Service
               </button>
             </motion.div>
 
-            {/* Phone number display */}
-            <motion.p {...fadeUp(0.75)} className="mt-5 text-sm text-white/50">
-              📞 {CONTACT_DETAILS.phone.display} &nbsp;·&nbsp;{' '}
-              ✉️ {SITE_CONFIG.email}
+            {/* Contact row */}
+            <motion.p {...fadeUp(0.75)} className="mt-5 text-sm text-white/60">
+              📞 <a href={CONTACT_DETAILS.phone.href} className="hover:underline font-semibold text-white">{CONTACT_DETAILS.phone.display}</a> &nbsp;·&nbsp;{' '}
+              ✉️ <a href={CONTACT_DETAILS.email.href} className="hover:underline font-semibold text-white">{SITE_CONFIG.email}</a>
             </motion.p>
           </div>
         </div>
 
-        {/* ── Stats strip at bottom ── */}
+        {/* Stats strip at bottom */}
         <motion.div
           className="relative z-10 border-t border-white/10 bg-black/20 backdrop-blur-sm"
           initial={{ opacity: 0, y: 20 }}
@@ -364,29 +262,6 @@ export function HeroSection() {
             </dl>
           </div>
         </motion.div>
-
-        {/* ── Scroll indicator — absolute bottom center ── */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 hidden lg:flex">
-          <ScrollIndicator />
-        </div>
-
-        {/* ── Decorative blobs ── */}
-        <div
-          className="pointer-events-none absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full opacity-20"
-          style={{
-            background: 'radial-gradient(circle, rgba(56,189,248,0.4) 0%, transparent 70%)',
-            filter: 'blur(60px)',
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -right-32 bottom-1/4 h-[400px] w-[400px] rounded-full opacity-15"
-          style={{
-            background: 'radial-gradient(circle, rgba(0,200,83,0.4) 0%, transparent 70%)',
-            filter: 'blur(80px)',
-          }}
-          aria-hidden="true"
-        />
       </section>
 
       {/* Booking modal */}

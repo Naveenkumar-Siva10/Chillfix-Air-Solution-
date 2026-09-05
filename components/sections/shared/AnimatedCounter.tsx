@@ -15,8 +15,8 @@ interface AnimatedCounterProps {
 }
 
 /**
- * Animates a number from 0 to `end` when it enters the viewport.
- * Used in the Statistics section.
+ * Animates a number to `end` when it enters the viewport.
+ * Defaults initial state to `end` so SSR HTML never displays a 0+ or 0% flash.
  */
 export function AnimatedCounter({
   end,
@@ -25,7 +25,7 @@ export function AnimatedCounter({
   duration = 2000,
   className,
 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const hasAnimated = useRef(false);
@@ -34,6 +34,8 @@ export function AnimatedCounter({
     if (!isInView || hasAnimated.current) return;
     hasAnimated.current = true;
 
+    // Start counter animation smoothly from 0 to end on client hydration
+    setCount(0);
     const startTime = performance.now();
     const step = (currentTime: number) => {
       const elapsed = currentTime - startTime;
