@@ -38,6 +38,8 @@ export const SITE_CONFIG = {
   yearsOfExperience: '10+',
   stats: {
     yearsInBusiness: '10+',
+    techniciansCertified: 'Trained Technicians',
+    customersServed: 'Thousands of',
     responseNotice: '< 2 Hour Response',
     pricingNotice: 'Transparent Upfront Quotes',
   },
