@@ -117,14 +117,10 @@ function NavLink({ item, isScrolled, isTransparent }: NavLinkProps) {
       ? pathname === '/'
       : pathname.startsWith(item.href);
 
-  // Ensure 100% readable text color in normal state (before hover)
-  const textColor = isTransparent && !isScrolled
-    ? 'text-white font-bold drop-shadow-sm hover:text-cyan-200'
-    : 'text-slate-900 font-bold hover:text-primary-600 dark:text-slate-100 dark:hover:text-primary-400';
+  // Ensure 100% readable high-contrast text color in normal state (before hover)
+  const textColor = 'text-slate-900 font-extrabold hover:text-primary-600 dark:text-slate-100 dark:hover:text-primary-400';
 
-  const activeColor = isTransparent && !isScrolled
-    ? 'text-white font-extrabold underline underline-offset-4 decoration-2 decoration-accent-400'
-    : 'text-primary-600 font-extrabold dark:text-primary-400';
+  const activeColor = 'text-primary-600 font-extrabold underline underline-offset-4 decoration-2 decoration-primary-500 dark:text-primary-400';
 
   const openDropdown = useCallback(() => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -224,10 +220,7 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          'fixed inset-x-0 top-0 z-[1000] transition-all duration-300',
-          showSolidBg
-            ? 'border-b border-slate-200/90 bg-white/98 shadow-md backdrop-blur-md dark:border-slate-800/90 dark:bg-slate-950/98'
-            : 'bg-transparent',
+          'fixed inset-x-0 top-0 z-[1000] border-b border-slate-200/90 bg-white/98 shadow-md backdrop-blur-md transition-all duration-300 dark:border-slate-800/90 dark:bg-slate-950/98',
         )}
       >
         <div className="container-base">
@@ -244,22 +237,12 @@ export function Navbar() {
               </div>
               <div className="leading-tight">
                 <span
-                  className={cn(
-                    'block text-base font-extrabold tracking-tight transition-colors',
-                    showSolidBg
-                      ? 'text-slate-900 dark:text-white'
-                      : 'text-white drop-shadow-sm',
-                  )}
+                  className="block text-base font-extrabold tracking-tight transition-colors text-slate-900 dark:text-white"
                 >
                   ChillFix
                 </span>
                 <span
-                  className={cn(
-                    'block text-[10px] font-bold uppercase tracking-widest transition-colors',
-                    showSolidBg
-                      ? 'text-primary-600 dark:text-primary-400'
-                      : 'text-cyan-200',
-                  )}
+                  className="block text-[10px] font-bold uppercase tracking-widest transition-colors text-primary-600 dark:text-primary-400"
                 >
                   AC Service
                 </span>
@@ -290,12 +273,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"
-                className={cn(
-                  'flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-sm font-bold transition-all',
-                  showSolidBg
-                    ? 'bg-[#25D366]/15 text-[#1ebe5a] hover:bg-[#25D366] hover:text-white'
-                    : 'bg-white/20 text-white hover:bg-white/30',
-                )}
+                className="flex items-center gap-1.5 rounded-xl bg-[#25D366]/15 px-3.5 py-2 text-sm font-extrabold text-[#1ebe5a] transition-all hover:bg-[#25D366] hover:text-white"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span>WhatsApp</span>
@@ -304,7 +282,7 @@ export function Navbar() {
               <a
                 href={CONTACT_DETAILS.phone.href}
                 aria-label={`Call ${CONTACT_DETAILS.phone.display}`}
-                className="flex items-center gap-1.5 rounded-xl bg-primary-500 px-4 py-2 text-sm font-bold text-white shadow-md shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-lg"
+                className="flex items-center gap-1.5 rounded-xl bg-primary-500 px-4 py-2 text-sm font-extrabold text-white shadow-md shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-lg"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 <span>Call Now</span>
@@ -318,12 +296,7 @@ export function Navbar() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              className={cn(
-                'flex h-10 w-10 items-center justify-center rounded-xl transition-colors lg:hidden',
-                showSolidBg
-                  ? 'text-slate-900 bg-slate-100 hover:bg-slate-200 dark:text-white dark:bg-slate-800'
-                  : 'text-white bg-white/20 hover:bg-white/30',
-              )}
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-900 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:text-white lg:hidden"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {mobileOpen ? (

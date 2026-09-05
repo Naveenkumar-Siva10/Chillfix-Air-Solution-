@@ -109,7 +109,7 @@ export default function PricingPage() {
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
                   Chennai Standard AC Service &amp; Repair Rate Card
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold mt-1">
                   Rates include certified labor, equipment, and post-service testing across Chennai and nearby areas.
                 </p>
               </div>
@@ -179,7 +179,7 @@ export default function PricingPage() {
           <div className="space-y-6">
             <div className="text-center max-w-2xl mx-auto">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Annual Maintenance Contract (AMC) Price List</h2>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">
                 Save up to 40% annually with structured preventive AC servicing contracts for homes and commercial offices.
               </p>
             </div>
@@ -189,7 +189,7 @@ export default function PricingPage() {
                 <div key={plan.id} className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900 flex flex-col justify-between">
                   <div>
                     <h3 className="font-bold text-slate-900 dark:text-white text-lg">{plan.name}</h3>
-                    <p className="text-xs text-slate-500 mt-1">{plan.tagline || plan.description}</p>
+                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 mt-1">{plan.tagline || plan.description}</p>
                     <div className="my-4">
                       <span className="text-3xl font-extrabold text-primary-600 dark:text-primary-400">{formatPrice(plan.price)}</span>
                       <span className="text-xs text-slate-400"> / {plan.billingCycle}</span>

@@ -206,9 +206,9 @@ export function HeroSection() {
                 onClick={handleBookNow}
                 className={cn(
                   'group flex items-center justify-center gap-2.5 rounded-2xl',
-                  'border-2 border-white/40 bg-white/10 px-7 py-4 text-base font-bold text-white',
-                  'backdrop-blur-sm transition-all duration-200',
-                  'hover:border-white/60 hover:bg-white/20 hover:-translate-y-0.5 active:scale-[0.98]',
+                  'border-2 border-white bg-white/25 px-7 py-4 text-base font-extrabold text-white',
+                  'shadow-lg backdrop-blur-sm transition-all duration-200',
+                  'hover:bg-white/40 hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98]',
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
                 )}
                 aria-label="Book an AC service appointment in Chennai"
@@ -219,9 +219,9 @@ export function HeroSection() {
             </motion.div>
 
             {/* Contact row */}
-            <motion.p {...fadeUp(0.75)} className="mt-5 text-sm text-white/60">
-              📞 <a href={CONTACT_DETAILS.phone.href} className="hover:underline font-semibold text-white">{CONTACT_DETAILS.phone.display}</a> &nbsp;·&nbsp;{' '}
-              ✉️ <a href={CONTACT_DETAILS.email.href} className="hover:underline font-semibold text-white">{SITE_CONFIG.email}</a>
+            <motion.p {...fadeUp(0.75)} className="mt-5 text-sm font-semibold text-slate-100">
+              📞 <a href={CONTACT_DETAILS.phone.href} className="hover:underline font-extrabold text-white">{CONTACT_DETAILS.phone.display}</a> &nbsp;·&nbsp;{' '}
+              ✉️ <a href={CONTACT_DETAILS.email.href} className="hover:underline font-extrabold text-white">{SITE_CONFIG.email}</a>
             </motion.p>
           </div>
         </div>

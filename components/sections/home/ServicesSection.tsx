@@ -201,7 +201,7 @@ export function ServicesSection() {
             </a>
             <Link
               href="/services"
-              className="flex items-center justify-center gap-2 rounded-2xl border-2 border-white/40 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20"
+              className="flex items-center justify-center gap-2 rounded-2xl border-2 border-white bg-white/25 px-6 py-3 text-sm font-extrabold text-white shadow-md backdrop-blur-sm transition-all hover:bg-white/40"
             >
               View All Services
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

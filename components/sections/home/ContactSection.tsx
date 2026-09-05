@@ -92,11 +92,11 @@ export function ContactSection() {
                         <Icon className="h-6 w-6" aria-hidden="true" />
                       </span>
                       <div>
-                        <h3 className="text-base font-bold text-slate-900 dark:text-white">{card.title}</h3>
-                        <p className="text-xs text-slate-500">{card.subtitle}</p>
+                        <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">{card.title}</h3>
+                        <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">{card.subtitle}</p>
                       </div>
                     </div>
-                    <p className="mb-6 font-semibold text-slate-800 dark:text-slate-200">{card.value}</p>
+                    <p className="mb-6 font-extrabold text-slate-900 dark:text-white text-base">{card.value}</p>
                   </div>
 
                   <a
@@ -104,7 +104,7 @@ export function ContactSection() {
                     target={'external' in card && card.external ? '_blank' : undefined}
                     rel={'external' in card && card.external ? 'noopener noreferrer' : undefined}
                     className={cn(
-                      'flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold shadow-sm transition-all active:scale-[0.98]',
+                      'flex items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-extrabold shadow-md transition-all active:scale-[0.98]',
                       card.btnClass,
                     )}
                   >
@@ -156,15 +156,15 @@ export function ContactSection() {
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 text-accent-500 shrink-0" aria-hidden="true" />
                   <div>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white">Same-Day Service Guaranteed</p>
-                    <p className="text-xs text-slate-500">Book before 12 PM for guaranteed same-day technician visit.</p>
+                    <p className="text-sm font-extrabold text-slate-900 dark:text-white">Same-Day Service Guaranteed</p>
+                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Book before 12 PM for guaranteed same-day technician visit.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <ShieldAlert className="mt-0.5 h-5 w-5 text-amber-500 shrink-0" aria-hidden="true" />
                   <div>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white">24/7 Emergency Dispatch</p>
-                    <p className="text-xs text-slate-500">Night breakdown? We have emergency units ready in Chennai.</p>
+                    <p className="text-sm font-extrabold text-slate-900 dark:text-white">24/7 Emergency Dispatch</p>
+                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Night breakdown? We have emergency units ready in Chennai.</p>
                   </div>
                 </div>
               </div>
