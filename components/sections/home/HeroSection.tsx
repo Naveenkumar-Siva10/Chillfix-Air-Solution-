@@ -33,7 +33,7 @@ const STATS = [
 const EASE = [0.21, 0.47, 0.32, 0.98] as [number, number, number, number];
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 28 },
+  initial: { opacity: 1, y: 0 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.65, delay, ease: EASE },
 });
@@ -54,7 +54,7 @@ function FloatingTag({
         'text-sm font-semibold text-white shadow-lg xl:flex items-center gap-2',
         className,
       )}
-      initial={{ opacity: 0, scale: 0.85 }}
+      initial={{ opacity: 1, scale: 1 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay, ease: 'backOut' }}
     >
@@ -229,7 +229,7 @@ export function HeroSection() {
         {/* Stats strip at bottom — Factual stats only */}
         <motion.div
           className="relative z-10 border-t border-white/10 bg-black/20 backdrop-blur-sm"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
         >

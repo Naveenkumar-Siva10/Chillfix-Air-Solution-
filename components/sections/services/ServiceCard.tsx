@@ -60,7 +60,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
   if (variant === 'compact') {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -90,7 +90,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
   if (variant === 'featured') {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 1, y: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -155,7 +155,7 @@ export function ServiceCard({ service, variant = 'default', className, index = 0
   // Default variant
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
