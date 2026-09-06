@@ -1,18 +1,21 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
+
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 /**
  * Returns the current scroll position (Y offset) of the window.
- * Used to trigger navbar styling changes on scroll.
+ * Used to trigger navbar styling changes on scroll without hydration layout shift.
  */
 export function useScrollPosition(): number {
   const [scrollY, setScrollY] = useState(0);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
 
-    // Initialize
+    // Initialize position synchronously before paint
     handleScroll();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
