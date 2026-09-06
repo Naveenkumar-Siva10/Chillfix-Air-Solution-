@@ -2,9 +2,9 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
-// Rate limiting in-memory store — max 20 requests per 10 minutes per IP
+// Rate limiting in-memory store — max 30 requests per 10 minutes per IP
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT = 20;
+const RATE_LIMIT = 30;
 const RATE_WINDOW = 10 * 60 * 1000; // 10 minutes
 
 function isRateLimited(ip: string): boolean {
@@ -56,8 +56,20 @@ interface ChatHistoryItem {
   content: string;
 }
 
+// Gemini candidate models in order of priority
+const CANDIDATE_MODELS = [
+  'gemini-2.0-flash',
+  'gemini-1.5-flash',
+  'gemini-1.5-flash-latest',
+  'gemini-1.5-pro',
+];
+
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
+    const isDebug =
+      request.headers.get('x-debug') === '1' ||
+      request.nextUrl.searchParams.get('debug') === '1';
+
     const ip =
       request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
       request.headers.get('x-real-ip') ??
@@ -101,25 +113,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Format & sanitize previous history (limit to last 10 messages max)
-    const validHistory: ChatHistoryItem[] = [];
-    if (Array.isArray(rawHistory)) {
-      for (const item of rawHistory.slice(-10)) {
-        if (
-          item &&
-          typeof item === 'object' &&
-          (item.role === 'user' || item.role === 'model') &&
-          typeof item.content === 'string'
-        ) {
-          validHistory.push({
-            role: item.role,
-            content: item.content.slice(0, 1000),
-          });
-        }
-      }
-    }
-
-    const apiKey = process.env.GEMINI_API_KEY;
+    // Clean and validate API key from environment
+    const rawKey = process.env.GEMINI_API_KEY || '';
+    const apiKey = rawKey.trim().replace(/^["']|["']$/g, '');
 
     // Graceful fallback if GEMINI_API_KEY is not configured yet
     if (!apiKey) {
@@ -130,23 +126,60 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       });
     }
 
-    // Prepare Gemini payload
-    const contents = [
-      ...validHistory.map((m) => ({
-        role: m.role,
-        parts: [{ text: m.content }],
-      })),
-      {
-        role: 'user',
-        parts: [{ text: message }],
-      },
-    ];
+    // Format & sanitize previous history (limit to last 10 messages max)
+    const validHistory: ChatHistoryItem[] = [];
+    if (Array.isArray(rawHistory)) {
+      for (const item of rawHistory.slice(-10)) {
+        if (
+          item &&
+          typeof item === 'object' &&
+          (item.role === 'user' || item.role === 'model') &&
+          typeof item.content === 'string' &&
+          item.content.trim()
+        ) {
+          validHistory.push({
+            role: item.role,
+            content: item.content.trim().slice(0, 1000),
+          });
+        }
+      }
+    }
 
+    // Build strictly valid alternating contents array for Gemini
+    // Rule 1: First item must be 'user'
+    // Rule 2: 'user' and 'model' must strictly alternate
+    const sanitizedContents: Array<{ role: 'user' | 'model'; parts: Array<{ text: string }> }> = [];
+
+    for (const item of validHistory) {
+      if (sanitizedContents.length === 0) {
+        // Skip leading model messages
+        if (item.role !== 'user') continue;
+        sanitizedContents.push({ role: 'user', parts: [{ text: item.content }] });
+      } else {
+        const lastRole = sanitizedContents[sanitizedContents.length - 1].role;
+        if (item.role !== lastRole) {
+          sanitizedContents.push({ role: item.role, parts: [{ text: item.content }] });
+        } else {
+          // If same role consecutively, merge into last item's text
+          sanitizedContents[sanitizedContents.length - 1].parts[0].text += '\n' + item.content;
+        }
+      }
+    }
+
+    // Add current user message
+    if (sanitizedContents.length > 0 && sanitizedContents[sanitizedContents.length - 1].role === 'user') {
+      // If last was user, append this message text
+      sanitizedContents[sanitizedContents.length - 1].parts[0].text += '\n' + message;
+    } else {
+      sanitizedContents.push({ role: 'user', parts: [{ text: message }] });
+    }
+
+    // Prepare primary payload with systemInstruction
     const geminiPayload = {
-      system_instruction: {
+      systemInstruction: {
         parts: [{ text: SYSTEM_INSTRUCTION }],
       },
-      contents,
+      contents: sanitizedContents,
       generationConfig: {
         temperature: 0.7,
         maxOutputTokens: 800,
@@ -154,55 +187,99 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       },
     };
 
-    // Primary: gemini-2.5-flash (free tier in Google AI Studio)
-    // Fallback: gemini-1.5-flash
-    let response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(geminiPayload),
-        signal: AbortSignal.timeout(15000),
-      },
-    ).catch(() => null);
+    let replyText = '';
+    const attemptErrors: Array<{ model: string; status: number; text: string }> = [];
 
-    // If gemini-2.5-flash is not available, try gemini-1.5-flash
-    if (!response || !response.ok) {
-      response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-        {
+    // Try candidate models in order
+    for (const model of CANDIDATE_MODELS) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
+        const res = await fetch(url, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'x-goog-api-key': apiKey,
+          },
           body: JSON.stringify(geminiPayload),
-          signal: AbortSignal.timeout(15000),
-        },
-      ).catch(() => null);
+          signal: AbortSignal.timeout(12000),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          const parts = data?.candidates?.[0]?.content?.parts;
+          if (Array.isArray(parts)) {
+            replyText = parts.map((p: { text?: string }) => p?.text ?? '').filter(Boolean).join('\n').trim();
+          }
+          if (replyText) {
+            // Success!
+            break;
+          }
+        } else {
+          const errText = await res.text().catch(() => '');
+          attemptErrors.push({ model, status: res.status, text: errText });
+          console.error(`[Gemini API] ${model} returned ${res.status}:`, errText);
+        }
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : String(err);
+        attemptErrors.push({ model, status: 0, text: message });
+        console.error(`[Gemini API] ${model} fetch error:`, message);
+      }
     }
 
-    if (!response || !response.ok) {
-      console.error('[Gemini API] Request failed with status:', response?.status);
+    // If candidate models with systemInstruction failed, try fallback payload without systemInstruction
+    if (!replyText) {
+      const fallbackContents = [
+        {
+          role: 'user',
+          parts: [{ text: SYSTEM_INSTRUCTION + '\n\nUser question: ' + message }],
+        },
+      ];
+
+      for (const model of ['gemini-2.0-flash', 'gemini-1.5-flash']) {
+        try {
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-goog-api-key': apiKey,
+            },
+            body: JSON.stringify({
+              contents: fallbackContents,
+              generationConfig: { temperature: 0.7, maxOutputTokens: 800 },
+            }),
+            signal: AbortSignal.timeout(12000),
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            const parts = data?.candidates?.[0]?.content?.parts;
+            if (Array.isArray(parts)) {
+              replyText = parts.map((p: { text?: string }) => p?.text ?? '').filter(Boolean).join('\n').trim();
+            }
+            if (replyText) break;
+          } else {
+            const errText = await res.text().catch(() => '');
+            attemptErrors.push({ model: model + '-fallback', status: res.status, text: errText });
+          }
+        } catch {
+          // ignore
+        }
+      }
+    }
+
+    if (!replyText) {
       return NextResponse.json({
-        success: true,
+        success: isDebug ? false : true,
         reply:
           "Sorry, I'm having trouble connecting right now. Please contact Chillfix Air Solution directly at 9080495932 for quick AC service assistance.",
-      });
-    }
-
-    const data = await response.json();
-    const candidateText =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ?? '';
-
-    if (!candidateText) {
-      return NextResponse.json({
-        success: true,
-        reply:
-          "I couldn't generate a response. Please call us at 9080495932 and our technician will be happy to help.",
+        ...(isDebug ? { debug: { keyLength: apiKey.length, attemptErrors } } : {}),
       });
     }
 
     return NextResponse.json({
       success: true,
-      reply: candidateText,
+      reply: replyText,
     });
   } catch (error) {
     console.error('[Chat API] Unexpected error:', error);

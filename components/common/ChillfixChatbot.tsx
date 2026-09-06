@@ -3,19 +3,16 @@
 import { useState, useRef, useEffect, useCallback, type FormEvent, type KeyboardEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  MessageSquare,
   X,
   Send,
   Phone,
   MessageCircle,
   Snowflake,
   Bot,
-  Sparkles,
-  ArrowDown,
   Loader2,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { CONTACT_DETAILS, SITE_CONFIG } from '@/constants/site';
+import { CONTACT_DETAILS } from '@/constants/site';
 
 interface Message {
   id: string;
@@ -31,13 +28,18 @@ const INITIAL_GREETING: Message = {
   timestamp: 'Just now',
 };
 
-const QUICK_ACTIONS = [
-  '❄️ AC not cooling',
-  '💧 AC water leakage',
-  '✨ AC service',
-  '🔧 AC installation',
-  '📅 Book a service',
-  '📞 Contact Chillfix',
+interface QuickAction {
+  label: string;
+  query: string;
+}
+
+const QUICK_ACTIONS: QuickAction[] = [
+  { label: '❄️ AC not cooling', query: 'My AC is not cooling properly. What could be the issue?' },
+  { label: '💧 AC water leakage', query: 'Water is leaking from my AC indoor unit. How can this be fixed?' },
+  { label: '✨ AC service', query: 'What is included in Chillfix AC service in Chennai?' },
+  { label: '🔧 AC installation', query: 'How does AC installation work with Chillfix?' },
+  { label: '📅 Book a service', query: 'I want to book an AC service with Chillfix.' },
+  { label: '📞 Contact Chillfix', query: 'How can I contact Chillfix Air Solution?' },
 ];
 
 export function ChillfixChatbot() {
@@ -45,7 +47,6 @@ export function ChillfixChatbot() {
   const [messages, setMessages] = useState<Message[]>([INITIAL_GREETING]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [hasUnread, setHasUnread] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -57,8 +58,6 @@ export function ChillfixChatbot() {
   useEffect(() => {
     if (isOpen) {
       scrollToBottom();
-      setHasUnread(false);
-      // Focus input on desktop
       setTimeout(() => {
         inputRef.current?.focus();
       }, 150);
@@ -159,7 +158,7 @@ export function ChillfixChatbot() {
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 px-4 py-3.5 text-white shadow-sm">
               <div className="flex items-center gap-3">
                 <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-sm border border-white/20">
-                  <Snowflake className="h-5 w-5 text-accent-300" aria-hidden="true" />
+                  <Snowflake className="h-5 w-5 text-accent-300" aria-hidden="true" focusable={false} />
                   <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
                     <span className="relative inline-flex h-3 w-3 rounded-full bg-accent-400 border-2 border-primary-700" />
@@ -184,7 +183,7 @@ export function ChillfixChatbot() {
                   title="Call 9080495932"
                   className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 transition-colors text-white"
                 >
-                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  <Phone className="h-4 w-4" aria-hidden="true" focusable={false} />
                 </a>
                 <a
                   href={CONTACT_DETAILS.whatsapp.withMessage('Hi ChillFix! I need help with AC service in Chennai.')}
@@ -194,7 +193,7 @@ export function ChillfixChatbot() {
                   title="WhatsApp"
                   className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#25D366] hover:bg-[#1ebe5a] transition-colors text-white"
                 >
-                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" focusable={false} />
                 </a>
                 <button
                   type="button"
@@ -202,7 +201,7 @@ export function ChillfixChatbot() {
                   aria-label="Close Chat"
                   className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 transition-colors text-white ml-0.5"
                 >
-                  <X className="h-4 w-4" aria-hidden="true" />
+                  <X className="h-4 w-4" aria-hidden="true" focusable={false} />
                 </button>
               </div>
             </div>
@@ -218,7 +217,7 @@ export function ChillfixChatbot() {
                   >
                     {!isUser && (
                       <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-primary-500 text-white shadow-xs">
-                        <Bot className="h-4 w-4" aria-hidden="true" />
+                        <Bot className="h-4 w-4" aria-hidden="true" focusable={false} />
                       </div>
                     )}
                     <div
@@ -247,7 +246,7 @@ export function ChillfixChatbot() {
               {isLoading && (
                 <div className="flex items-end gap-2 justify-start">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-primary-500 text-white shadow-xs">
-                    <Bot className="h-4 w-4" aria-hidden="true" />
+                    <Bot className="h-4 w-4" aria-hidden="true" focusable={false} />
                   </div>
                   <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700/60 rounded-2xl rounded-bl-xs px-4 py-3 shadow-xs">
                     <span className="h-2 w-2 rounded-full bg-primary-500 animate-bounce" style={{ animationDelay: '0ms' }} />
@@ -267,12 +266,12 @@ export function ChillfixChatbot() {
                   <div className="flex flex-wrap gap-1.5">
                     {QUICK_ACTIONS.map((action) => (
                       <button
-                        key={action}
+                        key={action.label}
                         type="button"
-                        onClick={() => handleSendMessage(action.replace(/^[^s]+s/, ''))}
+                        onClick={() => handleSendMessage(action.query)}
                         className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:border-primary-500 hover:text-primary-600 transition-all shadow-2xs hover:shadow-xs active:scale-95"
                       >
-                        {action}
+                        {action.label}
                       </button>
                     ))}
                   </div>
@@ -311,9 +310,9 @@ export function ChillfixChatbot() {
                   )}
                 >
                   {isLoading ? (
-                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" focusable={false} />
                   ) : (
-                    <Send className="h-4 w-4" aria-hidden="true" />
+                    <Send className="h-4 w-4" aria-hidden="true" focusable={false} />
                   )}
                 </button>
               </div>
@@ -327,12 +326,7 @@ export function ChillfixChatbot() {
       </AnimatePresence>
 
       {/* ── Floating Launcher Button ── */}
-      <motion.div
-        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-[900] no-print"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1.2, type: 'spring', stiffness: 260, damping: 20 }}
-      >
+      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-[900] no-print">
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -347,46 +341,29 @@ export function ChillfixChatbot() {
         >
           {/* Pulsing halo */}
           <span
-            className="absolute -inset-0.5 rounded-full bg-primary-500 opacity-35 animate-ping group-hover:opacity-50"
+            className="absolute -inset-0.5 rounded-full bg-primary-500 opacity-35 animate-ping group-hover:opacity-50 pointer-events-none"
             aria-hidden="true"
           />
 
           {/* Icon state */}
-          <AnimatePresence mode="wait" initial={false}>
-            {isOpen ? (
-              <motion.span
-                key="close-icon"
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.15 }}
-              >
-                <X className="h-6 w-6" aria-hidden="true" />
-              </motion.span>
-            ) : (
-              <motion.span
-                key="bot-icon"
-                initial={{ rotate: 90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -90, opacity: 0 }}
-                transition={{ duration: 0.15 }}
-                className="relative"
-              >
-                <Bot className="h-7 w-7" aria-hidden="true" />
-                <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-400" />
-                </span>
-              </motion.span>
-            )}
-          </AnimatePresence>
+          {isOpen ? (
+            <X className="h-6 w-6 text-white transition-transform" aria-hidden="true" focusable={false} />
+          ) : (
+            <div className="relative flex items-center justify-center">
+              <Bot className="h-7 w-7 text-white" aria-hidden="true" focusable={false} />
+              <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-400" />
+              </span>
+            </div>
+          )}
 
           {/* Hover Tooltip (desktop only) */}
           <span className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 hidden whitespace-nowrap rounded-xl bg-slate-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 lg:block dark:bg-slate-800">
             {isOpen ? 'Close Chat' : 'Chat with Chillfix AI ❄️'}
           </span>
         </button>
-      </motion.div>
+      </div>
     </>
   );
 }
