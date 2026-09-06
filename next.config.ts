@@ -102,7 +102,7 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
-            value: '(?<subdomain>.*)\\.vercel\\.app',
+            value: '(.*)\\.vercel\\.app',
           },
         ],
         destination: 'https://chillfixairsolution.in/:path*',
