@@ -307,7 +307,7 @@ export function Navbar() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.15 }}
                   >
-                    <X className="h-5 w-5" aria-hidden="true" />
+                    <X className="h-5 w-5" aria-hidden="true" focusable={false} />
                   </motion.span>
                 ) : (
                   <motion.span
@@ -317,7 +317,7 @@ export function Navbar() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.15 }}
                   >
-                    <Menu className="h-5 w-5" aria-hidden="true" />
+                    <Menu className="h-5 w-5" aria-hidden="true" focusable={false} />
                   </motion.span>
                 )}
               </AnimatePresence>

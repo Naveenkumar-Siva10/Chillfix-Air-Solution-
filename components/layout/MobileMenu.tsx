@@ -10,6 +10,7 @@ import {
   MessageCircle,
   Snowflake,
   CalendarCheck,
+  X,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { NAV_ITEMS } from '@/constants/navigation';
@@ -173,6 +174,16 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   </span>
                 </div>
               </Link>
+
+              {/* Close Button — matches navbar hamburger position */}
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close menu"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-900 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:text-white"
+              >
+                <X className="h-5 w-5" aria-hidden="true" focusable={false} />
+              </button>
             </div>
 
             {/* Scrollable nav list */}
