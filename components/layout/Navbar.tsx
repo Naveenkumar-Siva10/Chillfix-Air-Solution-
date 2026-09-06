@@ -273,7 +273,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"
-                className="flex items-center gap-1.5 rounded-xl bg-[#25D366]/15 px-3.5 py-2 text-sm font-extrabold text-[#1ebe5a] transition-all hover:bg-[#25D366] hover:text-white"
+                className="flex items-center gap-1.5 rounded-xl bg-[#25D366] px-4 py-2 text-sm font-extrabold text-white shadow-md transition-all hover:bg-[#1ebe5a] hover:shadow-lg"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 <span>WhatsApp</span>

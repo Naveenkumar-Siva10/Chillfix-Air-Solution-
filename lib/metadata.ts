@@ -36,9 +36,13 @@ export function generatePageMetadata({
     'AC deep cleaning Chennai',
   ];
 
+  const fullTitle = title.includes(SITE_CONFIG.name)
+    ? title
+    : `${title} | ${SITE_CONFIG.name}`;
+
   return {
     title: {
-      absolute: `${title} | ${SITE_CONFIG.name}`,
+      absolute: fullTitle,
     },
     description,
     keywords: [...defaultKeywords, ...keywords].join(', '),

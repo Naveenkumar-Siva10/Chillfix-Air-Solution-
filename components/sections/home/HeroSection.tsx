@@ -136,7 +136,7 @@ export function HeroSection() {
             {/* Exact H1 requested by Task 2 */}
             <motion.h1
               {...fadeUp(0.25)}
-              className="mb-4 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
+              className="mb-4 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl drop-shadow-sm"
             >
               AC Service &amp; Repair in Chennai
             </motion.h1>
@@ -144,7 +144,7 @@ export function HeroSection() {
             {/* Exact Supporting Text requested by Task 2 */}
             <motion.p
               {...fadeUp(0.4)}
-              className="mb-8 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg"
+              className="mb-8 max-w-xl text-base sm:text-lg leading-relaxed text-slate-100 font-medium"
             >
               ChillFix AC Service provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling and installation across Chennai, with strong service coverage around Perungalathur, Tambaram, Vandalur, Manivakkam, Chromepet and nearby areas.
             </motion.p>
