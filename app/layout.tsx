@@ -164,16 +164,22 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={cn(inter.variable, poppins.variable, 'font-sans')}
       suppressHydrationWarning
     >
-      {/* Inject document-progress CSS + JS before any render */}
+      {/* CSS in head — correct position for stylesheets */}
       <head>
         <style dangerouslySetInnerHTML={{ __html: DOC_PROGRESS_CSS }} />
-        <script dangerouslySetInnerHTML={{ __html: DOC_PROGRESS_JS }} />
       </head>
       <body className="font-sans antialiased bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
-        {/* Static bar element — present in SSR HTML, animated by the inline script above */}
+        {/*
+          Bar div MUST come before the script so getElementById finds it.
+          Script is render-blocking inline JS — runs synchronously the instant
+          the parser reaches it, after the div above is already in the DOM.
+          This guarantees getElementById('doc-progress') returns the element.
+        */}
         <div id="doc-progress" aria-hidden="true" role="presentation" />
+        <script dangerouslySetInnerHTML={{ __html: DOC_PROGRESS_JS }} />
         {children}
       </body>
     </html>
   );
 }
+
