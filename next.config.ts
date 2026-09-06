@@ -63,6 +63,29 @@ const nextConfig: NextConfig = {
   // Redirects
   async redirects() {
     return [
+      // Server-side permanent domain redirect from old Vercel domain to new official domain
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'chillfix-air-solution.vercel.app',
+          },
+        ],
+        destination: 'https://chillfixairsolution.in/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.chillfix-air-solution.vercel.app',
+          },
+        ],
+        destination: 'https://chillfixairsolution.in/:path*',
+        permanent: true,
+      },
       {
         source: '/home',
         destination: '/',
