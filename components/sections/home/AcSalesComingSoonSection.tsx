@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { Sparkles, ShieldCheck, Wrench, Truck, CheckCircle2, MessageSquare, ArrowRight } from 'lucide-react';
 import { SITE_CONFIG } from '@/constants/site';
 
@@ -47,51 +44,30 @@ export function AcSalesComingSoonSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 1, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-cyan-300 text-sm font-semibold mb-4"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-cyan-300 text-sm font-semibold mb-4">
             <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
             <span>Expanding Service Portfolio</span>
-          </motion.div>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 1, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-display"
-          >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-display">
             Premium Air Conditioner Sales <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
               Coming Soon to Chennai
             </span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 1, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed"
-          >
+          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
             While ChillFix Air Solution currently provides top-rated <strong className="text-white">AC repair, jet-wash servicing, gas filling, and AMC contracts</strong> across 25+ Chennai areas, we are preparing to launch multi-brand AC sales with doorstep delivery and expert installation.
-          </motion.p>
+          </p>
         </div>
 
         {/* Feature Cards Grid */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {FUTURE_BENEFITS.map((item, idx) => {
+          {FUTURE_BENEFITS.map((item) => {
             const IconComponent = item.icon;
             return (
-              <motion.div
+              <div
                 key={item.title}
-                initial={{ opacity: 1, y: 0 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15 * idx }}
                 className="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 backdrop-blur-sm hover:border-blue-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5 group"
               >
                 <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -99,19 +75,13 @@ export function AcSalesComingSoonSection() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                 <p className="text-sm text-slate-300 leading-relaxed">{item.description}</p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Brand Showcase Section */}
-        <motion.div
-          initial={{ opacity: 1, y: 0 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-10 p-8 rounded-3xl bg-gradient-to-br from-slate-800/80 via-slate-900/90 to-slate-950 border border-slate-700/80 shadow-2xl"
-        >
+        <div className="mt-10 p-8 rounded-3xl bg-gradient-to-br from-slate-800/80 via-slate-900/90 to-slate-950 border border-slate-700/80 shadow-2xl">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
               <span className="text-xs uppercase tracking-widest text-cyan-400 font-semibold">Authorised Brand Partners</span>
@@ -150,7 +120,7 @@ export function AcSalesComingSoonSection() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Phone,
   MessageCircle,
@@ -13,7 +11,6 @@ import {
 import { cn } from '@/lib/utils';
 import { CONTACT_DETAILS, SITE_CONFIG } from '@/constants/site';
 import { SectionHeader } from '@/components/sections/shared/SectionHeader';
-import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/sections/shared/ScrollReveal';
 import { ContactForm } from '@/components/sections/contact/ContactForm';
 import { GoogleMap } from '@/components/common/GoogleMap';
 
@@ -65,63 +62,66 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="section-padding bg-slate-50 dark:bg-slate-950"
+      className="section-padding bg-slate-50 dark:bg-slate-900/50"
       aria-labelledby="contact-heading"
     >
       <div className="container-base space-y-16">
 
-        {/* ── Section Header ── */}
+        {/* Section Header */}
         <SectionHeader
           eyebrow="Get In Touch"
-          title="Fast AC Service"
-          titleHighlight="Across Chennai"
-          description="Have an AC problem or need an installation quote? Reach out via phone, WhatsApp, or form. Our certified technicians reach you within 2 hours."
-          className="mb-10"
+          title="Fast Local"
+          titleHighlight="AC Service in Chennai"
+          description="Have an AC issue or need routine servicing? Reach out by phone, WhatsApp, email, or fill out the quick booking form."
         />
 
-        {/* ── Quick Contact Info Cards ── */}
-        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.08}>
+        {/* ── 4 Key Contact Cards Grid ── */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CONTACT_CARDS.map((card) => {
             const Icon = card.icon;
+            const isExternal = 'external' in card && card.external;
             return (
-              <StaggerItem key={card.title}>
-                <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card dark:border-slate-800 dark:bg-slate-900">
-                  <div>
-                    <div className="mb-4 flex items-center gap-3">
-                      <span className={cn('flex h-12 w-12 items-center justify-center rounded-2xl', card.color)}>
-                        <Icon className="h-6 w-6" aria-hidden="true" />
-                      </span>
-                      <div>
-                        <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">{card.title}</h3>
-                        <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">{card.subtitle}</p>
-                      </div>
-                    </div>
-                    <p className="mb-6 font-extrabold text-slate-900 dark:text-white text-base">{card.value}</p>
+              <div
+                key={card.title}
+                className="group flex flex-col justify-between rounded-3xl border border-slate-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card dark:border-slate-800 dark:bg-slate-900"
+              >
+                <div>
+                  <div className={cn('mb-4 flex h-12 w-12 items-center justify-center rounded-2xl', card.color)}>
+                    <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
-
-                  <a
-                    href={card.href}
-                    target={'external' in card && card.external ? '_blank' : undefined}
-                    rel={'external' in card && card.external ? 'noopener noreferrer' : undefined}
-                    className={cn(
-                      'flex items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-extrabold shadow-md transition-all active:scale-[0.98]',
-                      card.btnClass,
-                    )}
-                  >
-                    <Icon className="h-4 w-4" aria-hidden="true" />
-                    {card.action}
-                  </a>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                    {card.title}
+                  </h3>
+                  <p className="mb-3 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    {card.subtitle}
+                  </p>
+                  <p className="font-extrabold text-slate-900 dark:text-white break-words text-sm">
+                    {card.value}
+                  </p>
                 </div>
-              </StaggerItem>
+
+                <a
+                  href={card.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                  className={cn(
+                    'mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold transition-all shadow-md',
+                    card.btnClass,
+                  )}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  <span>{card.action}</span>
+                </a>
+              </div>
             );
           })}
-        </StaggerContainer>
+        </div>
 
         {/* ── Contact Form + Map Side-by-Side ── */}
         <div className="grid gap-8 lg:grid-cols-12 items-start" id="contact-form">
 
           {/* Left Column: Form (7 cols) */}
-          <ScrollReveal direction="left" className="lg:col-span-7">
+          <div className="lg:col-span-7">
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-sm font-semibold text-primary-500">
                 <Headphones className="h-4 w-4" aria-hidden="true" />
@@ -135,10 +135,10 @@ export function ContactSection() {
               </p>
               <ContactForm />
             </div>
-          </ScrollReveal>
+          </div>
 
           {/* Right Column: Google Map + Location Info (5 cols) */}
-          <ScrollReveal direction="right" className="lg:col-span-5">
+          <div className="lg:col-span-5">
             <div className="space-y-6">
               <div className="flex items-center gap-2 text-sm font-semibold text-secondary-500">
                 <MapPin className="h-4 w-4" aria-hidden="true" />
@@ -169,52 +169,46 @@ export function ContactSection() {
                 </div>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
 
         {/* ── Emergency Callout Strip ── */}
-        <ScrollReveal direction="up" delay={0.2}>
+        <div>
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-red-600 via-primary-600 to-primary-800 p-8 sm:p-10 text-white shadow-xl">
             <div className="relative z-10 flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
               <div className="max-w-xl">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm mb-3">
-                  🚨 Emergency Assistance Needed?
+                  ⚡ 24/7 Emergency Service Line
                 </span>
-                <h3 className="font-display text-2xl font-bold sm:text-3xl">
-                  AC Stopped Cooling in Peak Summer?
+                <h3 className="text-2xl font-bold font-display sm:text-3xl text-white">
+                  Need AC Repair Urgently in Chennai?
                 </h3>
-                <p className="mt-2 text-sm text-white/85 sm:text-base">
-                  Don&rsquo;t suffer in the heat! Call our emergency line right now. Technicians dispatched in under 2 hours.
+                <p className="mt-2 text-sm text-slate-100 font-medium">
+                  Compressor failure, gas leakage, or cooling stopped completely? Call our emergency team right now.
                 </p>
               </div>
 
-              <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <a
                   href={CONTACT_DETAILS.phone.href}
-                  className="flex items-center justify-center gap-2.5 rounded-2xl bg-white px-7 py-4 text-base font-bold text-red-600 shadow-lg transition-all hover:bg-slate-50 hover:shadow-2xl active:scale-[0.98]"
+                  className="flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3.5 text-sm font-extrabold text-primary-600 shadow-lg transition-all hover:bg-slate-100 hover:scale-105"
                 >
-                  <Phone className="h-5 w-5 animate-pulse" aria-hidden="true" />
-                  Call Emergency Line
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  <span>Call {CONTACT_DETAILS.phone.display}</span>
                 </a>
                 <a
-                  href={CONTACT_DETAILS.whatsapp.withMessage('URGENT: My AC stopped working. Need emergency repair in Chennai!')}
+                  href={CONTACT_DETAILS.whatsapp.withMessage('EMERGENCY: My AC stopped cooling. Please send a technician urgently.')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#25D366] px-7 py-4 text-base font-bold text-white shadow-lg transition-all hover:bg-[#1ebe5a] active:scale-[0.98]"
+                  className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg transition-all hover:bg-[#1ebe5a] hover:scale-105"
                 >
-                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                  Urgent WhatsApp
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  <span>Emergency WhatsApp</span>
                 </a>
               </div>
             </div>
-
-            {/* Decorative background radial pattern */}
-            <div
-              className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 opacity-50 blur-2xl"
-              aria-hidden="true"
-            />
           </div>
-        </ScrollReveal>
+        </div>
 
       </div>
     </section>

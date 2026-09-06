@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import {
   ShieldCheck,
   Clock3,
@@ -16,7 +13,6 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { SectionHeader } from '@/components/sections/shared/SectionHeader';
-import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/sections/shared/ScrollReveal';
 
 const STATS = [
   {
@@ -128,20 +124,18 @@ const PROCESS_STEPS = [
 function StatsRow() {
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-      {STATS.map(({ value, suffix, label, icon: Icon, color, bg }, i) => (
-        <ScrollReveal key={label} delay={i * 0.1} direction="up">
-          <div className="flex flex-col items-center gap-3 rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-soft dark:border-slate-800 dark:bg-slate-900">
-            <span className={cn('flex h-12 w-12 items-center justify-center rounded-2xl', bg)}>
-              <Icon className={cn('h-6 w-6', color)} aria-hidden="true" />
-            </span>
-            <div>
-              <p className={cn('font-display text-3xl font-bold md:text-4xl', color)}>
-                {value}{suffix}
-              </p>
-              <p className="mt-1 text-sm font-medium text-slate-600 dark:text-slate-400">{label}</p>
-            </div>
+      {STATS.map(({ value, suffix, label, icon: Icon, color, bg }) => (
+        <div key={label} className="flex flex-col items-center gap-3 rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-soft dark:border-slate-800 dark:bg-slate-900">
+          <span className={cn('flex h-12 w-12 items-center justify-center rounded-2xl', bg)}>
+            <Icon className={cn('h-6 w-6', color)} aria-hidden="true" />
+          </span>
+          <div>
+            <p className={cn('font-display text-3xl font-bold md:text-4xl', color)}>
+              {value}{suffix}
+            </p>
+            <p className="mt-1 text-sm font-medium text-slate-600 dark:text-slate-400">{label}</p>
           </div>
-        </ScrollReveal>
+        </div>
       ))}
     </div>
   );
@@ -149,26 +143,21 @@ function StatsRow() {
 
 function WhyUsGrid() {
   return (
-    <StaggerContainer
-      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-      staggerDelay={0.08}
-    >
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {WHY_US.map(({ icon: Icon, title, description, accent }) => (
-        <StaggerItem key={title}>
-          <div className="group flex h-full flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card dark:border-slate-800 dark:bg-slate-900">
-            <div className="flex items-center gap-4">
-              <span className={cn('flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-white', accent)}>
-                <Icon className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white">{title}</h3>
-            </div>
-            <p className="flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-              {description}
-            </p>
+        <div key={title} className="group flex h-full flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card dark:border-slate-800 dark:bg-slate-900">
+          <div className="flex items-center gap-4">
+            <span className={cn('flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-white', accent)}>
+              <Icon className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">{title}</h3>
           </div>
-        </StaggerItem>
+          <p className="flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            {description}
+          </p>
+        </div>
       ))}
-    </StaggerContainer>
+    </div>
   );
 }
 
@@ -180,31 +169,26 @@ function ProcessSteps() {
         aria-hidden="true"
       />
 
-      <StaggerContainer
-        className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
-        staggerDelay={0.12}
-      >
+      <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {PROCESS_STEPS.map(({ step, icon: Icon, title, description }) => (
-          <StaggerItem key={step}>
-            <div className="flex flex-col items-center gap-4 text-center">
-              <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-4 border-white bg-primary-500 shadow-md shadow-primary-500/30 dark:border-slate-900">
-                <Icon className="h-6 w-6 text-white" aria-hidden="true" />
-                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent-500 text-xs font-bold text-white">
-                  {step}
-                </span>
-              </div>
-              <div>
-                <h3 className="mb-1.5 text-base font-bold text-slate-900 dark:text-white">
-                  {title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                  {description}
-                </p>
-              </div>
+          <div key={step} className="flex flex-col items-center gap-4 text-center">
+            <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-4 border-white bg-primary-500 shadow-md shadow-primary-500/30 dark:border-slate-900">
+              <Icon className="h-6 w-6 text-white" aria-hidden="true" />
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent-500 text-xs font-bold text-white">
+                {step}
+              </span>
             </div>
-          </StaggerItem>
+            <div>
+              <h3 className="mb-1.5 text-base font-bold text-slate-900 dark:text-white">
+                {title}
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                {description}
+              </p>
+            </div>
+          </div>
         ))}
-      </StaggerContainer>
+      </div>
     </div>
   );
 }
@@ -255,13 +239,7 @@ export function TrustSection() {
         </div>
 
         {/* 4. Service Area Strip */}
-        <motion.div
-          initial={{ opacity: 1, y: 0 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-3xl border border-slate-100 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-900"
-        >
+        <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-900">
           <p className="mb-4 text-center text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
             Serving Chennai &amp; Nearby Areas
           </p>
@@ -280,7 +258,7 @@ export function TrustSection() {
               </span>
             ))}
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>
