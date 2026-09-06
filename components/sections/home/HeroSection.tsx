@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import {
   Phone,
   MessageCircle,
@@ -23,6 +26,12 @@ const STATS = [
   { value: '100%', label: 'Upfront Quotes' },
   { value: '24/7', label: 'Emergency Support' },
 ] as const;
+
+// Shared entrance animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
 
 function FloatingTag({
   label,
@@ -96,10 +105,14 @@ export function HeroSection() {
 
       {/* Main content */}
       <div className="container-base relative z-10 flex flex-1 flex-col justify-center pt-20 pb-8 lg:pt-28">
-        <div className="max-w-2xl">
-
+        <motion.div
+          className="max-w-2xl"
+          initial="hidden"
+          animate="visible"
+          variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+        >
           {/* Emergency badge */}
-          <div className="mb-6">
+          <motion.div variants={fadeUp} transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }} className="mb-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-accent-400/40 bg-accent-500/15 px-4 py-1.5 text-sm font-semibold text-accent-300 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
@@ -107,34 +120,46 @@ export function HeroSection() {
               </span>
               24/7 AC Service &amp; Repair — Chennai &amp; Perungalathur
             </span>
-          </div>
+          </motion.div>
 
           {/* H1 Headline */}
-          <h1
+          <motion.h1
+            variants={fadeUp}
+            transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mb-4 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl drop-shadow-sm"
           >
             AC Service &amp; Repair in Chennai
-          </h1>
+          </motion.h1>
 
           {/* Supporting Text */}
-          <p
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mb-8 max-w-xl text-base sm:text-lg leading-relaxed text-slate-100 font-medium"
           >
             ChillFix AC Service provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling and installation across Chennai, with strong service coverage around Perungalathur, Tambaram, Vandalur, Manivakkam, Chromepet and nearby areas.
-          </p>
+          </motion.p>
 
           {/* Trust badges row */}
-          <div className="mb-8 flex flex-wrap gap-x-5 gap-y-2">
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="mb-8 flex flex-wrap gap-x-5 gap-y-2"
+          >
             {TRUST_BADGES.map(({ icon: Icon, label, color }) => (
               <div key={label} className="flex items-center gap-1.5">
                 <Icon className={cn('h-4 w-4 shrink-0', color)} aria-hidden="true" />
                 <span className="text-sm font-medium text-white/85">{label}</span>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Primary CTAs */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="flex flex-col gap-3 sm:flex-row sm:flex-wrap"
+          >
             <a
               href={CONTACT_DETAILS.phone.href}
               className={cn(
@@ -170,18 +195,27 @@ export function HeroSection() {
             </a>
 
             <HeroBookingButton />
-          </div>
+          </motion.div>
 
           {/* Contact row */}
-          <p className="mt-5 text-sm font-semibold text-slate-100">
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="mt-5 text-sm font-semibold text-slate-100"
+          >
             📞 <a href={CONTACT_DETAILS.phone.href} className="hover:underline font-extrabold text-white">{CONTACT_DETAILS.phone.display}</a> &nbsp;·&nbsp;{' '}
             ✉️ <a href={CONTACT_DETAILS.email.href} className="hover:underline font-extrabold text-white">{SITE_CONFIG.email}</a>
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
 
       {/* Stats strip at bottom */}
-      <div className="relative z-10 border-t border-white/10 bg-black/20 backdrop-blur-sm">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="relative z-10 border-t border-white/10 bg-black/20 backdrop-blur-sm"
+      >
         <div className="container-base py-5">
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {STATS.map(({ value, label }) => (
@@ -196,7 +230,8 @@ export function HeroSection() {
             ))}
           </dl>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
+

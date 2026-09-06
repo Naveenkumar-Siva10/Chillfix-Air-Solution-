@@ -37,7 +37,7 @@ export function SectionHeader({
     <div className={cn('flex flex-col gap-4', alignClass, className)}>
       {eyebrow && (
         <motion.div
-          initial={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
@@ -50,7 +50,7 @@ export function SectionHeader({
       )}
 
       <motion.h2
-        initial={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -71,7 +71,7 @@ export function SectionHeader({
 
       {description && (
         <motion.p
-          initial={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -87,3 +87,4 @@ export function SectionHeader({
     </div>
   );
 }
+

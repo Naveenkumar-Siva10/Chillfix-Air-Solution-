@@ -26,7 +26,7 @@ const getVariants = (direction: Direction, distance: number) => {
   };
 
   return {
-    hidden: { opacity: 1, ...offsets[direction] } as Variant,
+    hidden: { opacity: 0, ...offsets[direction] } as Variant,
     visible: { opacity: 1, x: 0, y: 0 } as Variant,
   };
 };
@@ -49,7 +49,7 @@ export function ScrollReveal({
   return (
     <motion.div
       className={cn(className)}
-      initial={false}
+      initial="hidden"
       whileInView="visible"
       viewport={{ once, margin: '-60px' }}
       variants={variants}
@@ -63,6 +63,7 @@ export function ScrollReveal({
     </motion.div>
   );
 }
+
 
 /**
  * Stagger container — animates children sequentially.
@@ -113,7 +114,7 @@ export function StaggerItem({
     <motion.div
       className={cn(className)}
       variants={{
-        hidden: { opacity: 1, y: 20 },
+        hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] } },
       }}
     >

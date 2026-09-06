@@ -15,11 +15,13 @@ export function ScrollRestoration() {
   const prevPathname = useRef(pathname);
 
   useEffect(() => {
-    // 1. On initial mount / hard refresh: allow browser natural scroll restoration
+    // 1. On initial mount / hard refresh:
+    //    Set 'manual' so browser does NOT restore the previous scroll position.
+    //    Then immediately scroll to top — hero is always visible after refresh.
     if (isFirstMount.current) {
       isFirstMount.current = false;
       if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
-        window.history.scrollRestoration = 'auto';
+        window.history.scrollRestoration = 'manual';
       }
 
       // If URL contains a hash anchor (e.g. #pricing, #contact), scroll to target element
@@ -31,6 +33,9 @@ export function ScrollRestoration() {
             targetEl.scrollIntoView({ behavior: 'smooth' });
           }, 100);
         }
+      } else {
+        // No hash — scroll to top so Hero is visible
+        window.scrollTo(0, 0);
       }
       return;
     }
