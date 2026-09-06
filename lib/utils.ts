@@ -102,20 +102,11 @@ export function getServiceUrl(slug: string): string {
 }
 
 /**
- * Returns canonical route for an area slug.
+ * Returns canonical route for an area location slug.
  */
 export function getAreaUrl(slug: string): string {
-  const topLevelAreas = [
-    'ac-service-perungalathur',
-    'ac-service-tambaram',
-    'ac-service-vandalur',
-    'ac-service-manivakkam',
-    'ac-service-chromepet',
-  ];
-  if (topLevelAreas.includes(slug)) {
-    return `/${slug}`;
-  }
-  return `/areas/${slug}`;
+  const clean = slug.toLowerCase().replace(/^ac-service-/, '');
+  return `/service-areas/${clean}`;
 }
 
 /**

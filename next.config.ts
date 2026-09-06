@@ -115,27 +115,52 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/areas/ac-service-perungalathur',
-        destination: '/ac-service-perungalathur',
+        destination: '/service-areas/perungalathur',
         permanent: true,
       },
       {
         source: '/areas/ac-service-tambaram',
-        destination: '/ac-service-tambaram',
+        destination: '/service-areas/tambaram',
         permanent: true,
       },
       {
         source: '/areas/ac-service-vandalur',
-        destination: '/ac-service-vandalur',
+        destination: '/service-areas/vandalur',
         permanent: true,
       },
       {
         source: '/areas/ac-service-manivakkam',
-        destination: '/ac-service-manivakkam',
+        destination: '/service-areas/manivakkam',
         permanent: true,
       },
       {
         source: '/areas/ac-service-chromepet',
-        destination: '/ac-service-chromepet',
+        destination: '/service-areas/chromepet',
+        permanent: true,
+      },
+      {
+        source: '/ac-service-perungalathur',
+        destination: '/service-areas/perungalathur',
+        permanent: true,
+      },
+      {
+        source: '/ac-service-tambaram',
+        destination: '/service-areas/tambaram',
+        permanent: true,
+      },
+      {
+        source: '/ac-service-vandalur',
+        destination: '/service-areas/vandalur',
+        permanent: true,
+      },
+      {
+        source: '/ac-service-manivakkam',
+        destination: '/service-areas/manivakkam',
+        permanent: true,
+      },
+      {
+        source: '/ac-service-chromepet',
+        destination: '/service-areas/chromepet',
         permanent: true,
       },
     ];
