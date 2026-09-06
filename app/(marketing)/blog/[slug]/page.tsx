@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const relatedPosts = await getRelatedPosts(post.relatedSlugs);
+  const relatedPosts = await getRelatedPosts(post.relatedSlugs ?? []);
 
   const breadcrumbItems = [
     { label: 'Blog', href: '/blog' },

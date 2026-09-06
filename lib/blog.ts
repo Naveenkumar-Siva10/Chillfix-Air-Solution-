@@ -85,7 +85,7 @@ export async function getFeaturedBlogPosts(limit = 3): Promise<BlogPost[]> {
 /**
  * Gets related posts by slug list.
  */
-export async function getRelatedPosts(slugs: string[]): Promise<BlogPost[]> {
+export async function getRelatedPosts(slugs: string[] = []): Promise<BlogPost[]> {
   const posts = await Promise.all(slugs.map((slug) => getBlogPost(slug)));
   return posts.filter((post): post is BlogPost => post !== null);
 }
