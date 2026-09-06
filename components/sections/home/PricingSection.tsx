@@ -92,7 +92,7 @@ function PlanCard({ plan }: { plan: AMCPlan }) {
                 {formatPrice(plan.price)}
               </span>
               <span className="text-sm font-medium text-white/70">
-                /{plan.period === 'year' ? 'year' : 'visit'}
+                /{plan.billingCycle === 'annual' ? 'year' : 'visit'}
               </span>
             </div>
           )}
@@ -103,7 +103,7 @@ function PlanCard({ plan }: { plan: AMCPlan }) {
       <div className="flex flex-1 flex-col justify-between p-6">
         <ul className="space-y-3 mb-6" role="list">
           {plan.features.map((feature) => (
-            <li key={feature.text} className="flex items-start gap-2.5 text-sm">
+            <li key={feature.label} className="flex items-start gap-2.5 text-sm">
               {feature.included ? (
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-500" aria-hidden="true" />
               ) : (
@@ -116,7 +116,7 @@ function PlanCard({ plan }: { plan: AMCPlan }) {
                     : 'text-slate-400 dark:text-slate-500 line-through',
                 )}
               >
-                {feature.text}
+                {feature.label}{feature.value ? `: ${feature.value}` : ''}
               </span>
             </li>
           ))}
