@@ -56,12 +56,15 @@ interface ChatHistoryItem {
   content: string;
 }
 
-// Gemini candidate models in order of priority
+// Gemini candidate models in order of priority (gemini-3.6-flash is recommended by Google API)
 const CANDIDATE_MODELS = [
+  'gemini-3.6-flash',
+  'gemini-3.6-flash-latest',
+  'gemini-3.5-flash',
+  'gemini-3.0-flash',
+  'gemini-2.5-flash',
   'gemini-2.0-flash',
   'gemini-1.5-flash',
-  'gemini-1.5-flash-latest',
-  'gemini-1.5-pro',
 ];
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -235,7 +238,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         },
       ];
 
-      for (const model of ['gemini-2.0-flash', 'gemini-1.5-flash']) {
+      for (const model of ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash']) {
         try {
           const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
           const res = await fetch(url, {
