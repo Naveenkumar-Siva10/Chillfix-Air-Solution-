@@ -105,6 +105,58 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
+// ============================================================
+// Document-level progress bar — fires on every full page load
+// (Ctrl+R, Ctrl+Shift+R, direct URL, new tab).
+// Uses the same gradient as TopNavigationProgress so both bars
+// look visually identical. The document bar hides on window.load;
+// TopNavigationProgress only starts after first React render,
+// so they NEVER overlap or conflict.
+// ============================================================
+
+const DOC_PROGRESS_CSS = `
+#doc-progress{
+  position:fixed;top:0;left:0;width:0;height:2.5px;
+  background:linear-gradient(90deg,#0F4C81,#38bdf8,#00C853);
+  z-index:99999;pointer-events:none;
+  transition:width .25s ease,opacity .25s ease;
+  will-change:width,opacity;
+}
+@media(prefers-reduced-motion:reduce){
+  #doc-progress{transition:opacity .25s ease;}
+}
+`.trim();
+
+// Immediately-invoked vanilla JS — no React, no hydration.
+// Progressively advances through document.readyState checkpoints
+// and completes on window load. Failsafe removes bar after 10 s.
+const DOC_PROGRESS_JS = `
+(function(){
+  var el=document.getElementById('doc-progress');
+  if(!el)return;
+  var done=false;
+  function go(w){if(done)return;el.style.width=w+'%';}
+  function finish(){
+    if(done)return;done=true;
+    el.style.width='100%';
+    setTimeout(function(){el.style.opacity='0';
+      setTimeout(function(){el.style.display='none';},260);
+    },140);
+  }
+  go(15);
+  document.addEventListener('readystatechange',function(){
+    if(done)return;
+    if(document.readyState==='interactive')go(65);
+    if(document.readyState==='complete')finish();
+  });
+  document.addEventListener('DOMContentLoaded',function(){
+    if(!done&&parseFloat(el.style.width||'0')<65)go(65);
+  });
+  window.addEventListener('load',finish);
+  setTimeout(finish,10000);
+})();
+`.trim();
+
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
@@ -112,7 +164,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={cn(inter.variable, poppins.variable, 'font-sans')}
       suppressHydrationWarning
     >
+      {/* Inject document-progress CSS + JS before any render */}
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: DOC_PROGRESS_CSS }} />
+        <script dangerouslySetInnerHTML={{ __html: DOC_PROGRESS_JS }} />
+      </head>
       <body className="font-sans antialiased bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
+        {/* Static bar element — present in SSR HTML, animated by the inline script above */}
+        <div id="doc-progress" aria-hidden="true" role="presentation" />
         {children}
       </body>
     </html>
