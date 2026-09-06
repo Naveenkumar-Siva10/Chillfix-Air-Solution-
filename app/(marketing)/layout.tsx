@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppButton } from '@/components/common/WhatsAppButton';
 import { ScrollRestoration } from '@/components/common/ScrollRestoration';
+import { TopNavigationProgress } from '@/components/common/TopNavigationProgress';
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
@@ -10,12 +12,16 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
+      <Suspense fallback={null}>
+        <TopNavigationProgress />
+      </Suspense>
+
       <ScrollRestoration />
 
       {/* Sticky Navbar */}
       <Navbar />
 
-      {/* Page content — pt-16 reserves space for fixed navbar on non-hero pages */}
+      {/* Page content */}
       <main id="main-content" className="flex-1">
         {children}
       </main>
