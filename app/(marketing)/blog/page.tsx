@@ -8,6 +8,7 @@ export const metadata: Metadata = generatePageMetadata({
   title: 'AC Maintenance Guides & Tips — ChillFix Blog',
   description: 'Expert tips on air conditioner maintenance, power saving, gas leakage troubleshooting, and choosing the right AC for Chennai weather.',
   canonicalPath: '/blog',
+  noIndex: true, // Temporarily no-indexed while blog is disabled from public navigation
 });
 
 const ARTICLES = [

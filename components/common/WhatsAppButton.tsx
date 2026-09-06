@@ -46,7 +46,7 @@ export function WhatsAppButton({
   if (variant === 'floating') {
     return (
       <motion.div
-        className="fixed bottom-6 right-6 z-[900] no-print"
+        className="fixed bottom-22 right-5 sm:bottom-24 sm:right-6 z-[890] no-print"
         initial={{ scale: 1, opacity: 1 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.5, type: 'spring', stiffness: 260, damping: 20 }}

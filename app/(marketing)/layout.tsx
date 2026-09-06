@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppButton } from '@/components/common/WhatsAppButton';
+import { ChillfixChatbot } from '@/components/common/ChillfixChatbot';
 import { ScrollRestoration } from '@/components/common/ScrollRestoration';
 import { TopNavigationProgress } from '@/components/common/TopNavigationProgress';
 
@@ -31,6 +32,9 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
 
       {/* Floating WhatsApp button — persistent on all pages */}
       <WhatsAppButton variant="floating" />
+
+      {/* Chillfix AI Chatbot — floating assistant */}
+      <ChillfixChatbot />
     </div>
   );
 }

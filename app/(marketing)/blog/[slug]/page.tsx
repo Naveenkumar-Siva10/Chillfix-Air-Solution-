@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     canonicalPath: `/blog/${post.slug}`,
     ogImage: post.featuredImage,
     keywords: post.tags,
+    noIndex: true, // Temporarily no-indexed while blog is disabled from public navigation
   });
 }
 

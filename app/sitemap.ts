@@ -17,7 +17,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/faq`, lastModified: lastMod, changeFrequency: 'monthly', priority: 0.75 },
     { url: `${baseUrl}/testimonials`, lastModified: lastMod, changeFrequency: 'weekly', priority: 0.6 },
     { url: `${baseUrl}/contact`, lastModified: lastMod, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/blog`, lastModified: lastMod, changeFrequency: 'weekly', priority: 0.85 },
+    // Temporarily omitted from sitemap while blog is disabled from public navigation:
+    // { url: `${baseUrl}/blog`, lastModified: lastMod, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${baseUrl}/privacy-policy`, lastModified: lastMod, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${baseUrl}/terms`, lastModified: lastMod, changeFrequency: 'yearly', priority: 0.3 },
   ];
@@ -42,14 +43,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.9,
   }));
 
-  // Blog Article Pages (/blog/[slug])
-  const blogSlugs = getBlogSlugs();
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified: lastMod,
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }));
+  // Blog Article Pages (/blog/[slug]) — uncomment when articles are ready to publish
+  // const blogSlugs = getBlogSlugs();
+  // const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
+  //   url: `${baseUrl}/blog/${slug}`,
+  //   lastModified: lastMod,
+  //   changeFrequency: 'monthly' as const,
+  //   priority: 0.8,
+  // }));
 
-  return [...staticPages, ...servicePages, ...locationPages, ...blogPages];
+  return [...staticPages, ...servicePages, ...locationPages];
 }

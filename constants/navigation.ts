@@ -50,10 +50,11 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'FAQ',
     href: '/faq',
   },
-  {
-    label: 'Blog',
-    href: '/blog',
-  },
+  // Temporarily hidden until articles are published:
+  // {
+  //   label: 'Blog',
+  //   href: '/blog',
+  // },
   {
     label: 'Contact',
     href: '/contact',
@@ -82,7 +83,8 @@ export const FOOTER_NAV = {
     { label: 'About Us', href: '/about' },
     { label: 'Testimonials', href: '/testimonials' },
     { label: 'FAQ', href: '/faq' },
-    { label: 'Blog Articles', href: '/blog' },
+    // Temporarily hidden until articles are published:
+    // { label: 'Blog Articles', href: '/blog' },
     { label: 'Contact Us', href: '/contact' },
   ],
   legal: [
