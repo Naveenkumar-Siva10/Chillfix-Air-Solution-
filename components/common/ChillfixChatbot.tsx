@@ -140,18 +140,20 @@ export function ChillfixChatbot() {
       <AnimatePresence>
         {isOpen && (
           <motion.aside
-            initial={{ opacity: 0, y: 20, scale: 0.96 }}
+            initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.96 }}
-            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ opacity: 0, y: 16, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             aria-label="Chillfix AI Chat window"
             className={cn(
-              'fixed z-[950] flex flex-col bg-white dark:bg-slate-900',
+              'fixed z-[870] flex flex-col bg-white dark:bg-slate-900',
               'border border-slate-200/90 dark:border-slate-800/90 shadow-2xl overflow-hidden',
-              // Mobile: positioned safely at bottom
-              'inset-x-3 bottom-3 sm:inset-x-auto sm:right-6 sm:bottom-24',
+              // Mobile: sits directly above the Chillfix AI button (bottom: 142px) with horizontal safe padding
+              'bottom-[142px] right-3 left-3 sm:left-auto sm:right-6',
+              // Desktop: sits directly above the Chillfix AI button (bottom: 162px)
+              'sm:bottom-[162px]',
               // Responsive size
-              'w-auto sm:w-[410px] h-[560px] max-h-[85vh] rounded-3xl',
+              'w-auto sm:w-[390px] h-[460px] sm:h-[520px] max-h-[calc(100dvh-158px)] sm:max-h-[calc(100vh-185px)] rounded-3xl',
             )}
           >
             {/* ── Header ── */}
@@ -326,14 +328,14 @@ export function ChillfixChatbot() {
       </AnimatePresence>
 
       {/* ── Floating Launcher Button ── */}
-      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-[900] no-print">
+      <div className="fixed bottom-[78px] right-4 sm:bottom-[94px] sm:right-6 z-[860] no-print">
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-expanded={isOpen}
           aria-label={isOpen ? 'Close Chillfix AI Chat' : 'Open Chillfix AI Chatbot'}
           className={cn(
-            'group relative flex h-14 w-14 items-center justify-center rounded-full shadow-xl',
+            'group relative flex h-[52px] w-[52px] sm:h-14 sm:w-14 items-center justify-center rounded-full shadow-xl',
             'bg-gradient-to-tr from-primary-600 via-primary-500 to-secondary-500 text-white',
             'transition-transform duration-200 hover:scale-105 active:scale-95',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
@@ -350,7 +352,7 @@ export function ChillfixChatbot() {
             <X className="h-6 w-6 text-white transition-transform" aria-hidden="true" focusable={false} />
           ) : (
             <div className="relative flex items-center justify-center">
-              <Bot className="h-7 w-7 text-white" aria-hidden="true" focusable={false} />
+              <Bot className="h-6 w-6 sm:h-7 sm:w-7 text-white" aria-hidden="true" focusable={false} />
               <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-400" />

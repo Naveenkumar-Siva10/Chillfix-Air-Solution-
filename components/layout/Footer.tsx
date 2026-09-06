@@ -154,8 +154,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Legal & Copyright Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-300 sm:flex-row">
-          <p className="text-slate-300 font-medium">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 pb-24 sm:pb-8 sm:pr-28 text-xs text-slate-300 sm:flex-row">
+          <p className="text-slate-300 font-medium text-center sm:text-left">
             © 2026 {SITE_CONFIG.name}. All rights reserved. Serving Chennai and nearby areas.
           </p>
 

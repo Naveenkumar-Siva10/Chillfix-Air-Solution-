@@ -46,7 +46,7 @@ export function WhatsAppButton({
   if (variant === 'floating') {
     return (
       <motion.div
-        className="fixed bottom-22 right-5 sm:bottom-24 sm:right-6 z-[890] no-print"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[850] no-print group"
         initial={{ scale: 1, opacity: 1 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.5, type: 'spring', stiffness: 260, damping: 20 }}
@@ -57,24 +57,29 @@ export function WhatsAppButton({
           rel="noopener noreferrer"
           aria-label="Chat with us on WhatsApp"
           className={cn(
-            'flex h-14 w-14 items-center justify-center rounded-full shadow-lg',
+            'relative flex h-[52px] w-[52px] sm:h-14 sm:w-14 items-center justify-center rounded-full shadow-lg',
             'bg-[#25D366] text-white',
-            'transition-transform duration-200 hover:scale-110 active:scale-95',
-            'focus-visible:outline-2 focus-visible:outline-offset-2',
+            'transition-transform duration-200 hover:scale-105 active:scale-95',
+            'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]',
             className,
           )}
         >
           <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+            animate={{ scale: [1, 1.08, 1] }}
+            transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
           >
-            <MessageCircle className="h-7 w-7 fill-white" aria-hidden="true" />
+            <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 fill-white" aria-hidden="true" focusable={false} />
           </motion.div>
           {/* Pulse ring */}
           <span
-            className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping"
+            className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none"
             aria-hidden="true"
           />
+
+          {/* Hover Tooltip (desktop only) */}
+          <span className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 hidden whitespace-nowrap rounded-xl bg-slate-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 lg:block dark:bg-slate-800">
+            Chat on WhatsApp
+          </span>
         </Link>
       </motion.div>
     );
