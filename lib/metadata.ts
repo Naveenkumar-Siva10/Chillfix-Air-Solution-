@@ -36,9 +36,9 @@ export function generatePageMetadata({
     'AC deep cleaning Chennai',
   ];
 
-  const fullTitle = title.includes(SITE_CONFIG.name)
-    ? title
-    : `${title} | ${SITE_CONFIG.name}`;
+  // Prevent duplicate brand suffixes if title already contains ChillFix or brand name
+  const hasBrand = /ChillFix/i.test(title);
+  const fullTitle = hasBrand ? title : `${title} | ${SITE_CONFIG.name}`;
 
   return {
     title: {
@@ -69,20 +69,20 @@ export function generatePageMetadata({
       locale: 'en_IN',
       url: canonicalUrl,
       siteName: SITE_CONFIG.name,
-      title: `${title} | ${SITE_CONFIG.name}`,
+      title: fullTitle,
       description,
       images: [
         {
           url: absoluteOgImage,
           width: 1200,
           height: 630,
-          alt: `${title} — ${SITE_CONFIG.name}`,
+          alt: `${fullTitle}`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} | ${SITE_CONFIG.name}`,
+      title: fullTitle,
       description,
       images: [absoluteOgImage],
     },

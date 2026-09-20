@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { contactFormSchema, type ContactFormSchema, SERVICE_OPTIONS } from '@/lib/validations';
 import { CONTACT_DETAILS } from '@/constants/site';
+import { trackFormSubmission } from '@/lib/analytics';
 
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
@@ -46,6 +47,7 @@ export function ContactForm({ className }: ContactFormProps) {
 
       if (result.success) {
         setSubmitStatus('success');
+        trackFormSubmission('Contact Page Form', data.service);
         reset();
       } else {
         setSubmitStatus('error');

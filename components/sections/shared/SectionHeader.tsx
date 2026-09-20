@@ -12,6 +12,8 @@ interface SectionHeaderProps {
   className?: string;
   /** Size variant: 'default' | 'lg' */
   size?: 'default' | 'lg';
+  /** Heading level: default 'h2' */
+  as?: 'h1' | 'h2';
 }
 
 /**
@@ -26,12 +28,15 @@ export function SectionHeader({
   align = 'center',
   className,
   size = 'default',
+  as = 'h2',
 }: SectionHeaderProps) {
   const alignClass = {
     left: 'items-start text-left',
     center: 'items-center text-center',
     right: 'items-end text-right',
   }[align];
+
+  const HeadingTag = as === 'h1' ? motion.h1 : motion.h2;
 
   return (
     <div className={cn('flex flex-col gap-4', alignClass, className)}>
@@ -49,7 +54,7 @@ export function SectionHeader({
         </motion.div>
       )}
 
-      <motion.h2
+      <HeadingTag
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -67,7 +72,7 @@ export function SectionHeader({
         ) : (
           title
         )}
-      </motion.h2>
+      </HeadingTag>
 
       {description && (
         <motion.p

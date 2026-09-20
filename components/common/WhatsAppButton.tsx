@@ -5,6 +5,7 @@ import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { CONTACT_DETAILS } from '@/constants/site';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 interface WhatsAppButtonProps {
   /** Custom WhatsApp message to pre-fill */
@@ -53,6 +54,7 @@ export function WhatsAppButton({
       >
         <Link
           href={href}
+          onClick={() => trackWhatsAppClick('Floating WhatsApp Button')}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with us on WhatsApp"
@@ -89,6 +91,7 @@ export function WhatsAppButton({
     return (
       <Link
         href={href}
+        onClick={() => trackWhatsAppClick(label ?? 'Outline WhatsApp Button')}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label ?? 'Chat on WhatsApp'}
@@ -110,6 +113,7 @@ export function WhatsAppButton({
   return (
     <Link
       href={href}
+      onClick={() => trackWhatsAppClick(label ?? 'Inline WhatsApp Button')}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label ?? 'Chat on WhatsApp'}

@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { bookingFormSchema, type BookingFormSchema, SERVICE_OPTIONS, AC_BRAND_OPTIONS, AC_TYPE_OPTIONS, PREFERRED_TIME_OPTIONS } from '@/lib/validations';
 import { CONTACT_DETAILS } from '@/constants/site';
+import { trackBookingConfirmation } from '@/lib/analytics';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -19,10 +20,14 @@ interface BookingModalProps {
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
 /**
- * Service booking modal with a multi-field form.
- * Opens from "Book Now" CTAs throughout the site.
+ * Interactive multi-step booking modal.
+ * Connects directly to the /api/contact endpoint with booking-specific details.
  */
-export function BookingModal({ isOpen, onClose, preselectedService }: BookingModalProps) {
+export function BookingModal({
+  isOpen,
+  onClose,
+  preselectedService,
+}: BookingModalProps) {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
 
   const {
@@ -54,6 +59,7 @@ export function BookingModal({ isOpen, onClose, preselectedService }: BookingMod
       const result = await response.json();
       if (result.success) {
         setSubmitStatus('success');
+        trackBookingConfirmation(data.service, data.address);
         reset();
       } else {
         setSubmitStatus('error');

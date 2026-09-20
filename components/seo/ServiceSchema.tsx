@@ -1,6 +1,7 @@
 import { JsonLd } from './JsonLd';
 import type { Service } from '@/types';
 import { SITE_CONFIG } from '@/constants/site';
+import { getServiceUrl } from '@/lib/utils';
 
 interface ServiceSchemaProps {
   service: Service;
@@ -16,7 +17,7 @@ export function ServiceSchema({ service }: ServiceSchemaProps) {
     '@type': 'Service',
     name: service.name,
     description: service.description,
-    url: `${SITE_CONFIG.url}/services/${service.slug}`,
+    url: `${SITE_CONFIG.url}${getServiceUrl(service.slug)}`,
     provider: {
       '@type': 'LocalBusiness',
       name: SITE_CONFIG.name,

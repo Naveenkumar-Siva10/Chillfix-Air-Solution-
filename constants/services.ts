@@ -53,7 +53,7 @@ export const SERVICES: Service[] = [
     id: 'ac-repair-chennai',
     slug: 'ac-repair-chennai',
     name: 'AC Repair in Chennai',
-    metaTitle: 'AC Repair in Chennai | Fast 2-Hour Doorstep AC Technicians',
+    metaTitle: 'AC Repair in Chennai | Emergency Doorstep Technicians | ChillFix',
     metaDescription: 'Expert AC repair service in Chennai for all brands. We fix cooling issues, water leakages, PCB circuit boards, compressor trips, and noise problems with 90-day warranty.',
     shortDescription: 'Fast diagnostic & breakdown repair service by certified technicians across Chennai.',
     description: 'When your AC stops cooling or breaks down in Chennai heat, ChillFix dispatches certified AC repair technicians to your doorstep within 2 hours. We diagnose root causes on-site and repair components with 100% genuine spare parts.',

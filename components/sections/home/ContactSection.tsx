@@ -58,7 +58,7 @@ const CONTACT_CARDS = [
   },
 ] as const;
 
-export function ContactSection() {
+export function ContactSection({ as = 'h2' }: { as?: 'h1' | 'h2' } = {}) {
   return (
     <section
       id="contact"
@@ -69,6 +69,7 @@ export function ContactSection() {
 
         {/* Section Header */}
         <SectionHeader
+          as={as}
           eyebrow="Get In Touch"
           title="Fast Local"
           titleHighlight="AC Service in Chennai"

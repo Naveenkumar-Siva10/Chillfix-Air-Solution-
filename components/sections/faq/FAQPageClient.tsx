@@ -20,6 +20,7 @@ export function FAQPageClient() {
     <div className="pt-24 pb-16">
       <div className="container-base space-y-12">
         <SectionHeader
+          as="h1"
           eyebrow="Got Questions?"
           title="Frequently Asked"
           titleHighlight="Questions"

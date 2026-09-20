@@ -113,6 +113,7 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Service routes permanent redirects
       {
         source: '/services/ac-service-chennai',
         destination: '/ac-service-chennai',
@@ -148,39 +149,36 @@ const nextConfig: NextConfig = {
         destination: '/ac-maintenance-chennai',
         permanent: true,
       },
+      // Price routes consolidation to /pricing
+      {
+        source: '/ac-service-price-chennai',
+        destination: '/pricing',
+        permanent: true,
+      },
       {
         source: '/pricing/ac-service-price-chennai',
-        destination: '/ac-service-price-chennai',
+        destination: '/pricing',
         permanent: true,
       },
       {
         source: '/services/ac-service-price-chennai',
-        destination: '/ac-service-price-chennai',
+        destination: '/pricing',
+        permanent: true,
+      },
+      // Legacy specific /areas and /ac-service-* redirects
+      {
+        source: '/areas/ac-service-:slug',
+        destination: '/service-areas/:slug',
         permanent: true,
       },
       {
-        source: '/areas/ac-service-perungalathur',
-        destination: '/service-areas/perungalathur',
+        source: '/areas/:slug',
+        destination: '/service-areas/:slug',
         permanent: true,
       },
       {
-        source: '/areas/ac-service-tambaram',
-        destination: '/service-areas/tambaram',
-        permanent: true,
-      },
-      {
-        source: '/areas/ac-service-vandalur',
-        destination: '/service-areas/vandalur',
-        permanent: true,
-      },
-      {
-        source: '/areas/ac-service-manivakkam',
-        destination: '/service-areas/manivakkam',
-        permanent: true,
-      },
-      {
-        source: '/areas/ac-service-chromepet',
-        destination: '/service-areas/chromepet',
+        source: '/ac-service-new-perungalathur',
+        destination: '/service-areas/new-perungalathur',
         permanent: true,
       },
       {

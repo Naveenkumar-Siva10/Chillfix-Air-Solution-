@@ -17,6 +17,7 @@ export default function AboutPage() {
       <div className="container-base space-y-16">
         {/* Header */}
         <SectionHeader
+          as="h1"
           eyebrow="About ChillFix AC Service"
           title="Keeping Chennai Cool"
           titleHighlight={`Since ${SITE_CONFIG.founded}`}

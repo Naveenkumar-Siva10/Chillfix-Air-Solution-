@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { generatePageMetadata } from '@/lib/metadata';
 import { SERVICES, SERVICE_SLUG_ALIASES } from '@/constants/services';
-import { CONTACT_DETAILS, SERVICE_AREAS } from '@/constants/site';
+import { CONTACT_DETAILS, SERVICE_AREAS, SITE_CONFIG } from '@/constants/site';
 import { SectionHeader } from '@/components/sections/shared/SectionHeader';
 import { ServiceSchema } from '@/components/seo/ServiceSchema';
 import { FAQSchema } from '@/components/seo/FAQSchema';
@@ -23,7 +23,7 @@ import {
   ChevronRight,
   HelpCircle,
 } from 'lucide-react';
-import { formatPrice } from '@/lib/utils';
+import { formatPrice, getServiceUrl } from '@/lib/utils';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -35,7 +35,8 @@ export async function generateStaticParams() {
   return [...primarySlugs, ...aliasSlugs];
 }
 
-function resolveService(slug: string) {
+export function resolveService(slug?: string) {
+  if (!slug) return SERVICES[0];
   let targetSlug = slug;
   if (SERVICE_SLUG_ALIASES[slug]) {
     targetSlug = SERVICE_SLUG_ALIASES[slug];
@@ -48,17 +49,17 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const service = resolveService(slug);
   if (!service) return {};
 
-  const title = service.metaTitle ?? `${service.name} | ChillFix Air Solution`;
+  const title = service.metaTitle ?? `${service.name} | ChillFix AC Service`;
   const description = service.metaDescription ?? `${service.shortDescription} Starting from ${formatPrice(service.startingPrice)}. Call +91 90804 95932.`;
+  const canonicalPath = getServiceUrl(service.slug);
 
   return generatePageMetadata({
     title,
     description,
-    canonicalPath: `/services/${slug}`,
+    canonicalPath,
     keywords: [
       service.name,
       `${service.name} Chennai`,
-      `best ${service.name} Chennai`,
       'AC service Chennai',
       'AC repair Chennai',
     ],
@@ -80,7 +81,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   const breadcrumbItems = [
     { label: 'Services', href: '/services' },
-    { label: service.name, href: `/services/${slug}` },
+    { label: service.name, href: getServiceUrl(service.slug) },
   ];
 
   return (
@@ -89,7 +90,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <ServiceSchema service={service} />
       <BreadcrumbSchema items={breadcrumbItems} />
       {service.faqs && service.faqs.length > 0 && (
-        <FAQSchema faqs={service.faqs} pageUrl={`https://chillfixairsolution.in/services/${slug}`} />
+        <FAQSchema faqs={service.faqs} pageUrl={`${SITE_CONFIG.url}${getServiceUrl(service.slug)}`} />
       )}
 
       <div className="pt-24 pb-16 bg-slate-50 dark:bg-slate-950">

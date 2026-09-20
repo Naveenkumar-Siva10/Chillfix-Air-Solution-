@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { CONTACT_DETAILS } from '@/constants/site';
+import { trackTelClick } from '@/lib/analytics';
 
 interface PhoneButtonProps {
   variant?: 'solid' | 'outline' | 'ghost';
@@ -57,6 +58,7 @@ export function PhoneButton({
   return (
     <Link
       href={href}
+      onClick={() => trackTelClick(label ?? 'Call Now Button', CONTACT_DETAILS.phone.value)}
       aria-label={label ?? `Call ${CONTACT_DETAILS.phone.display}`}
       className={cn(
         'relative inline-flex items-center rounded-xl',

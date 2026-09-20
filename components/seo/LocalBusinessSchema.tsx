@@ -1,19 +1,14 @@
 import { JsonLd } from './JsonLd';
 import { SITE_CONFIG, SERVICE_AREAS } from '@/constants/site';
-import { TESTIMONIALS } from '@/constants/testimonials';
 
 /**
  * LocalBusiness / HVACBusiness Schema.org JSON-LD structured data.
  * Fully validated against Google Search Console & Rich Results guidelines.
- * 100% verifiable: AggregateRating and Review schemas are bound directly to the visible customer testimonials.
+ * Complies with Google's policy prohibiting self-serving AggregateRating for local business sites.
  * Matches exact Google Business Profile name: 'ChillFix AC Service Chennai'
  * https://schema.org/HVACBusiness
  */
 export function LocalBusinessSchema() {
-  // Calculate aggregate rating dynamically from visible website testimonials
-  const totalRating = TESTIMONIALS.reduce((sum, item) => sum + item.rating, 0);
-  const averageRating = (totalRating / TESTIMONIALS.length).toFixed(1);
-
   const schema = {
     '@context': 'https://schema.org',
     '@type': ['HVACBusiness', 'LocalBusiness', 'HomeAndConstructionBusiness'],
@@ -162,28 +157,6 @@ export function LocalBusinessSchema() {
           },
         },
       ],
-    },
-    review: TESTIMONIALS.map((t) => ({
-      '@type': 'Review',
-      author: {
-        '@type': 'Person',
-        name: t.name,
-      },
-      datePublished: t.date,
-      reviewBody: t.text,
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: t.rating.toString(),
-        bestRating: '5',
-        worstRating: '1',
-      },
-    })),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: averageRating,
-      reviewCount: TESTIMONIALS.length.toString(),
-      bestRating: '5',
-      worstRating: '1',
     },
   };
 

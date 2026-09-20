@@ -167,6 +167,24 @@ export default function RootLayout({ children }: RootLayoutProps) {
       {/* CSS in head — correct position for stylesheets */}
       <head>
         <style dangerouslySetInnerHTML={{ __html: DOC_PROGRESS_CSS }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}`,
+          }}
+        />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `gtag('js', new Date()); gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { page_path: window.location.pathname });`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="font-sans antialiased bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
         {/*
