@@ -3,8 +3,8 @@ import { generatePageMetadata } from '@/lib/metadata';
 import { ContactSection } from '@/components/sections/home/ContactSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Contact ChillFix AC Service in Chennai',
-  description: 'Contact ChillFix AC Service for AC installation, repair, gas filling, and emergency servicing across Chennai and Perungalathur. Available 24/7 via phone and WhatsApp.',
+  title: 'Contact ChillFix AC Service Chennai | Book AC Service & Repair',
+  description: 'Contact ChillFix AC Service Chennai for AC installation, repair, cleaning, gas filling, and emergency servicing across Chennai and Perungalathur. Call +91 90804 95932.',
   canonicalPath: '/contact',
 });
 

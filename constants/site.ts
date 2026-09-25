@@ -4,11 +4,12 @@
  */
 
 export const SITE_CONFIG = {
-  name: 'ChillFix AC Service',
+  name: 'ChillFix AC Service Chennai',
   gbpName: 'ChillFix AC Service Chennai',
+  legalName: 'ChillFix Air Solution',
   tagline: 'AC Service & Repair in Chennai — Based in Perungalathur & Serving Nearby Areas',
   description:
-    'ChillFix AC Service provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling and installation across Chennai, with strong service coverage around Perungalathur, Tambaram, Vandalur, Manivakkam, Chromepet and nearby areas.',
+    'ChillFix AC Service Chennai provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling and installation across Chennai, with focused service coverage around Perungalathur, New Perungalathur, Tambaram, and nearby areas.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://chillfixairsolution.in',
   email: process.env.NEXT_PUBLIC_EMAIL ?? 'chennaichillfixacservice@gmail.com',
   phone: process.env.NEXT_PUBLIC_PHONE ?? '+919080495932',
@@ -31,25 +32,14 @@ export const SITE_CONFIG = {
     twitter: 'https://twitter.com/chillfixair',
     youtube: 'https://youtube.com/@chillfixairsolution',
   },
-  rating: {
-    average: 4.9,
-    count: 850,
-  },
-  yearsOfExperience: '10+',
-  stats: {
-    yearsInBusiness: '10+',
-    techniciansCertified: 'Trained Technicians',
-    customersServed: 'Thousands of',
-    responseNotice: '< 2 Hour Response',
-    pricingNotice: 'Transparent Upfront Quotes',
-  },
+  startingPrice: 249,
   businessHours: {
-    weekdays: '8:00 AM – 8:00 PM',
-    saturday: '8:00 AM – 6:00 PM',
-    sunday: '10:00 AM – 4:00 PM',
-    emergency: '24/7 Emergency Line Open',
+    weekdays: '9:00 AM – 11:00 PM',
+    saturday: '9:00 AM – 11:00 PM',
+    sunday: '9:00 AM – 11:00 PM',
+    regular: '9:00 AM – 11:00 PM, Monday–Sunday',
+    emergency: '24/7 Emergency AC Service Available',
   },
-  founded: '2013',
 } as const;
 
 export const CONTACT_DETAILS = {

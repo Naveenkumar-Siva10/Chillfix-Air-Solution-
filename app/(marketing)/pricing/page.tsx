@@ -35,19 +35,19 @@ export const metadata: Metadata = generatePageMetadata({
 const PRICING_FAQS = [
   {
     question: 'How much does AC service cost in Chennai?',
-    answer: 'General AC servicing in Chennai starts at ₹249 for Window ACs and ₹299 for Split ACs. High-pressure foam jet-wash deep cleaning starts at ₹449, coil cleaning is ₹699, and full deep cleaning is ₹1,199.',
+    answer: 'General AC servicing in Chennai starts at ₹249. Foam jet-wash cleaning, filter washing, and cooling performance checks are available across Chennai and nearby areas.',
   },
   {
     question: 'What is the technician visit / inspection charge?',
-    answer: 'Our initial visit / diagnostic inspection charge is ₹299. However, this visit charge is 100% free / adjusted into your final repair bill when you proceed with the service!',
+    answer: 'Our initial visit / diagnostic inspection charge is ₹299. However, this visit charge is adjusted into your final repair bill when you proceed with the service.',
   },
   {
     question: 'How much does AC gas check and gas refilling cost?',
-    answer: 'AC gas pressure check is FREE with any service visit. Gas top-up starts at ₹799, while complete refrigerant gas refilling with nitrogen leak testing ranges from ₹1,499 to ₹2,499 depending on gas type (R32, R410A, R22).',
+    answer: 'AC gas pressure check is available with service visits. Gas top-up and complete refrigerant gas refilling with leak testing are quoted upfront based on gas type (R32, R410A, R22).',
   },
   {
     question: 'How are repair costs calculated?',
-    answer: 'Repair costs depend on detailed diagnosis, required spare parts (e.g. capacitors, PCB circuit boards, fan motors, compressor replacements), and specific AC model. Our technician provides an upfront quote before starting any work.',
+    answer: 'Repair costs depend on detailed diagnosis, required spare parts (e.g. capacitors, PCB circuit boards, fan motors, compressor components), and specific AC model. Our technician provides an upfront quote before starting any work.',
   },
 ];
 
@@ -85,7 +85,7 @@ export default function PricingPage() {
           {/* Quick Highlight Cards */}
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div className="rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm dark:border-slate-800 dark:bg-slate-900">
-              <span className="block text-2xl sm:text-3xl font-extrabold text-primary-600 dark:text-primary-400">₹299</span>
+              <span className="block text-2xl sm:text-3xl font-extrabold text-primary-600 dark:text-primary-400">₹249</span>
               <span className="text-xs font-semibold text-slate-600 dark:text-slate-400 mt-1 block">General AC Service</span>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm dark:border-slate-800 dark:bg-slate-900">
@@ -110,7 +110,7 @@ export default function PricingPage() {
                   Chennai Standard AC Service &amp; Repair Rate Card
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold mt-1">
-                  Rates include certified labor, equipment, and post-service testing across Chennai and nearby areas.
+                  Rates include skilled labor, diagnostic equipment, and post-service testing across Chennai and nearby areas.
                 </p>
               </div>
               <a
@@ -130,7 +130,7 @@ export default function PricingPage() {
                     <th className="py-4 px-4">Service Type</th>
                     <th className="py-4 px-4">Description &amp; Inclusions</th>
                     <th className="py-4 px-4">Starting Price</th>
-                    <th className="py-4 px-4">Warranty</th>
+                    <th className="py-4 px-4">Quality Check</th>
                     <th className="py-4 px-4 text-right">Action</th>
                   </tr>
                 </thead>

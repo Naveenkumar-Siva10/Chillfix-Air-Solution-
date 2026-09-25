@@ -6,8 +6,8 @@ import { ShieldCheck, Phone, MessageCircle } from 'lucide-react';
 import { SITE_CONFIG, CONTACT_DETAILS } from '@/constants/site';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'About ChillFix AC Service | AC Service & Repair in Chennai',
-  description: `Learn about ${SITE_CONFIG.name}. Over 10+ years of experience providing reliable AC servicing, repair, cleaning, gas filling, and maintenance across Chennai and Perungalathur.`,
+  title: 'About ChillFix AC Service Chennai | Professional AC Service & Repair',
+  description: `Learn about ${SITE_CONFIG.name}. Reliable doorstep AC servicing, repair, cleaning, gas filling, and maintenance across Chennai, Perungalathur, and Tambaram starting at ₹249.`,
   canonicalPath: '/about',
 });
 
@@ -18,10 +18,10 @@ export default function AboutPage() {
         {/* Header */}
         <SectionHeader
           as="h1"
-          eyebrow="About ChillFix AC Service"
+          eyebrow="About ChillFix AC Service Chennai"
           title="Keeping Chennai Cool"
-          titleHighlight={`Since ${SITE_CONFIG.founded}`}
-          description={`With over ${SITE_CONFIG.yearsOfExperience} years of experience, ChillFix AC Service provides professional residential and commercial air conditioning services across Chennai.`}
+          titleHighlight="With Doorstep AC Care"
+          description="ChillFix AC Service Chennai provides professional residential and commercial air conditioning services with upfront pricing starting at ₹249."
         />
 
         {/* Story Grid */}
@@ -31,20 +31,20 @@ export default function AboutPage() {
               Our Mission: Reliable, Transparent &amp; Fast AC Care
             </h3>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              Founded in {SITE_CONFIG.founded}, ChillFix AC Service was built to eliminate the frustration of unreliable technicians, hidden costs, and delayed service during peak Chennai heat.
+              ChillFix AC Service Chennai was built to provide dependable, straightforward air conditioning care with upfront quotes and prompt doorstep response.
             </p>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              Based in Perungalathur, our experienced technicians serve homes, apartments, villas, and corporate offices across Chennai and nearby areas including Tambaram, Vandalur, Manivakkam, and Chromepet.
+              Based in Perungalathur, our skilled technicians serve homes, apartments, villas, and commercial spaces across Chennai, with focused local coverage in New Perungalathur, Perungalathur, Vandalur, and Tambaram.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900">
-                <span className="font-display text-3xl font-bold text-primary-500">10+ Years</span>
-                <p className="text-xs font-semibold text-slate-500 mt-1">AC Service Experience</p>
+                <span className="font-display text-3xl font-bold text-primary-500">₹249</span>
+                <p className="text-xs font-semibold text-slate-500 mt-1">Starting Service Price</p>
               </div>
               <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900">
-                <span className="font-display text-3xl font-bold text-secondary-500">4.9★</span>
-                <p className="text-xs font-semibold text-slate-500 mt-1">Google Rating</p>
+                <span className="font-display text-3xl font-bold text-secondary-500">24/7</span>
+                <p className="text-xs font-semibold text-slate-500 mt-1">Emergency Support</p>
               </div>
             </div>
           </div>
@@ -58,11 +58,11 @@ export default function AboutPage() {
               </li>
               <li className="flex items-start gap-3">
                 <ShieldCheck className="h-5 w-5 text-accent-400 shrink-0 mt-0.5" />
-                <span><strong>Local Coverage:</strong> Fast response across Perungalathur, Tambaram, Vandalur, Manivakkam, Chromepet &amp; Chennai.</span>
+                <span><strong>Local Coverage:</strong> Fast response across New Perungalathur, Perungalathur, Tambaram, Vandalur &amp; Chennai.</span>
               </li>
               <li className="flex items-start gap-3">
                 <ShieldCheck className="h-5 w-5 text-accent-400 shrink-0 mt-0.5" />
-                <span><strong>Service Warranty:</strong> Written warranty on spare parts and repair labor.</span>
+                <span><strong>Doorstep Diagnosis:</strong> On-site fault inspection and cooling performance testing before job sign-off.</span>
               </li>
             </ul>
 

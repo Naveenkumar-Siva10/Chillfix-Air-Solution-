@@ -49,8 +49,8 @@ const CONTACT_CARDS = [
   {
     icon: Clock,
     title: 'Business Hours',
-    subtitle: 'Emergency calls open 24/7',
-    value: `${SITE_CONFIG.businessHours.weekdays} (Mon–Fri)`,
+    subtitle: '24/7 Emergency AC Service Available',
+    value: '9:00 AM – 11:00 PM, Monday–Sunday',
     href: '#contact-form',
     action: 'Book Service',
     color: 'text-amber-500 bg-amber-50 dark:bg-amber-950/50',

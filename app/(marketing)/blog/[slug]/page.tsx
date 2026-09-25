@@ -127,7 +127,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="mt-8 rounded-2xl bg-gradient-to-r from-primary-700 to-primary-900 p-6 text-white space-y-3 shadow-lg">
               <h3 className="text-xl font-bold">Facing AC Cooling or Noise Issues in Chennai?</h3>
               <p className="text-sm text-slate-100 font-normal">
-                Don&apos;t wait for your AC to break down. Our certified technicians provide fast doorstep diagnostic service across Chennai and Perungalathur.
+                Don&apos;t wait for your AC to break down. Our skilled technicians provide fast doorstep diagnostic service across Chennai and Perungalathur.
               </p>
               <div className="pt-2 flex flex-wrap gap-3">
                 <a

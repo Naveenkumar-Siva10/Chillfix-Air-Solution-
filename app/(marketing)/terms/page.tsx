@@ -24,9 +24,9 @@ export default function TermsPage() {
           Technicians evaluate the AC on-site and provide an upfront quotation before commencing repair work. Service fees are payable upon completion of work via cash, UPI, or card.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white pt-4">2. Service Warranty</h2>
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white pt-4">2. Service Assurance</h2>
         <p className="leading-relaxed">
-          Our repairs carry a 30 to 90-day warranty depending on the service type. Gas refilling carries a 30-day warranty, and compressor replacements carry up to a 1-year warranty. Warranty applies to the specific issue repaired.
+          Repairs and part replacements are tested on-site with the customer before job completion. Any specific component warranty terms provided by part manufacturers will be communicated at the time of quotation.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900 dark:text-white pt-4">3. AMC Plans</h2>

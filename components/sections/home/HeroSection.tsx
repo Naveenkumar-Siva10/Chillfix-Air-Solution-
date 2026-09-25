@@ -8,7 +8,7 @@ import {
   MessageCircle,
   ShieldCheck,
   Clock,
-  Star,
+  Tag,
   Zap,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -16,15 +16,15 @@ import { CONTACT_DETAILS, SITE_CONFIG } from '@/constants/site';
 import { HeroBookingButton } from './HeroBookingButton';
 
 const TRUST_BADGES = [
-  { icon: ShieldCheck, label: '10+ Years Experience', color: 'text-secondary-400' },
-  { icon: Star, label: '4.9★ Google Rating', color: 'text-amber-400' },
-  { icon: Clock, label: 'Fast Local Response', color: 'text-accent-400' },
+  { icon: ShieldCheck, label: 'Doorstep AC Service', color: 'text-secondary-400' },
+  { icon: Tag, label: 'Starting ₹249', color: 'text-amber-400' },
+  { icon: Clock, label: '24/7 Emergency Support', color: 'text-accent-400' },
 ] as const;
 
 const STATS = [
-  { value: '10+', label: 'Years Experience' },
-  { value: '4.9★', label: 'Google Rating' },
-  { value: '100%', label: 'Upfront Quotes' },
+  { value: '₹249', label: 'Starting Price' },
+  { value: 'Doorstep', label: 'AC Service & Repair' },
+  { value: 'Upfront', label: 'Pricing Quotes' },
   { value: '24/7', label: 'Emergency Support' },
 ] as const;
 
@@ -138,7 +138,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mb-8 max-w-xl text-base sm:text-lg leading-relaxed text-slate-100 font-medium"
           >
-            ChillFix AC Service provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling and installation across Chennai, with fast doorstep technician arrival in{' '}
+            ChillFix AC Service Chennai provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling, and installation across Chennai, with fast doorstep technician arrival in{' '}
             <Link href="/service-areas/new-perungalathur" className="underline font-bold text-white hover:text-accent-300 transition-colors">New Perungalathur</Link>,{' '}
             <Link href="/service-areas/perungalathur" className="underline font-bold text-white hover:text-accent-300 transition-colors">Perungalathur</Link>,{' '}
             <Link href="/service-areas/vandalur" className="underline font-bold text-white hover:text-accent-300 transition-colors">Vandalur</Link>,{' '}
@@ -174,7 +174,7 @@ export function HeroSection() {
                 'hover:bg-slate-50 hover:shadow-2xl hover:-translate-y-0.5 active:scale-[0.98]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
               )}
-              aria-label={`Call ${CONTACT_DETAILS.phone.display} for AC service in Chennai`}
+              aria-label={`Call Now — Free Diagnosis (${CONTACT_DETAILS.phone.display})`}
             >
               <Phone className="h-5 w-5 transition-transform group-hover:scale-110" aria-hidden="true" />
               Call Now — Free Diagnosis
@@ -193,7 +193,7 @@ export function HeroSection() {
                 'hover:bg-[#1ebe5a] hover:shadow-2xl hover:-translate-y-0.5 active:scale-[0.98]',
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
               )}
-              aria-label="Chat with us on WhatsApp for AC service"
+              aria-label="WhatsApp Us for AC service in Chennai"
             >
               <MessageCircle className="h-5 w-5 transition-transform group-hover:scale-110" aria-hidden="true" />
               WhatsApp Us

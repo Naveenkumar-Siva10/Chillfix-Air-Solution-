@@ -229,7 +229,6 @@ export function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              aria-label={`${SITE_CONFIG.name} — Home`}
               className="flex shrink-0 items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-500 shadow-md shadow-primary-500/30">
@@ -272,7 +271,6 @@ export function Navbar() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Chat on WhatsApp"
                 className="flex items-center gap-1.5 rounded-xl bg-[#25D366] px-4 py-2 text-sm font-extrabold text-white shadow-md transition-all hover:bg-[#1ebe5a] hover:shadow-lg"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
@@ -281,7 +279,7 @@ export function Navbar() {
 
               <a
                 href={CONTACT_DETAILS.phone.href}
-                aria-label={`Call ${CONTACT_DETAILS.phone.display}`}
+                aria-label={`Call Now (${CONTACT_DETAILS.phone.display})`}
                 className="flex items-center gap-1.5 rounded-xl bg-primary-500 px-4 py-2 text-sm font-extrabold text-white shadow-md shadow-primary-500/25 transition-all hover:bg-primary-600 hover:shadow-lg"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />

@@ -91,11 +91,9 @@ export function GoogleMap({
                     Business Hours
                   </p>
                   <div className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
-                    <p><span className="font-medium">Mon–Fri:</span> {SITE_CONFIG.businessHours.weekdays}</p>
-                    <p><span className="font-medium">Saturday:</span> {SITE_CONFIG.businessHours.saturday}</p>
-                    <p><span className="font-medium">Sunday:</span> {SITE_CONFIG.businessHours.sunday}</p>
+                    <p><span className="font-medium">Mon–Sun:</span> 9:00 AM – 11:00 PM</p>
                     <p className="mt-2 font-semibold text-accent-600">
-                      ⚡ {SITE_CONFIG.businessHours.emergency}
+                      ⚡ 24/7 Emergency AC Service Available
                     </p>
                   </div>
                 </div>

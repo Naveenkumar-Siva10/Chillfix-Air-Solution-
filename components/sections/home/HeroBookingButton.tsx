@@ -22,7 +22,6 @@ export function HeroBookingButton() {
           'hover:bg-white/40 hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98]',
           'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
         )}
-        aria-label="Book an AC service appointment in Chennai"
       >
         <CalendarCheck className="h-5 w-5 transition-transform group-hover:scale-110" aria-hidden="true" />
         Book Service

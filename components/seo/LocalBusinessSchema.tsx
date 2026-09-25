@@ -14,12 +14,11 @@ export function LocalBusinessSchema() {
     '@type': ['HVACBusiness', 'LocalBusiness', 'HomeAndConstructionBusiness'],
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
     name: SITE_CONFIG.gbpName,
-    alternateName: [SITE_CONFIG.name, 'ChillFix AC Service Chennai'],
+    alternateName: [SITE_CONFIG.legalName, 'ChillFix'],
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
-    foundingDate: SITE_CONFIG.founded,
     currenciesAccepted: 'INR',
     paymentAccepted: 'Cash, UPI, Credit Card, Debit Card, Net Banking',
     priceRange: '₹₹',
@@ -65,21 +64,17 @@ export function LocalBusinessSchema() {
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:00',
-        closes: '20:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '08:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Sunday',
-        opens: '10:00',
-        closes: '16:00',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday',
+        ],
+        opens: '09:00',
+        closes: '23:00',
       },
     ],
     sameAs: [
@@ -113,7 +108,7 @@ export function LocalBusinessSchema() {
           itemOffered: {
             '@type': 'Service',
             name: 'AC Installation in Chennai',
-            description: 'Professional AC uninstallation and installation with 90-day warranty.',
+            description: 'Professional AC uninstallation and installation with post-fitting testing.',
           },
         },
         {
@@ -153,7 +148,7 @@ export function LocalBusinessSchema() {
           itemOffered: {
             '@type': 'Service',
             name: 'Emergency AC Repair',
-            description: '24/7 emergency dispatch within 2 hours across Chennai.',
+            description: '24/7 emergency AC service and repair dispatch across Chennai.',
           },
         },
       ],

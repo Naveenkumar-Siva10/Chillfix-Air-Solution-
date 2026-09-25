@@ -102,7 +102,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-700 via-primary-800 to-slate-900 p-8 sm:p-12 text-white shadow-xl">
             <div className="relative z-10 max-w-3xl space-y-4">
               <span className="inline-block rounded-full bg-white/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-                Certified {service.category} Service
+                Professional {service.category} Service
               </span>
 
               {/* Single H1 for SEO */}
@@ -234,7 +234,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Book {service.name}</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">
-                    Our certified technician will arrive within 2 hours across Chennai. Transparent diagnosis &amp; upfront pricing.
+                    Our skilled technician will arrive promptly across Chennai. Transparent diagnosis &amp; upfront pricing.
                   </p>
 
                   <div className="my-6 rounded-2xl bg-primary-50 p-5 dark:bg-slate-800 border border-primary-100 dark:border-slate-700">

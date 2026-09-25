@@ -205,7 +205,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                   Common AC Problems Reported by Residents in {area.name}
                 </h2>
                 <p className="text-sm text-slate-300 mt-1">
-                  How our certified technicians diagnose and resolve recurrent cooling, water leaking, and electrical issues.
+                  How our skilled technicians diagnose and resolve recurrent cooling, water leaking, and electrical issues.
                 </p>
               </div>
 
@@ -368,7 +368,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span><strong>2. Rapid Dispatch:</strong> Certified technician reaches your door in {area.name} within {area.responseTime}.</span>
+                  <span><strong>2. Prompt Dispatch:</strong> Skilled technician reaches your door in {area.name} with prompt doorstep arrival.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -376,7 +376,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span><strong>4. Testing &amp; 90-Day Warranty:</strong> Temperature differential verified and written warranty issued.</span>
+                  <span><strong>4. Testing &amp; Cooling Check:</strong> Temperature differential verified and on-site cooling performance confirmed.</span>
                 </li>
               </ul>
             </div>
@@ -387,7 +387,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
             <div className="space-y-2 text-center md:text-left">
               <h2 className="text-2xl font-bold">Need Immediate AC Repair or Service in {area.name}?</h2>
               <p className="text-sm text-slate-200">
-                Technicians available 7 days a week from 8:00 AM to 8:00 PM with emergency dispatch.
+                Technicians available 7 days a week from 9:00 AM to 11:00 PM with 24/7 emergency AC service available.
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-3 shrink-0">

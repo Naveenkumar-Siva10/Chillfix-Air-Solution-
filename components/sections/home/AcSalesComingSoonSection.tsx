@@ -24,8 +24,8 @@ const FUTURE_BENEFITS = [
   },
   {
     icon: Truck,
-    title: 'Same-Day Delivery & Installation',
-    description: 'Hassle-free delivery and certified installation by senior HVAC engineers in Chennai.',
+    title: 'Prompt Delivery & Installation',
+    description: 'Hassle-free delivery and professional installation by experienced technicians in Chennai.',
   },
 ];
 

@@ -99,7 +99,7 @@ export function ServicesSection() {
           eyebrow="Our Services"
           title="Complete AC Solutions"
           titleHighlight="for Chennai"
-          description="From installation to annual maintenance — our certified technicians handle all AC brands and types across 25+ areas in Chennai. Transparent pricing, same-day service available."
+          description="From general servicing to repair and maintenance — handling residential and commercial AC units across Perungalathur, New Perungalathur, Tambaram, and Chennai with upfront pricing starting at ₹249."
           className="mb-10"
         />
 

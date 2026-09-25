@@ -7,27 +7,27 @@ import {
   PhoneCall,
   Search,
   ClipboardCheck,
-  Star,
   Zap,
-  CalendarDays,
+  Tag,
+  Building2,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { SectionHeader } from '@/components/sections/shared/SectionHeader';
 
 const STATS = [
   {
-    value: '10+',
-    suffix: 'Years',
-    label: 'AC Service Experience',
-    icon: CalendarDays,
+    value: '₹249',
+    suffix: '',
+    label: 'Starting Service Price',
+    icon: Tag,
     color: 'text-primary-500',
     bg: 'bg-primary-50 dark:bg-primary-950/50',
   },
   {
-    value: '4.9★',
+    value: '24/7',
     suffix: '',
-    label: 'Google Rating',
-    icon: Star,
+    label: 'Emergency AC Support',
+    icon: Clock3,
     color: 'text-amber-500',
     bg: 'bg-amber-50 dark:bg-amber-950/50',
   },
@@ -35,14 +35,14 @@ const STATS = [
     value: 'Fast',
     suffix: '',
     label: 'Local Chennai Response',
-    icon: Clock3,
+    icon: Zap,
     color: 'text-secondary-500',
     bg: 'bg-secondary-50 dark:bg-secondary-950/50',
   },
   {
     value: '100%',
     suffix: '',
-    label: 'Upfront Transparent Pricing',
+    label: 'Upfront Transparent Quotes',
     icon: ThumbsUp,
     color: 'text-accent-600',
     bg: 'bg-accent-50 dark:bg-accent-950/50',
@@ -58,17 +58,17 @@ const WHY_US = [
     accent: 'bg-primary-500',
   },
   {
-    icon: CalendarDays,
-    title: '10+ Years Experience',
+    icon: Building2,
+    title: 'Homes & Businesses',
     description:
-      'Over a decade of hands-on experience in Split, Window, and Inverter AC installation, repair, and gas refilling.',
+      'Hands-on expertise across Split, Window, and Inverter AC installation, repair, and gas refilling for homes and offices.',
     accent: 'bg-secondary-500',
   },
   {
     icon: ShieldCheck,
-    title: 'Service Warranty',
+    title: 'Clear On-Site Inspection',
     description:
-      'We stand behind our repair work with a written service warranty on spare parts and labor.',
+      'Thorough diagnostic check to identify the exact fault before recommending any repair or part replacement.',
     accent: 'bg-accent-500',
   },
   {
@@ -86,10 +86,10 @@ const WHY_US = [
     accent: 'bg-rose-500',
   },
   {
-    icon: Star,
-    title: '4.9★ Google Rating',
+    icon: ThumbsUp,
+    title: 'Doorstep Diagnostic Care',
     description:
-      'Genuine customer reviews from homeowners and businesses who trust ChillFix AC Service in Chennai.',
+      'Professional doorstep assistance from local technicians dedicated to honest assessments and neat workmanship.',
     accent: 'bg-amber-500',
   },
 ] as const;
@@ -116,8 +116,8 @@ const PROCESS_STEPS = [
   {
     step: 4,
     icon: ClipboardCheck,
-    title: 'Fix & Warranty',
-    description: 'Repair completed with genuine parts. You get a service warranty on the completed job.',
+    title: 'Fix & Testing',
+    description: 'Repair completed and thoroughly tested for cooling performance before job sign-off.',
   },
 ] as const;
 
@@ -205,7 +205,7 @@ export function TrustSection() {
         {/* 1. Stats */}
         <div>
           <SectionHeader
-            eyebrow="10+ Years Experience"
+            eyebrow="Doorstep AC Service"
             title="Trusted AC Service"
             titleHighlight="in Chennai"
             description="Based in Perungalathur, serving customers across Chennai and nearby areas with transparent pricing and reliable service."

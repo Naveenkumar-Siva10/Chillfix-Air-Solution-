@@ -126,13 +126,17 @@ function TestimonialsCarousel() {
               aria-selected={i === current}
               aria-label={`Go to review ${i + 1}`}
               onClick={() => setCurrent(i)}
-              className={cn(
-                'h-2 rounded-full transition-all duration-300',
-                i === current
-                  ? 'w-6 bg-primary-500'
-                  : 'w-2 bg-slate-300 hover:bg-slate-400 dark:bg-slate-700',
-              )}
-            />
+              className="flex h-7 w-7 items-center justify-center -mx-1 focus-visible:outline-2 focus-visible:outline-primary-500"
+            >
+              <span
+                className={cn(
+                  'h-2 rounded-full transition-all duration-300 pointer-events-none',
+                  i === current
+                    ? 'w-6 bg-primary-500'
+                    : 'w-2 bg-slate-300 hover:bg-slate-400 dark:bg-slate-700',
+                )}
+              />
+            </button>
           ))}
         </div>
 

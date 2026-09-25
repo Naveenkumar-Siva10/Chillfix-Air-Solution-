@@ -20,9 +20,8 @@ To achieve genuine local search visibility in Google Maps and the Local 3-Pack, 
 * **Phone Number**: `+91 90804 95932` (Must match the website header, footer, contact page, and schema markup).
 * **Website URL**: `https://chillfixairsolution.in` (Ensure HTTPS and exact root domain).
 * **Operating Hours**:
-  * Monday – Friday: `08:00 AM – 08:00 PM`
-  * Saturday: `08:00 AM – 06:00 PM`
-  * Sunday: `10:00 AM – 04:00 PM`
+  * Monday – Sunday: `09:00 AM – 11:00 PM`
+  * Emergency Availability: `24/7 Emergency AC Service Available`
   * Special Hours / Holidays: Update before Diwali, Pongal, and New Year.
 
 ### Service Area Configuration (Radius Setup)

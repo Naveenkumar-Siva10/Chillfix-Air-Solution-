@@ -7,7 +7,7 @@ import {
   MapPin,
   Clock,
   ShieldCheck,
-  Star,
+  Tag,
 } from 'lucide-react';
 import { SITE_CONFIG, CONTACT_DETAILS, SERVICE_AREAS } from '@/constants/site';
 import { FOOTER_NAV } from '@/constants/navigation';
@@ -66,16 +66,16 @@ export function Footer() {
               </div>
             </Link>
             <p className="max-w-sm text-sm text-slate-300 leading-relaxed font-normal">
-              Chennai's trusted AC service provider. Professional servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling and installation across Chennai &amp; Perungalathur.
+              ChillFix AC Service Chennai provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling, and installation across Chennai &amp; Perungalathur.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <div className="flex items-center gap-1 rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-1.5 text-xs text-slate-300 font-medium">
                 <ShieldCheck className="h-4 w-4 text-accent-400" />
-                <span>Service Warranty</span>
+                <span>Doorstep Service</span>
               </div>
               <div className="flex items-center gap-1 rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-1.5 text-xs text-slate-300 font-medium">
-                <Star className="h-4 w-4 text-amber-400" />
-                <span>4.9★ Google Rating</span>
+                <Tag className="h-4 w-4 text-amber-400" />
+                <span>Starting ₹249</span>
               </div>
             </div>
           </div>
@@ -130,7 +130,10 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-slate-300">
                 <Clock className="h-4 w-4 text-primary-400 shrink-0 mt-0.5" />
-                <span>Mon–Sun: 8:00 AM – 9:00 PM (Emergency 24/7)</span>
+                <div>
+                  <p>Mon–Sun: 9:00 AM – 11:00 PM</p>
+                  <p className="text-xs text-primary-400 font-medium">24/7 Emergency AC Service Available</p>
+                </div>
               </li>
             </ul>
           </div>

@@ -50,14 +50,14 @@ export default function manifest(): MetadataRoute.Manifest {
         name: 'Call Now',
         short_name: 'Call',
         description: 'Call ChillFix immediately',
-        url: `tel:${SITE_CONFIG.phone}`,
+        url: '/contact?action=call',
         icons: [{ src: '/icons/shortcut-call.png', sizes: '96x96' }],
       },
       {
         name: 'WhatsApp',
         short_name: 'WhatsApp',
         description: 'WhatsApp ChillFix',
-        url: `https://wa.me/${SITE_CONFIG.whatsapp.replace(/\D/g, '')}`,
+        url: '/contact?action=whatsapp',
         icons: [{ src: '/icons/shortcut-whatsapp.png', sizes: '96x96' }],
       },
       {

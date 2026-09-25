@@ -200,7 +200,7 @@ export function PricingSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex shrink-0 items-center gap-2 rounded-2xl bg-primary-500 px-5 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-primary-600 hover:-translate-y-0.5"
-              aria-label="WhatsApp for commercial AMC quote"
+              aria-label="Get Custom Quote — WhatsApp for commercial AMC"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               Get Custom Quote

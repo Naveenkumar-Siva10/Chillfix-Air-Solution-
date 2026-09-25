@@ -5,21 +5,21 @@ export const FAQS: FAQ[] = [
     id: 'faq-1',
     question: 'How much does AC service cost in Chennai?',
     answer:
-      'Our AC service starts at ₹299 for basic cleaning and maintenance. Gas refilling starts at ₹799, and installation from ₹599. We offer transparent pricing with no hidden charges. Contact us for a free quote based on your specific requirements.',
+      'Our AC service starts at ₹249 for basic servicing and maintenance. Gas refilling starts at ₹799, and installation from ₹599. We offer transparent pricing with no hidden charges. Contact us for a free quote based on your specific requirements.',
     category: 'pricing',
   },
   {
     id: 'faq-2',
     question: 'Do you provide emergency AC repair services in Chennai?',
     answer:
-      'Yes! ChillFix Air Solution offers 24/7 emergency AC repair services across Chennai. Our technicians can reach you within 2 hours for emergency calls. Contact us on WhatsApp or call our emergency helpline anytime.',
+      'Yes! ChillFix AC Service Chennai offers 24/7 emergency AC repair services across Chennai. Contact us on WhatsApp or call our helpline anytime at +91 90804 95932.',
     category: 'service',
   },
   {
     id: 'faq-3',
     question: 'Which AC brands do you service?',
     answer:
-      'We service all major AC brands including Samsung, LG, Daikin, Voltas, Hitachi, Carrier, Blue Star, Whirlpool, Panasonic, O\'General, Godrej, and many more. Our technicians are trained and certified for all brands.',
+      'We service all major AC brands including Samsung, LG, Daikin, Voltas, Hitachi, Carrier, Blue Star, Whirlpool, Panasonic, O\'General, Godrej, and many more. Our technicians have extensive hands-on experience across all major brands.',
     category: 'service',
   },
   {

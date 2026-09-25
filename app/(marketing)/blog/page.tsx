@@ -46,7 +46,7 @@ export default function BlogPage() {
           eyebrow="Knowledge & Tips"
           title="AC Maintenance Guides"
           titleHighlight="& Energy Tips"
-          description="Helpful guides from our certified HVAC technicians to help you get the best cooling, lower power bills, and extend your AC lifespan."
+          description="Helpful guides from our experienced HVAC technicians to help you get the best cooling, lower power bills, and extend your AC lifespan."
         />
 
         <div className="grid gap-8 md:grid-cols-3">
