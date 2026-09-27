@@ -121,7 +121,7 @@ export function BookingModal({
                   >
                     Book AC Service
                   </h2>
-                  <p className="text-sm text-white/80">We confirm within 30 minutes</p>
+                  <p className="text-sm text-white/80">We confirm your booking promptly</p>
                 </div>
                 <button
                   onClick={handleClose}
@@ -140,7 +140,7 @@ export function BookingModal({
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white">Booking Confirmed!</h3>
                   <p className="text-slate-600 dark:text-slate-400">
-                    We have received your request. Our team will call you within 30 minutes to confirm the appointment.
+                    We have received your request. Our team will call you promptly to confirm the appointment.
                   </p>
                   <div className="mt-2 flex flex-col gap-3 w-full sm:flex-row">
                     <a

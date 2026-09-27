@@ -78,7 +78,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
       {
         success: true,
         message:
-          'Thank you! We have received your request and will contact you within 30 minutes.',
+          'Thank you! We have received your request and will contact you promptly.',
       },
       { status: 200 },
     );

@@ -129,7 +129,7 @@ export function ContactSection({ as = 'h2' }: { as?: 'h1' | 'h2' } = {}) {
                 <span>Instant Service Booking Form</span>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Request a Callback in 30 Minutes
+                Request a Doorstep Service Callback
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
                 Fill out the form below for service requests, AMC inquiries, or general questions.
@@ -157,8 +157,8 @@ export function ContactSection({ as = 'h2' }: { as?: 'h1' | 'h2' } = {}) {
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 text-accent-500 shrink-0" aria-hidden="true" />
                   <div>
-                    <p className="text-sm font-extrabold text-slate-900 dark:text-white">Same-Day Service Guaranteed</p>
-                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Book before 12 PM for guaranteed same-day technician visit.</p>
+                    <p className="text-sm font-extrabold text-slate-900 dark:text-white">Prompt Same-Day Service</p>
+                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Book before 12 PM for priority same-day technician scheduling based on availability.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

@@ -95,6 +95,6 @@ export const AMC_PLANS: AMCPlan[] = [
       { label: 'Energy Audit', value: 'Annual', included: true },
     ],
     cta: 'Request Custom Quote',
-    highlights: ['Custom pricing', 'Dedicated technician', 'SLA guaranteed', 'Energy audit included'],
+    highlights: ['Custom pricing', 'Dedicated technician', 'Priority SLA support', 'Energy audit included'],
   },
 ];

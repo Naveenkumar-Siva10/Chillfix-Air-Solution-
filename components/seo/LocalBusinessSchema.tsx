@@ -5,7 +5,7 @@ import { SITE_CONFIG, SERVICE_AREAS } from '@/constants/site';
  * LocalBusiness / HVACBusiness Schema.org JSON-LD structured data.
  * Fully validated against Google Search Console & Rich Results guidelines.
  * Complies with Google's policy prohibiting self-serving AggregateRating for local business sites.
- * Matches exact Google Business Profile name: 'ChillFix AC Service Chennai'
+ * Matches exact Google Business Profile name: 'ChillFix AC Service'
  * https://schema.org/HVACBusiness
  */
 export function LocalBusinessSchema() {
@@ -14,6 +14,7 @@ export function LocalBusinessSchema() {
     '@type': ['HVACBusiness', 'LocalBusiness', 'HomeAndConstructionBusiness'],
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
     name: SITE_CONFIG.gbpName,
+    legalName: SITE_CONFIG.legalName,
     alternateName: [SITE_CONFIG.legalName, 'ChillFix'],
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
@@ -21,7 +22,7 @@ export function LocalBusinessSchema() {
     email: SITE_CONFIG.email,
     currenciesAccepted: 'INR',
     paymentAccepted: 'Cash, UPI, Credit Card, Debit Card, Net Banking',
-    priceRange: '₹₹',
+    priceRange: '₹249 - ₹1,499',
     logo: {
       '@type': 'ImageObject',
       url: `${SITE_CONFIG.url}/icon.png`,

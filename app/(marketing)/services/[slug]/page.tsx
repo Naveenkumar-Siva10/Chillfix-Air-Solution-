@@ -270,7 +270,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   </p>
                   <p className="flex items-center gap-1.5">
                     <Clock className="h-4 w-4 text-secondary-500 shrink-0" />
-                    <span>Same-day service guaranteed across Chennai</span>
+                    <span>Same-day service appointments across Chennai</span>
                   </p>
                 </div>
               </div>

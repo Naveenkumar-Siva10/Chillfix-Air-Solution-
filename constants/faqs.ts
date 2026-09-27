@@ -5,14 +5,14 @@ export const FAQS: FAQ[] = [
     id: 'faq-1',
     question: 'How much does AC service cost in Chennai?',
     answer:
-      'Our AC service starts at ₹249 for basic servicing and maintenance. Gas refilling starts at ₹799, and installation from ₹599. We offer transparent pricing with no hidden charges. Contact us for a free quote based on your specific requirements.',
+      'Our general AC service starts at ₹249 for basic servicing and inspection. Split AC service starts at ₹299, gas refilling starts at ₹799, and Split AC installation starts at ₹1,199. We offer transparent pricing with no hidden charges.',
     category: 'pricing',
   },
   {
     id: 'faq-2',
     question: 'Do you provide emergency AC repair services in Chennai?',
     answer:
-      'Yes! ChillFix AC Service Chennai offers 24/7 emergency AC repair services across Chennai. Contact us on WhatsApp or call our helpline anytime at +91 90804 95932.',
+      'Yes! ChillFix AC Service offers 24/7 emergency AC repair services across Chennai. Contact us on WhatsApp or call our helpline anytime at +91 90804 95932.',
     category: 'service',
   },
   {
@@ -47,7 +47,7 @@ export const FAQS: FAQ[] = [
     id: 'faq-7',
     question: 'Do you provide a warranty on repairs?',
     answer:
-      'Yes. All our repairs come with a warranty — 30 days for gas refilling, 60 days for general repairs, 90 days for major repairs and installations, and 1 year for compressor replacements. Our workmanship warranty ensures your peace of mind.',
+      'Yes. All completed repairs undergo rigorous on-site electrical and cooling performance testing before technician sign-off. We provide service assurance on all installed replacement components, with transparent post-service support.',
     category: 'warranty',
   },
   {
@@ -75,7 +75,7 @@ export const FAQS: FAQ[] = [
     id: 'faq-11',
     question: 'How do I book an AC service?',
     answer:
-      'Booking is easy! You can call us directly, send us a WhatsApp message, or fill in the booking form on our website. We respond within 30 minutes and schedule your service at your preferred time slot.',
+      'Booking is easy! You can call us directly, send us a WhatsApp message, or fill in the booking form on our website. Our team responds promptly during business hours to confirm your booking and schedule your service at your preferred time slot.',
     category: 'booking',
   },
   {

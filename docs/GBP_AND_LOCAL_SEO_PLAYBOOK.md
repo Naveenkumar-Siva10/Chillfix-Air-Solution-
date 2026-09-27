@@ -9,7 +9,7 @@
 To achieve genuine local search visibility in Google Maps and the Local 3-Pack, the online website and Google Business Profile must reflect 100% identical and verifiable business information.
 
 ### Official Name, Category & NAP Standards
-* **Official Business Name**: `ChillFix AC Service Chennai` (or `ChillFix Air Solution`).  
+* **Official Business Name**: `ChillFix AC Service` (Domain brand / legal: `ChillFix Air Solution`).  
   *⚠️ Critical Rule: Do NOT stuff keywords into the business name (e.g., avoid "ChillFix AC Service Best Low Cost Perungalathur"). Google suspends profiles for artificial keyword stuffing.*
 * **Primary Category**: `Air conditioning repair service`
 * **Secondary Categories**:

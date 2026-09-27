@@ -79,7 +79,7 @@ function buildContactEmailHtml(data: ContactFormSchema): string {
         </div>
         <div class="footer">
           <p>Received via Website Contact Form — <strong>${SITE_CONFIG.url}</strong></p>
-          <div class="badge">⚡ Respond within 30 minutes</div>
+          <div class="badge">⚡ Prompt response during business hours</div>
         </div>
       </div>
     </body>
@@ -118,12 +118,12 @@ function buildAutoReplyHtml(name: string, service: string): string {
         </div>
         <div class="body">
           <p class="greeting">Hi <strong>${name}</strong>,</p>
-          <p style="color:#374151;line-height:1.7;">Thank you for contacting <strong>ChillFix Air Solution</strong>. We have received your request for <strong>${service}</strong> and our team will get back to you within <strong>30 minutes</strong>.</p>
+          <p style="color:#374151;line-height:1.7;">Thank you for contacting <strong>ChillFix Air Solution</strong>. We have received your request for <strong>${service}</strong> and our team will get back to you <strong>promptly during business hours</strong>.</p>
           <div class="info-box">
             <p>📞 For immediate assistance, call or WhatsApp us directly:<br />
             <strong>${SITE_CONFIG.phone}</strong> — Available 24/7 for emergencies</p>
           </div>
-          <p style="color:#374151;line-height:1.7;">Our certified technicians serve all areas of Chennai including Anna Nagar, Adyar, Velachery, T. Nagar, Tambaram, OMR, and more.</p>
+          <p style="color:#374151;line-height:1.7;">Our skilled technicians serve all areas of Chennai including New Perungalathur, Perungalathur, Tambaram, Vandalur, and South Chennai.</p>
           <p style="color:#374151;line-height:1.7;margin-top:24px;">Thank you for choosing ChillFix Air Solution!</p>
           <p style="color:#374151;margin-top:8px;"><strong>The ChillFix Team 🧊</strong></p>
         </div>

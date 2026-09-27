@@ -74,8 +74,8 @@ export function ContactForm({ className }: ContactFormProps) {
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">Message Sent!</h3>
             <p className="max-w-sm text-slate-600 dark:text-slate-400">
-              Thank you! We have received your request and will contact you within{' '}
-              <strong>30 minutes</strong>.
+              Thank you! We have received your request and will contact you{' '}
+              <strong>promptly during operating hours</strong>.
             </p>
             <div className="mt-2 flex flex-col gap-3 w-full sm:flex-row sm:justify-center">
               <a
@@ -203,7 +203,7 @@ export function ContactForm({ className }: ContactFormProps) {
             </button>
 
             <p className="text-center text-xs text-slate-500">
-              We typically respond within <strong>30 minutes</strong>. For urgent help,{' '}
+              We typically respond promptly during business hours. For urgent help,{' '}
               <a href={CONTACT_DETAILS.phone.href} className="text-primary-500 hover:underline font-medium">
                 call us directly
               </a>.

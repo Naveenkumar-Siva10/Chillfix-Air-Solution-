@@ -6,7 +6,7 @@ import { ShieldCheck, Phone, MessageCircle } from 'lucide-react';
 import { SITE_CONFIG, CONTACT_DETAILS } from '@/constants/site';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'About ChillFix AC Service Chennai | Professional AC Service & Repair',
+  title: 'About ChillFix AC Service | Professional AC Service & Repair',
   description: `Learn about ${SITE_CONFIG.name}. Reliable doorstep AC servicing, repair, cleaning, gas filling, and maintenance across Chennai, Perungalathur, and Tambaram starting at ₹249.`,
   canonicalPath: '/about',
 });
@@ -18,10 +18,10 @@ export default function AboutPage() {
         {/* Header */}
         <SectionHeader
           as="h1"
-          eyebrow="About ChillFix AC Service Chennai"
+          eyebrow="About ChillFix AC Service"
           title="Keeping Chennai Cool"
           titleHighlight="With Doorstep AC Care"
-          description="ChillFix AC Service Chennai provides professional residential and commercial air conditioning services with upfront pricing starting at ₹249."
+          description="ChillFix AC Service provides professional residential and commercial air conditioning services across Chennai with upfront pricing starting at ₹249."
         />
 
         {/* Story Grid */}
@@ -31,7 +31,7 @@ export default function AboutPage() {
               Our Mission: Reliable, Transparent &amp; Fast AC Care
             </h3>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              ChillFix AC Service Chennai was built to provide dependable, straightforward air conditioning care with upfront quotes and prompt doorstep response.
+              ChillFix AC Service was built to provide dependable, straightforward air conditioning care with upfront quotes and prompt doorstep response.
             </p>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
               Based in Perungalathur, our skilled technicians serve homes, apartments, villas, and commercial spaces across Chennai, with focused local coverage in New Perungalathur, Perungalathur, Vandalur, and Tambaram.

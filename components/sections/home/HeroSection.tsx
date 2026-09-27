@@ -138,7 +138,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mb-8 max-w-xl text-base sm:text-lg leading-relaxed text-slate-100 font-medium"
           >
-            ChillFix AC Service Chennai provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling, and installation across Chennai, with fast doorstep technician arrival in{' '}
+            ChillFix AC Service provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling, and installation across Chennai, with fast doorstep technician arrival in{' '}
             <Link href="/service-areas/new-perungalathur" className="underline font-bold text-white hover:text-accent-300 transition-colors">New Perungalathur</Link>,{' '}
             <Link href="/service-areas/perungalathur" className="underline font-bold text-white hover:text-accent-300 transition-colors">Perungalathur</Link>,{' '}
             <Link href="/service-areas/vandalur" className="underline font-bold text-white hover:text-accent-300 transition-colors">Vandalur</Link>,{' '}

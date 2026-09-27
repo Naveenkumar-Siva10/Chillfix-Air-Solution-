@@ -1,15 +1,13 @@
-/**
- * Site-wide configuration constants
- * Update these values for production deployment
- */
+import { BUSINESS_CONFIG } from './business';
+export { BUSINESS_CONFIG };
 
 export const SITE_CONFIG = {
-  name: 'ChillFix AC Service Chennai',
-  gbpName: 'ChillFix AC Service Chennai',
+  name: 'ChillFix AC Service',
+  gbpName: 'ChillFix AC Service',
   legalName: 'ChillFix Air Solution',
-  tagline: 'AC Service & Repair in Chennai — Based in Perungalathur & Serving Nearby Areas',
+  tagline: 'Doorstep AC Service & Repair in Chennai — Based in Perungalathur',
   description:
-    'ChillFix AC Service Chennai provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling and installation across Chennai, with focused service coverage around Perungalathur, New Perungalathur, Tambaram, and nearby areas.',
+    'ChillFix AC Service provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling, and installation across Chennai, with focused service coverage around New Perungalathur, Perungalathur, Tambaram, and nearby areas.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://chillfixairsolution.in',
   email: process.env.NEXT_PUBLIC_EMAIL ?? 'chennaichillfixacservice@gmail.com',
   phone: process.env.NEXT_PUBLIC_PHONE ?? '+919080495932',
@@ -63,6 +61,7 @@ export const CONTACT_DETAILS = {
 } as const;
 
 export const SERVICE_AREAS = [
+  'New Perungalathur',
   'Perungalathur',
   'Tambaram',
   'Vandalur',

@@ -73,7 +73,6 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
   const breadcrumbItems = [
     { label: 'Services', href: '/services' },
-    { label: 'Service Areas', href: '/services' },
     { label: area.name, href: `/service-areas/${area.id}` },
   ];
 

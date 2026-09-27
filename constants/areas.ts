@@ -39,10 +39,10 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     zone: 'South Chennai Base Zone',
     postalCode: '600063',
     responseTime: 'Prompt Doorstep Dispatch',
-    metaTitle: 'AC Service in New Perungalathur | Starting ₹249 | ChillFix AC Service Chennai',
+    metaTitle: 'AC Service in New Perungalathur | Starting ₹249 | ChillFix AC Service',
     metaDescription: 'Reliable doorstep AC service & repair in New Perungalathur. General service starts at ₹249, jet wash, gas filling, PCB & water leakage repair. Prompt local arrival.',
     heading: 'AC Service & Repair in New Perungalathur',
-    intro: 'ChillFix AC Service Chennai provides professional doorstep air conditioner servicing, diagnostic repair, foam jet-wash deep cleaning, and gas leak refilling across New Perungalathur. Operating directly from our local base in Perungalathur (600063), our skilled technicians reach residences and apartments along Srinivasa Nagar, RMK Nagar, Kalaignar Nedunsalai, and Old GST Road with prompt doorstep arrival.',
+    intro: 'ChillFix AC Service provides professional doorstep air conditioner servicing, diagnostic repair, foam jet-wash deep cleaning, and gas leak refilling across New Perungalathur. Operating directly from our local base in Perungalathur (600063), our skilled technicians reach residences and apartments along Srinivasa Nagar, RMK Nagar, Kalaignar Nedunsalai, and Old GST Road with prompt doorstep arrival.',
     nearbyHubs: [
       'Srinivasa Nagar',
       'Kalaignar Nedunsalai',
@@ -85,7 +85,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
       {
         issue: 'Outdoor Unit Not Starting or Tripping MCB',
         cause: 'Faulty start/run capacitor, compressor overload, or inverter PCB circuit fault.',
-        solution: 'On-site multimeter diagnostics, genuine OEM capacitor replacement, and on-site performance testing.',
+        solution: 'On-site multimeter diagnostics, genuine high-grade capacitor replacement, and on-site performance testing.',
       },
     ],
     pricingTable: [
@@ -119,7 +119,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
       {
         question: 'Do you provide AC service in New Perungalathur?',
         answer:
-          'Yes, ChillFix AC Service Chennai provides professional doorstep AC service, repair, jet wash cleaning, and gas refilling across New Perungalathur and surrounding localities.',
+          'Yes, ChillFix AC Service provides professional doorstep AC service, repair, jet wash cleaning, and gas refilling across New Perungalathur and surrounding localities.',
       },
       {
         question: 'How much does general AC service start from in New Perungalathur?',
@@ -154,10 +154,10 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     zone: 'South Chennai Operational Hub',
     postalCode: '600063',
     responseTime: 'Prompt Doorstep Dispatch',
-    metaTitle: 'AC Service in Perungalathur | Starting ₹249 | ChillFix AC Service Chennai',
-    metaDescription: 'ChillFix AC Service Chennai is based in Perungalathur (600063). Fast doorstep AC repair, jet wash cleaning, gas leak fixing, and installation starting at ₹249.',
+    metaTitle: 'AC Service in Perungalathur | Starting ₹249 | ChillFix AC Service',
+    metaDescription: 'ChillFix AC Service is based in Perungalathur (600063). Fast doorstep AC repair, jet wash cleaning, gas leak fixing, and installation starting at ₹249.',
     heading: 'AC Service & Repair in Perungalathur',
-    intro: 'ChillFix AC Service Chennai is headquartered directly in Perungalathur, serving as our central operational base for South Chennai cooling services. We provide comprehensive doorstep AC repair, high-pressure foam jet-wash servicing, gas leak diagnosis, and Split/Window AC installation across Old Perungalathur, New Perungalathur, Peerkankaranai, Kamaraj Nagar, RMK Nagar, and Srinivasa Nagar.',
+    intro: 'ChillFix AC Service is headquartered directly in Perungalathur, serving as our central operational base for South Chennai cooling services. We provide comprehensive doorstep AC repair, high-pressure foam jet-wash servicing, gas leak diagnosis, and Split/Window AC installation across Old Perungalathur, New Perungalathur, Peerkankaranai, Kamaraj Nagar, RMK Nagar, and Srinivasa Nagar.',
     nearbyHubs: [
       'New Perungalathur',
       'Old Perungalathur',
@@ -234,7 +234,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
       {
         question: 'Do you provide AC service in Perungalathur?',
         answer:
-          'Yes, ChillFix AC Service Chennai is headquartered locally in Perungalathur (PIN 600063) and provides prompt doorstep AC service across Old and New Perungalathur.',
+          'Yes, ChillFix AC Service is headquartered locally in Perungalathur (PIN 600063) and provides prompt doorstep AC service across Old and New Perungalathur.',
       },
       {
         question: 'How much does general AC service start from in Perungalathur?',
@@ -268,11 +268,11 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     name: 'Vandalur',
     zone: 'South Chennai',
     postalCode: '600048',
-    responseTime: '30–50 Mins Fast Arrival',
-    metaTitle: 'AC Service in Vandalur | Repair, Jet Wash & Gas Filling | ChillFix',
-    metaDescription: 'Doorstep AC service in Vandalur, Otteri, Urapakkam & Crescent College Road. Fast local repair for cooling loss, water leaks, gas refilling & installation by ChillFix.',
+    responseTime: 'Prompt Local Dispatch',
+    metaTitle: 'AC Service in Vandalur | Repair, Jet Wash & Gas Filling | ChillFix AC Service',
+    metaDescription: 'Doorstep AC service in Vandalur, Otteri, Urapakkam & Crescent College Road. Fast local repair for cooling loss, water leaks, gas refilling & installation by ChillFix AC Service.',
     heading: 'AC Service & Repair in Vandalur',
-    intro: 'ChillFix AC Service Chennai provides fast, reliable doorstep AC repair and maintenance throughout Vandalur, Otteri, Urapakkam, and Crescent College Road. Dispatched directly from our nearby Perungalathur headquarters, our skilled AC technicians reach your home, apartment, or hostel room with prompt local response.',
+    intro: 'ChillFix AC Service provides fast, reliable doorstep AC repair and maintenance throughout Vandalur, Otteri, Urapakkam, and Crescent College Road. Dispatched directly from our nearby Perungalathur headquarters, our skilled AC technicians reach your home, apartment, or hostel room with prompt local response.',
     nearbyHubs: [
       'Vandalur Junction',
       'Otteri',
@@ -336,10 +336,10 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     zone: 'South Chennai Hub',
     postalCode: '600045',
     responseTime: 'Prompt Doorstep Dispatch',
-    metaTitle: 'AC Service in Tambaram | Starting ₹249 | ChillFix AC Service Chennai',
+    metaTitle: 'AC Service in Tambaram | Starting ₹249 | ChillFix AC Service',
     metaDescription: 'Expert doorstep AC service & repair in Tambaram East, Tambaram West & Sanatorium. General service starts at ₹249, jet wash, gas refilling, and cooling repair.',
     heading: 'AC Service & Repair in Tambaram',
-    intro: 'ChillFix AC Service Chennai provides professional doorstep AC repair, maintenance, and installation across Tambaram East, Tambaram West, Tambaram Sanatorium, Selaiyur, and Camp Road. We resolve cooling failures, water leakage, strange noises, and gas leaks for all major AC brands with upfront quotes and on-site testing.',
+    intro: 'ChillFix AC Service provides professional doorstep AC repair, maintenance, and installation across Tambaram East, Tambaram West, Tambaram Sanatorium, Selaiyur, and Camp Road. We resolve cooling failures, water leakage, strange noises, and gas leaks for all major AC brands with upfront quotes and on-site testing.',
     nearbyHubs: [
       'Tambaram East',
       'Tambaram West',
@@ -379,7 +379,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
       {
         question: 'Do you provide AC service in Tambaram?',
         answer:
-          'Yes, ChillFix AC Service Chennai provides comprehensive doorstep AC service, repair, and cleaning across Tambaram East, Tambaram West, Sanatorium, and Selaiyur.',
+          'Yes, ChillFix AC Service provides comprehensive doorstep AC service, repair, and cleaning across Tambaram East, Tambaram West, Sanatorium, and Selaiyur.',
       },
       {
         question: 'How much does general AC service start from in Tambaram?',
@@ -517,7 +517,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     metaTitle: 'AC Service in Chitlapakkam | ChillFix AC Service',
     metaDescription: 'Expert AC service in Chitlapakkam, Chennai. Split & Window AC repair, foam jet cleaning, gas charging & installation near Lake & Sanatorium.',
     heading: 'AC Service & Repair in Chitlapakkam',
-    intro: 'ChillFix AC Service delivers prompt doorstep AC servicing in Chitlapakkam, Nehru Colony, and surrounding neighborhoods. Transparent pricing and guaranteed satisfaction.',
+    intro: 'ChillFix AC Service delivers prompt doorstep AC servicing in Chitlapakkam, Nehru Colony, and surrounding neighborhoods. Transparent pricing and reliable service assurance.',
     nearbyHubs: ['Chitlapakkam Lake Area', 'Nehru Colony', 'Sethunarayanan Street', 'Sanatorium Border'],
     localFaqs: [
       { question: 'What is the cost of foam jet wash in Chitlapakkam?', answer: 'Foam jet wash AC servicing starts at ₹449 in Chitlapakkam.' },

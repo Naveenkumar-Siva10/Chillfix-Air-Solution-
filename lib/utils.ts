@@ -85,6 +85,9 @@ export function calculateReadingTime(content: string): number {
  * Returns canonical route for a service slug.
  */
 export function getServiceUrl(slug: string): string {
+  if (slug === 'ac-service-price-chennai') {
+    return '/pricing';
+  }
   const topLevelRoutes = [
     'ac-service-chennai',
     'ac-repair-chennai',
@@ -93,7 +96,6 @@ export function getServiceUrl(slug: string): string {
     'ac-gas-filling-chennai',
     'ac-installation-chennai',
     'ac-maintenance-chennai',
-    'ac-service-price-chennai',
   ];
   if (topLevelRoutes.includes(slug)) {
     return `/${slug}`;

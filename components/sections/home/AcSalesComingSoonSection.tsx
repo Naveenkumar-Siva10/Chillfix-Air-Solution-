@@ -14,7 +14,7 @@ const LEADING_BRANDS = [
 const FUTURE_BENEFITS = [
   {
     icon: ShieldCheck,
-    title: '100% Brand Authorized Warranty',
+    title: 'Genuine Manufacturer Warranty',
     description: 'Direct manufacturer warranty with genuine parts guarantee on every new AC model.',
   },
   {

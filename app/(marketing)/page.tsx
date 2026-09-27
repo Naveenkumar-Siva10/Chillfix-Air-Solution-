@@ -13,9 +13,9 @@ import { AcSalesComingSoonSection } from '@/components/sections/home/AcSalesComi
 import { ContactSection } from '@/components/sections/home/ContactSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'AC Service & Repair in Chennai | Starting ₹249 | ChillFix AC Service Chennai',
+  title: 'AC Service & Repair in Chennai | Starting ₹249 | ChillFix AC Service',
   description:
-    'ChillFix AC Service Chennai provides doorstep AC service, repair, jet wash cleaning, and gas filling across Chennai starting at ₹249. Fast technician arrival in Perungalathur, Tambaram, and nearby areas.',
+    'ChillFix AC Service provides doorstep AC service, repair, jet wash cleaning, and gas filling across Chennai starting at ₹249. Fast technician arrival in Perungalathur, Tambaram, and nearby areas.',
   canonicalPath: '/',
   keywords: [
     'AC service Chennai',

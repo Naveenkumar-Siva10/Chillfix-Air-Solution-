@@ -1,167 +1,11 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star, Quote, BadgeCheck, ExternalLink } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { TESTIMONIALS } from '@/constants/testimonials';
-import { TestimonialCard } from '@/components/sections/shared/TestimonialCard';
+import { motion } from 'framer-motion';
+import { Star, MessageSquare, ExternalLink, ShieldCheck, CheckCircle2, MessageCircle, Phone, MapPin } from 'lucide-react';
 import { SectionHeader } from '@/components/sections/shared/SectionHeader';
 import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
-import { StarRating } from '@/components/common/StarRating';
-
-const CAROUSEL_INTERVAL = 5000;
-const FEATURED_IDX = 2;
-
-const FEATURED = TESTIMONIALS[FEATURED_IDX];
-const CAROUSEL_ITEMS = TESTIMONIALS.filter((_, i) => i !== FEATURED_IDX);
-
-const AVG_RATING = (
-  TESTIMONIALS.reduce((sum, t) => sum + t.rating, 0) / TESTIMONIALS.length
-).toFixed(1);
-
-function GoogleRatingBadge() {
-  return (
-    <motion.div
-      initial={{ opacity: 1, scale: 1 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-900"
-    >
-      <div className="flex items-center gap-3">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white shadow-md">
-          <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
-            <path
-              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-              fill="#4285F4"
-            />
-            <path
-              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-              fill="#34A853"
-            />
-            <path
-              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-              fill="#FBBC05"
-            />
-            <path
-              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-              fill="#EA4335"
-            />
-          </svg>
-        </div>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            Google Reviews
-          </p>
-          <div className="flex items-baseline gap-2">
-            <span className="font-display text-2xl font-bold text-slate-900 dark:text-white">
-              {AVG_RATING}
-            </span>
-            <StarRating rating={parseFloat(AVG_RATING)} size="sm" />
-          </div>
-        </div>
-      </div>
-
-      <a
-        href="https://maps.google.com/?q=ChillFix+AC+Service+Chennai"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-slate-800 dark:bg-primary-500 dark:hover:bg-primary-600 transition-colors shrink-0"
-      >
-        View Google Reviews
-        <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-      </a>
-    </motion.div>
-  );
-}
-
-function TestimonialsCarousel() {
-  const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const total = CAROUSEL_ITEMS.length;
-
-  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
-  const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
-
-  useEffect(() => {
-    if (isPaused) return;
-    intervalRef.current = setInterval(next, CAROUSEL_INTERVAL);
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [isPaused, next]);
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div className="overflow-hidden rounded-2xl">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number] }}
-          >
-            <TestimonialCard
-              testimonial={CAROUSEL_ITEMS[current]}
-              variant="default"
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      <div className="mt-5 flex items-center justify-between">
-        <div className="flex gap-1.5" role="tablist" aria-label="Review navigation">
-          {CAROUSEL_ITEMS.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              role="tab"
-              aria-selected={i === current}
-              aria-label={`Go to review ${i + 1}`}
-              onClick={() => setCurrent(i)}
-              className="flex h-7 w-7 items-center justify-center -mx-1 focus-visible:outline-2 focus-visible:outline-primary-500"
-            >
-              <span
-                className={cn(
-                  'h-2 rounded-full transition-all duration-300 pointer-events-none',
-                  i === current
-                    ? 'w-6 bg-primary-500'
-                    : 'w-2 bg-slate-300 hover:bg-slate-400 dark:bg-slate-700',
-                )}
-              />
-            </button>
-          ))}
-        </div>
-
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={prev}
-            aria-label="Previous review"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:border-primary-300 hover:text-primary-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
-          >
-            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            aria-label="Next review"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:border-primary-300 hover:text-primary-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
-          >
-            <ChevronRight className="h-4 w-4" aria-hidden="true" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { CONTACT_DETAILS } from '@/constants/site';
+import { BUSINESS_CONFIG } from '@/constants/business';
 
 export function TestimonialsSection() {
   return (
@@ -171,90 +15,138 @@ export function TestimonialsSection() {
       aria-labelledby="testimonials-heading"
     >
       <div className="container-base">
-
-        <div className="mb-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeader
-            eyebrow="Google Reviews"
-            title="What Customers Say"
-            titleHighlight="About ChillFix"
-            description="Reviews from homeowners and businesses across Perungalathur, Tambaram, and Chennai."
+            eyebrow="Customer Feedback & Reviews"
+            title="Authentic Service Feedback"
+            titleHighlight="Direct from Homeowners"
+            description="We believe in 100% transparent, genuine customer feedback. Read our verified Google Business Profile reviews or share your own experience."
             align="left"
             className="max-w-xl"
           />
-          <div className="shrink-0">
-            <GoogleRatingBadge />
-          </div>
+
+          <a
+            href="https://maps.google.com/?q=ChillFix+AC+Service"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 py-3.5 text-sm font-bold text-white shadow-soft transition-all hover:bg-primary-600 hover:shadow-md shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+          >
+            <span>Review Us on Google Maps</span>
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+          </a>
         </div>
 
-        <div className="hidden lg:grid lg:grid-cols-3 lg:gap-6">
-          <ScrollReveal className="lg:col-span-1" direction="left" delay={0.1}>
-            <TestimonialCard
-              testimonial={FEATURED}
-              variant="featured"
-              className="h-full"
-            />
-          </ScrollReveal>
-
-          <div className="lg:col-span-2">
-            <div className="grid grid-cols-2 gap-6">
-              {CAROUSEL_ITEMS.map((t, i) => (
-                <ScrollReveal key={t.id} delay={0.1 + i * 0.07} direction="up">
-                  <TestimonialCard
-                    testimonial={t}
-                    variant="default"
-                    index={i}
-                    className="h-full"
-                  />
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:hidden space-y-6">
-          <ScrollReveal direction="up">
-            <TestimonialCard testimonial={FEATURED} variant="featured" />
-          </ScrollReveal>
-          <TestimonialsCarousel />
-        </div>
-
-        <ScrollReveal direction="up" delay={0.2} className="mt-14">
-          <div className="flex flex-wrap items-center justify-center gap-6 rounded-2xl border border-slate-100 bg-white px-8 py-6 dark:border-slate-800 dark:bg-slate-900">
-            <div className="flex items-center gap-3">
-              <div className="flex">
-                {[1,2,3,4,5].map((s) => (
-                  <Star key={s} className="h-5 w-5 fill-amber-400 text-amber-400" aria-hidden="true" />
-                ))}
+        {/* 3 Value & Transparency Cards */}
+        <div className="grid gap-6 md:grid-cols-3">
+          <ScrollReveal direction="up" delay={0.1}>
+            <div className="flex h-full flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-7 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 text-primary-500 dark:bg-primary-950/60 dark:text-primary-400 mb-5">
+                  <Star className="h-6 w-6 fill-current" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                  Verified Google Reviews
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  Every review for {BUSINESS_CONFIG.identity.primaryName} is published on our public Google Business Profile by actual homeowners and business owners across Chennai.
+                </p>
               </div>
-              <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-                {AVG_RATING} / 5.0 Google Rating
-              </span>
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+                <a
+                  href="https://maps.google.com/?q=ChillFix+AC+Service"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-primary-500 hover:underline"
+                >
+                  Visit Google Maps listing <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
             </div>
+          </ScrollReveal>
 
-            <div className="hidden h-6 w-px bg-slate-200 dark:bg-slate-700 sm:block" aria-hidden="true" />
-
-            <div className="flex items-center gap-2">
-              <BadgeCheck className="h-5 w-5 text-secondary-500" aria-hidden="true" />
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                Verified Service Reviews
-              </span>
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="flex h-full flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-7 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-50 text-accent-500 dark:bg-accent-950/60 dark:text-accent-400 mb-5">
+                  <ShieldCheck className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                  Transparent On-Site Diagnostics
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  Our technicians explain the exact problem, check refrigerant pressures in front of you, and quote transparent rates before initiating any repair.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-accent-500" />
+                  Diagnostic visit adjusted into repair
+                </span>
+              </div>
             </div>
+          </ScrollReveal>
 
-            <div className="hidden h-6 w-px bg-slate-200 dark:bg-slate-700 sm:block" aria-hidden="true" />
+          <ScrollReveal direction="up" delay={0.3}>
+            <div className="flex h-full flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-7 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary-50 text-secondary-500 dark:bg-secondary-950/60 dark:text-secondary-400 mb-5">
+                  <MessageSquare className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                  Direct Post-Service Support
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  Have feedback or questions after your AC service? Contact our service desk directly via WhatsApp or phone for prompt resolution.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-4">
+                <a
+                  href={CONTACT_DETAILS.phone.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-primary-500"
+                >
+                  <Phone className="h-3.5 w-3.5" /> Call Service Desk
+                </a>
+                <a
+                  href={CONTACT_DETAILS.whatsapp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline"
+                >
+                  <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Bottom Trust & Review CTA Banner */}
+        <ScrollReveal direction="up" delay={0.2} className="mt-10">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+            <div className="flex items-center gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-50 dark:bg-primary-950/60 text-primary-500">
+                <MapPin className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-slate-900 dark:text-white">
+                  Had service recently in Perungalathur, Tambaram, or Chennai?
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                  Help fellow homeowners find reliable local AC technicians by sharing your honest experience.
+                </p>
+              </div>
+            </div>
 
             <a
-              href="https://maps.google.com/?q=ChillFix+AC+Service+Chennai"
+              href="https://maps.google.com/?q=ChillFix+AC+Service"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm font-bold text-primary-500 underline-offset-2 hover:underline"
-              aria-label="View Google Reviews for ChillFix AC Service"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-xs font-bold text-white hover:bg-slate-800 dark:bg-primary-500 dark:hover:bg-primary-600 transition-colors shrink-0"
             >
-              View Google Reviews
+              <span>Write a Google Review</span>
               <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           </div>
         </ScrollReveal>
-
       </div>
     </section>
   );

@@ -66,7 +66,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="max-w-sm text-sm text-slate-300 leading-relaxed font-normal">
-              ChillFix AC Service Chennai provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling, and installation across Chennai &amp; Perungalathur.
+              ChillFix AC Service provides professional AC servicing, repair, cleaning, deep cleaning, gas leak diagnosis, gas filling, and installation across Chennai &amp; Perungalathur.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <div className="flex items-center gap-1 rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-1.5 text-xs text-slate-300 font-medium">
