@@ -57,7 +57,7 @@ export function AcSalesComingSoonSection() {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-            While ChillFix Air Solution currently provides top-rated <strong className="text-white">AC repair, jet-wash servicing, gas filling, and AMC contracts</strong> across 25+ Chennai areas, we are preparing to launch multi-brand AC sales with doorstep delivery and expert installation.
+            While ChillFix Air Solution currently provides professional <strong className="text-white">AC repair, jet-wash servicing, gas filling, and AMC contracts</strong> across Chennai localities, we are preparing to launch multi-brand AC sales with doorstep delivery and expert installation.
           </p>
         </div>
 

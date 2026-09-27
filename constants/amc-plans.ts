@@ -41,7 +41,7 @@ export const AMC_PLANS: AMCPlan[] = [
       { label: 'Performance Report', value: 'Digital', included: true },
       { label: 'Labour Charges', value: 'Free on covered repairs', included: true },
       { label: 'Spare Parts Discount', value: '20%', included: true },
-      { label: 'Emergency Service', value: '< 4 Hours', included: true },
+      { label: 'Emergency Service', value: 'Priority', included: true },
       { label: 'Priority Response', value: '24/7', included: true },
       { label: 'Gas Refilling', value: '1 per year', included: true },
       { label: 'PCB Coverage', value: false, included: false },

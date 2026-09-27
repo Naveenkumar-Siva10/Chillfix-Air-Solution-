@@ -72,8 +72,8 @@ function scanFile(filePath) {
       });
     }
 
-    // Check 4: Rigid response/arrival claims (30 minutes, 5 minutes, 45 minutes)
-    if (/(?:30\s*minutes?|30-min|5\s*minutes?|under\s+45\s*minutes?)/i.test(trimmed)) {
+    // Check 4: Rigid response/arrival claims (30 minutes, 5 minutes, 45 minutes, 2-hour, < 4 hours)
+    if (/(?:30\s*minutes?|30-min|5\s*minutes?|under\s+45\s*minutes?|45\s*to\s*60\s*minutes?|2-hour\s+response|2-hour\s+doorstep|<\s*4\s*hours?)/i.test(trimmed)) {
       VIOLATIONS.push({
         file: relPath,
         line: lineNum,
@@ -93,7 +93,7 @@ function scanFile(filePath) {
     }
 
     // Check 6: Unverified experience/customer metrics
-    if (/(?:10[,.]?000\s*\+|10[,.]?000\s*(?:customers|clients|happy|jobs)|since\s+(?:2013|2015))/i.test(trimmed)) {
+    if (/(?:10[,.]?000\s*\+|10[,.]?000\s*(?:customers|clients|happy|jobs)|since\s+(?:2013|2015)|25\+\s*Chennai)/i.test(trimmed)) {
       VIOLATIONS.push({
         file: relPath,
         line: lineNum,
@@ -119,6 +119,36 @@ function scanFile(filePath) {
         line: lineNum,
         rule: 'Outdated Postal Code',
         detail: `Found old postal code 600001: "${trimmed}". Authorized base postal code is 600063.`,
+      });
+    }
+
+    // Check 9: Unverified subjective superlatives
+    if (/(?:top-rated\s+ac|best\s+ac\s+service\s+in)/i.test(trimmed)) {
+      VIOLATIONS.push({
+        file: relPath,
+        line: lineNum,
+        rule: 'Unverified Superlative Claim',
+        detail: `Found unverified superlative: "${trimmed}".`,
+      });
+    }
+
+    // Check 10: Unverified partner or certification claims
+    if (/(?:certified\s+technicians|genuine\s+oem\s+parts|100%\s+genuine\s+parts|authori[sz]ed\s+brand\s+partner)/i.test(trimmed)) {
+      VIOLATIONS.push({
+        file: relPath,
+        line: lineNum,
+        rule: 'Unverified Partner / Certification Claim',
+        detail: `Found unverified partner claim: "${trimmed}".`,
+      });
+    }
+
+    // Check 11: Unverified warranty durations
+    if (/\b(?:30|60|90|180)[- ]day\s+warranty\b/i.test(trimmed)) {
+      VIOLATIONS.push({
+        file: relPath,
+        line: lineNum,
+        rule: 'Unverified Warranty Duration Claim',
+        detail: `Found unverified warranty duration: "${trimmed}".`,
       });
     }
   });

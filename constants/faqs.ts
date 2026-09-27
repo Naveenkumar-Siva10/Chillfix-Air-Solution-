@@ -61,7 +61,7 @@ export const FAQS: FAQ[] = [
     id: 'faq-9',
     question: 'What areas in Chennai do you cover?',
     answer:
-      'We cover all major areas in Chennai including Anna Nagar, Adyar, Velachery, T. Nagar, Nungambakkam, Tambaram, Porur, Mylapore, Sholinganallur, OMR, ECR, and 25+ more locations. If you\'re unsure, just call or WhatsApp us with your pin code.',
+      'We cover all major areas in Chennai including Anna Nagar, Adyar, Velachery, T. Nagar, Nungambakkam, Tambaram, Porur, Mylapore, Sholinganallur, OMR, ECR, and surrounding localities. If you\'re unsure, just call or WhatsApp us with your pin code.',
     category: 'coverage',
   },
   {

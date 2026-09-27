@@ -316,7 +316,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
       {
         question: 'Can I get emergency AC repair in Vandalur?',
         answer:
-          'Yes, we offer emergency breakdown assistance across Vandalur, dispatching a technician within 45 to 60 minutes.',
+          'Yes, we offer 24/7 emergency breakdown assistance across Vandalur with prompt doorstep dispatch from our nearby Perungalathur base.',
       },
       {
         question: 'What is the price of AC servicing in Vandalur?',
@@ -535,7 +535,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     postalCode: '600075',
     responseTime: 'Fast Local Response',
     metaTitle: 'AC Service in Pammal | ChillFix AC Service',
-    metaDescription: 'Best AC service in Pammal, Chennai. Doorstep AC repair, jet wash cleaning, gas filling & installation near Pozhichalur & Pallavaram.',
+    metaDescription: 'Trusted AC service in Pammal, Chennai. Doorstep AC repair, jet wash cleaning, gas filling & installation near Pozhichalur & Pallavaram.',
     heading: 'AC Service & Repair in Pammal',
     intro: 'ChillFix AC Service provides reliable AC repair and maintenance services in Pammal, Pozhichalur, and Anakaputhur with quick technician dispatch and upfront pricing.',
     nearbyHubs: ['Pozhichalur', 'Anakaputhur', 'Krishna Nagar Pammal', 'Pammal Main Road'],
@@ -597,7 +597,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     metaTitle: 'AC Service in OMR Chennai | ChillFix AC Service',
     metaDescription: 'Trusted AC service along OMR, Chennai. Rapid AC repair, jet wash cleaning, gas filling & commercial AMC from Perungudi to Navalur.',
     heading: 'AC Service & Repair in OMR (IT Corridor)',
-    intro: 'ChillFix AC Service covers the entire OMR IT corridor from Thoraipakkam and Karapakkam to Navalur and Siruseri. We provide rapid 2-hour doorstep AC repair for apartments and tech offices.',
+    intro: 'ChillFix AC Service covers the entire OMR IT corridor from Thoraipakkam and Karapakkam to Navalur and Siruseri. We provide prompt doorstep AC repair for apartments and tech offices.',
     nearbyHubs: ['Thoraipakkam', 'Karapakkam', 'Navalur', 'Siruseri IT Park', 'Perungudi'],
     localFaqs: [
       { question: 'Do you provide AMC contracts for offices on OMR?', answer: 'Yes! We offer corporate and commercial AC AMC contracts across OMR tech parks.' },
@@ -615,7 +615,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     postalCode: '600042',
     responseTime: 'Fast Local Response',
     metaTitle: 'AC Service in Velachery | ChillFix AC Service',
-    metaDescription: 'Best AC service in Velachery, Chennai. Split & Window AC repair, foam jet wash, gas refilling & installation near Phoenix Mall & Vijaya Nagar.',
+    metaDescription: 'Trusted AC service in Velachery, Chennai. Split & Window AC repair, foam jet wash, gas refilling & installation near Phoenix Mall & Vijaya Nagar.',
     heading: 'AC Service & Repair in Velachery',
     intro: 'ChillFix AC Service delivers expert AC servicing, breakdown diagnostics, and installation in Velachery, Vijaya Nagar, Tansi Nagar, and Baby Nagar.',
     nearbyHubs: ['Vijaya Nagar', 'Phoenix Marketcity Zone', 'Tansi Nagar', 'Baby Nagar', 'Dhandeeswaram'],

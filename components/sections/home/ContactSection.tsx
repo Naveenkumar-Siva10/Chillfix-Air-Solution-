@@ -146,7 +146,7 @@ export function ContactSection({ as = 'h2' }: { as?: 'h1' | 'h2' } = {}) {
                 <span>Our Location & Coverage</span>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Serving All 25+ Chennai Hubs
+                Serving Chennai Service Hubs & Localities
               </h3>
 
               {/* Map Component */}
