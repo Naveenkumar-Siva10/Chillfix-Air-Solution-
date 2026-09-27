@@ -5,11 +5,14 @@
  * 
  * Verifies that the codebase adheres strictly to the single source of truth (constants/business.ts):
  * 1. Zero conflicting installation pricing (e.g. ₹599) - Split AC installation must start at ₹1,199
- * 2. Zero conflicting business hours (e.g. 8:00 AM, 8:00 PM, 9:00 PM closing) - Normal hours are 9:00 AM - 11:00 PM
- * 3. Zero rigid unverified claims (e.g. "within 30 minutes", "guaranteed arrival/satisfaction")
- * 4. Zero unverified metrics (e.g. "10,000+", "since 2013", "since 2015")
- * 5. Zero unverified review ratings or mock customer testimonials
- * 6. Zero Vercel fallback domains in production SEO metadata/canonical/schema
+ * 2. Zero conflicting diagnostic fees (e.g. ₹349) - Diagnostic visit starts at ₹299 (adjusted into repair)
+ * 3. Zero conflicting business hours (e.g. 8:00 AM, 8:00 PM, 9:00 PM closing) - Normal hours are 9:00 AM - 11:00 PM
+ * 4. Zero rigid unverified claims (e.g. "within 30 minutes", "in 5 minutes", "in under 45 minutes")
+ * 5. Zero unverified arrival/satisfaction guarantees (e.g. "SLA guarantees", "same-day guarantee")
+ * 6. Zero unverified metrics (e.g. "10,000+", "since 2013", "since 2015")
+ * 7. Zero unverified review ratings or mock customer testimonials
+ * 8. Zero Vercel fallback domains in production SEO metadata/canonical/schema
+ * 9. Zero outdated postal codes (e.g. 600001) where 600063 is required
  */
 
 const fs = require('fs');
@@ -32,6 +35,7 @@ function scanFile(filePath) {
 
     // Ignore comments or test script itself
     if (relPath.startsWith('scripts/')) return;
+    if (trimmed.startsWith('//') || trimmed.startsWith('/*') || trimmed.startsWith('*')) return;
 
     // Check 1: Old ₹599 installation price
     if (/599.*install|install.*599/i.test(trimmed)) {
@@ -43,7 +47,17 @@ function scanFile(filePath) {
       });
     }
 
-    // Check 2: Conflicting business hours (e.g. 8:00 AM, 8:00 PM, 9:00 PM closing)
+    // Check 2: Diagnostic fee contradiction (₹349 vs ₹299)
+    if (/(?:349|₹\s*349)/i.test(trimmed)) {
+      VIOLATIONS.push({
+        file: relPath,
+        line: lineNum,
+        rule: 'Diagnostic Fee Contradiction',
+        detail: `Found ₹349 diagnostic fee: "${trimmed}". Diagnostic breakdown visit is ₹299.`,
+      });
+    }
+
+    // Check 3: Conflicting business hours
     if (
       !relPath.includes('validations.ts') &&
       /(?:(?:open|close|operating|business|working|hours|timing).*?(?:8:00\s*AM|8\s*AM|8:00\s*PM|8\s*PM|9:00\s*PM|9\s*PM)|(?:9:00\s*AM\s*[-–]\s*9:00\s*PM)|(?:9:00\s*AM\s*[-–]\s*8:00\s*PM)|(?:8:00\s*AM\s*[-–]\s*11:00\s*PM))/i.test(trimmed) &&
@@ -58,18 +72,18 @@ function scanFile(filePath) {
       });
     }
 
-    // Check 3: Rigid 30 minutes claims
-    if (/30\s*minutes?|30-min/i.test(trimmed)) {
+    // Check 4: Rigid response/arrival claims (30 minutes, 5 minutes, 45 minutes)
+    if (/(?:30\s*minutes?|30-min|5\s*minutes?|under\s+45\s*minutes?)/i.test(trimmed)) {
       VIOLATIONS.push({
         file: relPath,
         line: lineNum,
         rule: 'Unverified SLA / Response Claim',
-        detail: `Found rigid "30 minutes" claim: "${trimmed}". Use prompt response copy.`,
+        detail: `Found rigid response claim: "${trimmed}". Use prompt response copy.`,
       });
     }
 
-    // Check 4: Unverified arrival or satisfaction guarantees
-    if (/(?:guaranteed\s+(?:arrival|satisfaction|same-day)|same-day\s+service\s+guaranteed|sla\s+guaranteed)/i.test(trimmed)) {
+    // Check 5: Unverified arrival or satisfaction guarantees
+    if (/(?:guaranteed\s+(?:arrival|satisfaction|same-day)|same-day\s+service\s+guaranteed|sla\s+guarantee)/i.test(trimmed)) {
       VIOLATIONS.push({
         file: relPath,
         line: lineNum,
@@ -78,7 +92,7 @@ function scanFile(filePath) {
       });
     }
 
-    // Check 5: Unverified experience/customer metrics
+    // Check 6: Unverified experience/customer metrics
     if (/(?:10[,.]?000\s*\+|10[,.]?000\s*(?:customers|clients|happy|jobs)|since\s+(?:2013|2015))/i.test(trimmed)) {
       VIOLATIONS.push({
         file: relPath,
@@ -88,13 +102,23 @@ function scanFile(filePath) {
       });
     }
 
-    // Check 6: Vercel domain in SEO/canonical/schema
+    // Check 7: Vercel domain in SEO/canonical/schema
     if (/chillfix-air-solution\.vercel\.app/i.test(trimmed)) {
       VIOLATIONS.push({
         file: relPath,
         line: lineNum,
         rule: 'Vercel Staging Domain in Source Code',
         detail: `Found staging domain reference: "${trimmed}". Production domain is https://chillfixairsolution.in.`,
+      });
+    }
+
+    // Check 8: Old central Chennai postal code (600001) where 600063 is required
+    if (/600001/.test(trimmed)) {
+      VIOLATIONS.push({
+        file: relPath,
+        line: lineNum,
+        rule: 'Outdated Postal Code',
+        detail: `Found old postal code 600001: "${trimmed}". Authorized base postal code is 600063.`,
       });
     }
   });

@@ -77,7 +77,7 @@ export const SERVICES: Service[] = [
     icon: 'Wrench',
     image: '/images/services/cooling-repair.jpg',
     category: 'repair',
-    startingPrice: 349,
+    startingPrice: 299,
     duration: '1–3 Hours',
     warranty: 'Tested On-Site',
     popular: true,
@@ -86,7 +86,7 @@ export const SERVICES: Service[] = [
       'PCB circuit board, relay & capacitor repair',
       'Fan motor, blower & sensor replacement',
       'Water leakage tray & pipe repair',
-      'Genuine replacement spare parts and on-site testing',
+      'Quality replacement spare parts and on-site testing',
     ],
     symptoms: [
       'AC compressor running but air is not cold',
@@ -97,7 +97,7 @@ export const SERVICES: Service[] = [
     process: [
       { step: 1, title: 'System Diagnostics', description: 'Technician tests circuit voltage, capacitor ratings, and compressor load.' },
       { step: 2, title: 'Upfront Quote', description: 'Provides a clear breakdown of required repairs and parts cost before starting work.' },
-      { step: 3, title: 'Component Repair / Replacement', description: 'Replaces faulty parts using genuine factory components.' },
+      { step: 3, title: 'Component Repair / Replacement', description: 'Replaces faulty parts using quality tested components.' },
       { step: 4, title: 'Cooling Test & Sign-Off', description: 'Conducts full operational load test to verify stable cooling before completing the service.' },
     ],
     brandsSupported: ['Daikin', 'LG', 'Voltas', 'Blue Star', 'Samsung', 'Godrej', 'Whirlpool', 'Lloyd', 'O General'],

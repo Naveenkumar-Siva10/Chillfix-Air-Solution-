@@ -328,7 +328,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 AC Brands Serviced in {area.name}
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-                Our technicians are equipped with genuine spare parts, capacitor testers, and refrigerant manifolds for all major split, inverter, and window air conditioner brands:
+                Our technicians are equipped with quality replacement components, capacitor testers, and refrigerant manifolds for all major split, inverter, and window air conditioner brands:
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
                 {[

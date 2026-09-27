@@ -85,7 +85,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
       {
         issue: 'Outdoor Unit Not Starting or Tripping MCB',
         cause: 'Faulty start/run capacitor, compressor overload, or inverter PCB circuit fault.',
-        solution: 'On-site multimeter diagnostics, genuine high-grade capacitor replacement, and on-site performance testing.',
+        solution: 'On-site multimeter diagnostics, high-grade capacitor replacement, and on-site performance testing.',
       },
     ],
     pricingTable: [
@@ -417,10 +417,10 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     metaTitle: 'AC Service in Chromepet | ChillFix AC Service',
     metaDescription: 'Professional AC service in Chromepet, Chennai. AC repair, jet wash cleaning, gas refilling & installation near Radha Nagar & MIT Campus.',
     heading: 'AC Service & Repair in Chromepet',
-    intro: 'ChillFix AC Service provides professional AC repair and maintenance in Chromepet, Radha Nagar, Hasthinapuram, and MIT Campus zone. We diagnose cooling problems on-site with genuine spare parts.',
+    intro: 'ChillFix AC Service provides professional AC repair and maintenance in Chromepet, Radha Nagar, Hasthinapuram, and MIT Campus zone. We diagnose cooling problems on-site with quality replacement components.',
     nearbyHubs: ['Radha Nagar', 'Hasthinapuram', 'MIT Campus Road', 'Nemilichery', 'CLRI Nagar'],
     localFaqs: [
-      { question: 'What is the diagnostic fee for AC repair in Chromepet?', answer: 'Diagnostic fee is ₹349, which is 100% adjusted into your final bill when proceeding with repair.' },
+      { question: 'What is the diagnostic fee for AC repair in Chromepet?', answer: 'Diagnostic fee is ₹299, which is 100% adjusted into your final bill when proceeding with repair.' },
     ],
   },
 
@@ -457,7 +457,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     metaTitle: 'AC Service in Manivakkam | ChillFix AC Service',
     metaDescription: 'Doorstep AC service in Manivakkam, Chennai. Split AC repair, jet wash cleaning, gas refilling & installation by ChillFix AC Service.',
     heading: 'AC Service & Repair in Manivakkam',
-    intro: 'ChillFix AC Service delivers complete AC repair, servicing, and installation across Manivakkam, Karasangal, and Mudichur Road. Upfront pricing and written service warranty.',
+    intro: 'ChillFix AC Service delivers complete AC repair, servicing, and installation across Manivakkam, Karasangal, and Mudichur Road. Upfront pricing and on-site service assurance.',
     nearbyHubs: ['Manivakkam Junction', 'Karasangal', 'Mudichur Road', 'Krishna Nagar', 'Natesan Nagar'],
     localFaqs: [
       { question: 'Do you provide same-day AC service in Manivakkam?', answer: 'Yes! We provide same-day technician visits across Manivakkam and surrounding colonies.' },
@@ -480,7 +480,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     intro: 'ChillFix AC Service offers comprehensive AC repair and preventive maintenance in Mudichur, Varadharajapuram, and Old Mudichur. Skilled technicians at your doorstep.',
     nearbyHubs: ['Varadharajapuram', 'Old Mudichur', 'Attai Company Stop', 'Rayappa Nagar'],
     localFaqs: [
-      { question: 'How quickly can I book an AC technician in Mudichur?', answer: 'We dispatch technicians from our Perungalathur center to Mudichur in under 45 minutes.' },
+      { question: 'How quickly can I book an AC technician in Mudichur?', answer: 'We dispatch technicians from our nearby Perungalathur center for prompt same-day service in Mudichur.' },
     ],
   },
 
@@ -557,7 +557,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     metaTitle: 'AC Service in Medavakkam | ChillFix AC Service',
     metaDescription: 'Top AC service in Medavakkam, Chennai. Split AC repair, jet wash, gas refilling & AMC near Medavakkam Junction & Velachery Main Road.',
     heading: 'AC Service & Repair in Medavakkam',
-    intro: 'ChillFix AC Service offers comprehensive AC repair and servicing in Medavakkam, Vadakkupattu, and Perumbakkam. Skilled technicians with genuine spare parts.',
+    intro: 'ChillFix AC Service offers comprehensive AC repair and servicing in Medavakkam, Vadakkupattu, and Perumbakkam. Skilled technicians with quality replacement components.',
     nearbyHubs: ['Medavakkam Junction', 'Perumbakkam', 'Sowmya Nagar', 'Velachery Main Road'],
     localFaqs: [
       { question: 'How much is AC gas filling in Medavakkam?', answer: 'AC gas top-up starts at ₹799, while complete refilling with leak repair starts at ₹1,499.' },
@@ -637,7 +637,7 @@ export const AREA_LOCATIONS: AreaLocation[] = [
     metaTitle: 'AC Service in Porur | ChillFix AC Service',
     metaDescription: 'Expert AC service in Porur, Chennai. Split AC repair, jet wash cleaning, gas leak detection & installation near Ramachandra Hospital & Mount-Poonamallee Rd.',
     heading: 'AC Service & Repair in Porur',
-    intro: 'ChillFix AC Service offers comprehensive AC repair and maintenance in Porur, Ramapuram, Mugalivakkam, and Iyyappanthangal. Genuine parts with written warranty.',
+    intro: 'ChillFix AC Service offers comprehensive AC repair and maintenance in Porur, Ramapuram, Mugalivakkam, and Iyyappanthangal. Quality replacement parts with on-site testing assurance.',
     nearbyHubs: ['Ramachandra Hospital Area', 'Mugalivakkam', 'Iyyappanthangal', 'Mount-Poonamallee Road'],
     localFaqs: [
       { question: 'Do you service commercial ACs in Porur?', answer: 'Yes, we service residential Split ACs and commercial Cassette / Ductable ACs in Porur.' },

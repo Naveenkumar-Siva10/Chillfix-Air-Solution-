@@ -266,7 +266,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <div className="pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 space-y-2">
                   <p className="flex items-center gap-1.5">
                     <ShieldCheck className="h-4 w-4 text-accent-500 shrink-0" />
-                    <span>{service.warranty} warranty on work &amp; spare parts</span>
+                    <span>{service.warranty} assurance on work &amp; replacement parts</span>
                   </p>
                   <p className="flex items-center gap-1.5">
                     <Clock className="h-4 w-4 text-secondary-500 shrink-0" />

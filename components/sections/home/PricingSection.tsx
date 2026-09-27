@@ -190,7 +190,7 @@ export function PricingSection() {
                 Managing a building, hospital, school, or restaurant?
               </p>
               <p className="mt-0.5 text-sm font-medium text-slate-700 dark:text-slate-300">
-                We design custom AMC contracts for 5+ units with a dedicated technician, SLA guarantees, and monthly performance reports.
+                We design custom AMC contracts for 5+ units with a dedicated technician, priority SLA support, and monthly performance reports.
               </p>
             </div>
             <a

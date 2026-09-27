@@ -28,7 +28,7 @@ const CONTACT_CARDS = [
   {
     icon: MessageCircle,
     title: 'WhatsApp Chat',
-    subtitle: 'Instant response in 5 minutes',
+    subtitle: 'Quick response on WhatsApp',
     value: 'Chat on WhatsApp',
     href: CONTACT_DETAILS.whatsapp.withMessage('Hi! I need AC service in Chennai. Please assist me.'),
     action: 'Open WhatsApp',

@@ -14,8 +14,8 @@ const LEADING_BRANDS = [
 const FUTURE_BENEFITS = [
   {
     icon: ShieldCheck,
-    title: 'Genuine Manufacturer Warranty',
-    description: 'Direct manufacturer warranty with genuine parts guarantee on every new AC model.',
+    title: 'Official Manufacturer Warranty',
+    description: 'Official manufacturer warranty support and brand components on every new AC model.',
   },
   {
     icon: Wrench,
@@ -84,10 +84,10 @@ export function AcSalesComingSoonSection() {
         <div className="mt-10 p-8 rounded-3xl bg-gradient-to-br from-slate-800/80 via-slate-900/90 to-slate-950 border border-slate-700/80 shadow-2xl">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
-              <span className="text-xs uppercase tracking-widest text-cyan-400 font-semibold">Authorised Brand Partners</span>
+              <span className="text-xs uppercase tracking-widest text-cyan-400 font-semibold">Multi-Brand AC Portfolio</span>
               <h4 className="text-2xl font-bold text-white mt-1">Leading AC Brands Launching Soon</h4>
               <p className="text-sm text-slate-300 mt-1 max-w-xl">
-                Get ready for Split, Window, Inverter, and 5-Star Energy Efficient ACs with exclusive launch offers and 100% genuine manufacturer warranties.
+                Get ready for Split, Window, Inverter, and 5-Star Energy Efficient ACs with direct launch offers and official manufacturer warranties.
               </p>
             </div>
 
